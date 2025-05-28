@@ -1,0 +1,661 @@
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="CrudOps Portfolio - Detailed Case Study: Omni-Channel E-commerce Suite for Aharya, showcasing integrated web, mobile, and in-store fashion retail solutions.">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="CrudOps Team">
+  <meta name="HandheldFriendly" content="true">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>CrudOps Portfolio - Aharya E-commerce Suite</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <style>
+    /* ============================================== */
+    /* ======== Common and Global Styles (Copied from Portfolio Page) ======== */
+    /* ============================================== */
+    :root {
+      --co-yellow: #FFC107;
+      --co-dark-text: #212529;
+      --co-matte-black: #1a1a1a;
+      --co-border-gray: #DEE2E6;
+      --co-off-white: #fdfdfd;
+      --co-medium-gray-text: #555;
+      --co-light-gray-bg: #f8f9fa;
+      --co-dark-ash: #AAAAAA;
+      --co-blue-link: #0062ff;
+
+      --font-primary: 'Anonymous Pro', monospace;
+      --font-secondary: 'Inter', sans-serif;
+
+      --navbar-top-gap: 20px;
+      --navbar-element-initial-height: 70px;
+      --navbar-total-initial-offset: calc(var(--navbar-top-gap) + var(--navbar-element-initial-height));
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-secondary); background-color: #FFFFFF; color: var(--co-dark-text); line-height: 1.7; overflow-x: hidden; padding-top: var(--navbar-total-initial-offset); }
+    h1,h2,h3,h4,h5,h6 { font-family: var(--font-primary); font-weight: 700; color: var(--co-dark-text); margin-bottom: 1.5rem; }
+    p { margin-bottom: 1.5rem; font-weight: 400; font-family: var(--font-secondary); }
+    .force-font-primary { font-family: var(--font-primary) !important; }
+
+    #mainNav { position: fixed; top: var(--navbar-top-gap); left: 50%; transform: translateX(-50%); width: 95%; max-width: 1300px; padding: 1rem; background-color: #FFFFFF; border-radius: 0; box-shadow: 0 5px 20px rgba(0,0,0,0.08); z-index: 1050; transition: all 0.3s ease-in-out; }
+    #mainNav .container { width: 100%; padding: 0; } #mainNav .navbar-brand .logo-img { height: 38px; width:auto; transition: height 0.3s ease-in-out; } #mainNav.scrolled .navbar-brand .logo-img { height: 32px; }
+    #mainNav .navbar-nav .nav-link { font-family: var(--font-primary); color: var(--co-dark-text); font-weight: 400; padding: 0.5rem 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.3s ease; }
+    #mainNav .navbar-nav .nav-link:hover, #mainNav .navbar-nav .nav-link:focus { color: var(--co-yellow); } #mainNav .navbar-nav .nav-item .nav-link.active { color: var(--co-yellow); font-weight: 700; }
+    #mainNav .navbar-nav .nav-link.crudops-hub { font-family: var(--font-primary); color: var(--co-yellow) !important; font-weight: 700; font-size: 0.9rem; }
+    #mainNav.scrolled { padding: 0.75rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1); } .navbar-toggler { border-color: rgba(0, 0, 0, 0.1); margin-left: auto; }
+    .nav-cta-btn { font-family: var(--font-primary); background-color: var(--co-yellow); border-color: var(--co-yellow); color: var(--co-dark-text); border-radius: 20px; font-weight: 700; padding: 0.45rem 1.3rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; transition: all 0.3s ease; }
+    .nav-cta-btn:hover { background-color: #e0a800; border-color: #e0a800; transform: translateY(-2px); }
+
+    #mouse-shadow { position: fixed; width: 1px; height: 1px; background-color: transparent; border-radius: 50%; box-shadow: 0 0 200px 100px var(--co-yellow); opacity: 0.6; pointer-events: none; transform: translate(-50%, -50%); z-index: 9999; transition: transform 0.08s ease-out; }
+    @media (pointer: coarse) { #mouse-shadow { display: none; } }
+
+    .site-footer { background-color: #FFFFFF; padding: 3rem 0 2rem 0; border-top: 1px solid var(--co-border-gray); font-family: var(--font-secondary); color: var(--co-dark-text); }
+    .site-footer .container { max-width: 1300px;  }
+    .footer-main-content { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; gap: 2rem;  }
+    .footer-brand-block { flex: 0 0 28%;  max-width: 28%; }
+    .footer-logo { max-width: 200px;  height: auto; margin-bottom: 1.2rem; }
+    .footer-slogan { font-size: 1rem;  font-weight: 500;  color: var(--co-dark-text); line-height: 1.5; margin-bottom: 0; font-family: var(--font-primary);  }
+    .footer-links-area { flex: 1; display: flex; justify-content: space-between; gap: 1.5rem;  }
+    .footer-links-column h4 { font-family: var(--font-secondary); font-size: 0.8rem; font-weight: 700; color: var(--co-medium-gray-text);  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+    .footer-links-column ul { list-style: none; padding: 0; margin: 0; }
+    .footer-links-column ul li a { font-family: var(--font-secondary); font-size: 0.9rem; color: var(--co-dark-text); text-decoration: none; display: block; padding: 0.35rem 0; transition: color 0.2s ease; font-weight: 500; }
+    .footer-links-column ul li a:hover { color: var(--co-yellow); }
+    .footer-legal-link { font-family: var(--font-secondary); display: block; font-size: 0.8rem; font-weight: 500; color: var(--co-medium-gray-text); text-decoration: none; margin-top: 1rem;  padding: 0.35rem 0; transition: color 0.2s ease; }
+    .footer-legal-link:hover { color: var(--co-yellow); }
+    .footer-bottom-bar { display: flex; justify-content: space-between; align-items: flex-end;  padding-top: 2rem; border-top: 1px solid var(--co-border-gray); }
+    .footer-copyright-text p { font-family: var(--font-secondary); font-size: 0.75rem;  color: #707070;  line-height: 1.6; margin: 0; }
+    .footer-social-media { display: flex; align-items: center; }
+    .footer-social-media a { color: var(--co-dark-text); margin-left: 1rem;  font-size: 1.1rem;  text-decoration: none; transition: color 0.2s ease; }
+    .footer-social-media a:first-child { margin-left: 0; }
+    .footer-social-media a:hover { color: var(--co-yellow); }
+
+    .section-call-to-action {
+        padding: 5rem 0; background-color: var(--co-matte-black); text-align: center;
+        color: #FFFFFF;
+    }
+    .section-call-to-action h2 { font-family: var(--font-secondary); font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; color: #FFFFFF; margin-bottom: 1rem; }
+    .section-call-to-action h2::after { content: ''; display: block; width: 70px; height: 4px; background-color: var(--co-yellow); margin: 1rem auto 0 auto; }
+    .section-call-to-action p { font-family: var(--font-secondary); font-size: clamp(1rem, 1.8vw, 1.15rem); color: rgba(255,255,255,0.8); max-width: 700px; margin: 0 auto 2.5rem auto; }
+    .btn-portfolio-cta {
+        font-family: var(--font-primary); background-color: var(--co-yellow); color: var(--co-dark-text);
+        border-color: var(--co-yellow); padding: 0.9rem 2.2rem; font-size: 1rem; font-weight: 700;
+        text-transform: uppercase; border-radius: 25px; transition: all 0.3s ease;
+    }
+    .btn-portfolio-cta:hover { background-color: #e0a800; border-color: #e0a800; transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+
+    .float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 8px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+
+    /* ============================================== */
+    /* ======== NEW Premium Page Specific Styles ======== */
+    /* ============================================== */
+
+    /* Overall Content Wrapper for Centering and Margins */
+    .work-content-wrapper {
+        max-width: 1050px; /* Adjust this to control side margins */
+        margin: 0 auto;
+        padding: 0 30px; /* Horizontal padding for smaller screens */
+        box-sizing: border-box;
+    }
+
+    /* Top Hero Image Section */
+    .section-hero-top-image {
+        padding: 2.5rem 0 3rem; /* Padding top and bottom */
+        overflow: hidden;
+    }
+    .section-hero-top-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.15); /* More prominent shadow */
+        transition: transform 0.3s ease;
+    }
+    .section-hero-top-image img:hover {
+        transform: translateY(-5px) scale(1.005);
+    }
+
+    /* Work Detail Header Section */
+    .work-detail-header {
+        text-align: center;
+        padding-bottom: 2rem; /* Space below header content */
+        max-width: 900px; /* Constrain header text width */
+        margin: 0 auto; /* Center header text */
+    }
+
+    .work-detail-header .breadcrumb {
+        background: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+        justify-content: center;
+    }
+
+    .work-detail-header .breadcrumb-item a,
+    .work-detail-header .breadcrumb-item.active,
+    .work-detail-header .breadcrumb-item + .breadcrumb-item::before {
+        color: var(--co-medium-gray-text);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-family: var(--font-secondary);
+    }
+    .work-detail-header .breadcrumb-item a:hover { color: var(--co-yellow); }
+
+    .work-detail-header h1 {
+        font-family: var(--font-primary);
+        font-size: clamp(2.8rem, 6vw, 4.5rem);
+        font-weight: 700;
+        color: var(--co-dark-text);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .work-detail-header p {
+        font-family: var(--font-secondary);
+        font-size: clamp(1rem, 2vw, 1.4rem);
+        color: var(--co-medium-gray-text);
+        line-height: 1.7;
+        margin-bottom: 2rem;
+    }
+
+    .project-tags {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 1.5rem;
+    }
+
+    .project-tag-badge {
+        background-color: var(--co-yellow);
+        color: var(--co-dark-text);
+        padding: 8px 18px;
+        border-radius: 25px;
+        font-family: var(--font-primary);
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    /* Author/Date Block */
+    .author-block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        margin-bottom: 3.5rem; /* Space before main content */
+    }
+
+    .author-block .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .author-block .author-info {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .author-block .author-name {
+        font-family: var(--font-secondary);
+        font-weight: 600;
+        color: var(--co-dark-text);
+        font-size: 1.05rem;
+        margin-bottom: 0;
+    }
+
+    .author-block .publish-date {
+        font-family: var(--font-secondary);
+        color: var(--co-medium-gray-text);
+        font-size: 0.85rem;
+        margin-bottom: 0;
+    }
+
+    /* Main Work Content Grid */
+    .work-main-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Default to single column */
+        gap: 60px; /* Generous gap for sections */
+        padding-bottom: 4rem; /* Space below content before CTA/footer */
+        border-top: 1px solid var(--co-border-gray);
+        padding-top: 4rem;
+    }
+
+    @media (min-width: 992px) { /* Two columns on large screens */
+        .work-main-grid {
+            grid-template-columns: 3fr 2fr; /* Approx 60/40 split */
+        }
+    }
+
+    .work-grid-left,
+    .work-grid-right {
+        line-height: 1.8;
+        font-size: 1.05rem;
+        color: var(--co-dark-text);
+        padding-right: 20px; /* Slight padding to avoid text hitting edge in grid */
+    }
+    .work-grid-right {
+        padding-left: 20px;
+        border-left: 1px solid var(--co-border-gray); /* Vertical separator */
+    }
+
+    .work-grid-left p, .work-grid-right p {
+        margin-bottom: 1.5rem;
+    }
+    .work-grid-left h3, .work-grid-right h3 {
+        font-family: var(--font-secondary);
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--co-dark-text);
+        text-align: left; /* Keep text left aligned in content */
+    }
+
+    /* Images within the grid */
+    .work-grid-left .feature-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-bottom: 2.5rem;
+        display: block;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .work-grid-left .feature-image:hover {
+        transform: scale(1.005);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .work-grid-right .secondary-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        margin-bottom: 2rem; /* Space between images */
+        display: block;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .work-grid-right .secondary-image:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+    
+    .quote-block {
+        font-family: var(--font-secondary);
+        font-size: 1.15rem;
+        font-style: italic;
+        color: var(--co-dark-text);
+        border-left: 4px solid var(--co-yellow);
+        padding-left: 20px;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        text-align: left;
+    }
+    .quote-block cite {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--co-medium-gray-text);
+        margin-top: 10px;
+        font-style: normal;
+    }
+
+    /* Adjusted CTA section from previous versions to fit */
+    .section-call-to-action {
+        padding: 4rem 0; /* Reduced padding slightly for better flow */
+        background-color: var(--co-matte-black);
+        text-align: center;
+        color: #FFFFFF;
+    }
+    .section-call-to-action h2 {
+        font-family: var(--font-secondary);
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        font-weight: 700;
+        color: #FFFFFF;
+        margin-bottom: 0.8rem;
+    }
+    .section-call-to-action h2::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background-color: var(--co-yellow);
+        margin: 0.8rem auto 0 auto;
+    }
+    .section-call-to-action p {
+        font-family: var(--font-secondary);
+        font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+        color: rgba(255,255,255,0.8);
+        max-width: 600px;
+        margin: 0 auto 2rem auto;
+    }
+    .btn-portfolio-cta {
+        padding: 0.8rem 2rem;
+        font-size: 0.95rem;
+    }
+
+    /* --- MOBILE STYLES (Refined) --- */
+    @media (max-width: 991.98px) {
+      body { padding-top: calc(var(--navbar-top-gap) + 60px); }
+      #mainNav { width: 95%; padding: 0.75rem; max-width: calc(100% - 20px); border-radius: 0; }
+      #mainNav .navbar-brand .logo-img { height: 32px; }
+      #mainNav .navbar-collapse { background-color: #FFFFFF; padding: 1rem; margin-top: 0.75rem; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: absolute; top: 100%; left: 0; right: 0; width: 100%; }
+      #mainNav .navbar-nav .nav-item { margin-bottom: 0.3rem; }
+      #mainNav .navbar-nav .nav-link { padding: 0.6rem 0.5rem; font-size: 0.9rem; }
+      #mainNav .navbar-collapse .d-lg-flex { margin-top: 1rem; display: block !important; text-align: center; }
+      #mainNav .navbar-collapse .nav-cta-btn { width: 100%; display: block; margin: 0.5rem auto 0; font-size: 0.9rem; }
+
+      .work-content-wrapper { padding: 0 15px; }
+      .section-hero-top-image { padding: 1.5rem 0 2rem;}
+      .work-detail-header { padding-bottom: 1.5rem; }
+      .work-detail-header h1 { font-size: clamp(2rem, 8vw, 3.5rem); }
+      .work-detail-header p { font-size: clamp(0.95rem, 2.5vw, 1.2rem); }
+      .project-tags { gap: 8px;}
+      .project-tag-badge { padding: 6px 12px; font-size: 0.75rem; }
+
+      .author-block { margin-top: 1.5rem; margin-bottom: 2rem;}
+
+      .work-main-grid {
+          gap: 40px;
+          padding-bottom: 3rem;
+          border-top: none; /* No separator in mobile layout */
+          padding-top: 2rem;
+      }
+      .work-grid-left,
+      .work-grid-right {
+          padding: 0; /* Remove side padding on mobile */
+          border-left: none; /* Remove separator */
+          text-align: center; /* Center content blocks */
+          font-size: 1rem;
+      }
+      .work-grid-left h3, .work-grid-right h3 {
+        font-size: 1.6rem;
+        text-align: center;
+      }
+      .work-grid-left p, .work-grid-right p {
+        text-align: center;
+      }
+
+      .work-grid-left .feature-image { margin-bottom: 2rem;}
+      .work-grid-right .secondary-image { margin-bottom: 1.5rem;}
+      .quote-block { font-size: 1.05rem; padding-left: 15px; margin-left: 15px; margin-right: 15px; }
+
+      .section-call-to-action { padding: 3rem 0; }
+      .section-call-to-action h2 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+      .section-call-to-action p { font-size: clamp(0.9rem, 2vw, 1.05rem); }
+      .btn-portfolio-cta { padding: 0.7rem 1.8rem; font-size: 0.9rem; }
+
+      /* Footer Mobile Styles */
+      .footer-main-content { flex-direction: column; align-items: flex-start;  gap: 0;  }
+      .footer-brand-block { flex-basis: auto; width: 100%; max-width: 100%; margin-bottom: 2rem; }
+      .footer-links-area { flex-direction: column; width: 100%; gap: 0; }
+      .footer-links-column { width: 100%; margin-bottom: 2rem; }
+      .footer-links-column:last-child { margin-bottom: 0; }
+      .footer-bottom-bar { flex-direction: column; align-items: flex-start;  text-align: left;  }
+      .footer-copyright-text { margin-bottom: 1.5rem; }
+      .footer-social-media { width: 100%; justify-content: flex-start;  }
+      .footer-social-media a { margin-left: 0; margin-right: 1rem;  }
+    }
+  </style>
+</head>
+<body>
+  <div id="mouse-shadow"></div>
+
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-light">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand" href="index.html"> <img src="./img/logo-dark.png" alt="CrudOps Logo" class="logo-img"> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+                <li class="nav-item"> <a class="nav-link" href="services.html">Services</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="industries.html">Industries</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="about.html">About Us</a> </li>
+                <li class="nav-item"> <a class="nav-link crudops-hub" href="index.html">Crudops Hub</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="casestudies.html">Case Studies</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="portfolio.html">Portfolio</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="blog.html">Blogs</a> </li>
+            </ul>
+            <div class="d-lg-flex align-items-center"> <a href="contact.html" class="btn nav-cta-btn btn-sm">Contact Us</a> </div>
+        </div>
+    </div>
+  </nav>
+  <a href="https://api.whatsapp.com/send?phone=+916238575185&text=Hi, I visited your portfolio page and would like to know more about your work." class="float" target="_blank" aria-label="Chat on WhatsApp"><i class="fa fa-whatsapp"></i></a>
+
+<main>
+    <!-- Section 1: The big image -->
+    <section class="section-hero-top-image">
+        <div class="work-content-wrapper">
+            <img src="img/work1.png" alt="Comprehensive mockups of Aharya Omni-Channel E-commerce Suite on various devices">
+        </div>
+    </section>
+
+    <div class="work-content-wrapper">
+        <!-- Work Detail Header (replacing original hero for text/breadcrumbs) -->
+        <header class="work-detail-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="portfolio.html">Portfolio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Aharya E-commerce</li>
+                </ol>
+            </nav>
+            <h1 class="force-font-primary">Aharya: Omni-Channel E-commerce Suite</h1>
+            <p>A unified digital ecosystem seamlessly connecting web, mobile, and in-store operations for a leading fashion retail brand, optimizing customer experience and management efficiency.</p>
+            <div class="project-tags">
+                <span class="project-tag-badge">E-commerce</span>
+                <span class="project-tag-badge">Web Dev</span>
+                <span class="project-tag-badge">Mobile Apps</span>
+                <span class="project-tag-badge">POS Integration</span>
+                <span class="project-tag-badge">2024</span>
+            </div>
+        </header>
+
+        <!-- Author Block (as per sample design) -->
+        <div class="author-block">
+            <img src="img/client1.png" alt="CrudOps Team Avatar" class="author-avatar">
+            <div class="author-info">
+                <p class="author-name">CrudOps Team</p>
+                <p class="publish-date">October 26, 2024</p>
+            </div>
+        </div>
+
+        <!-- Main Work Content Grid -->
+        <div class="work-main-grid">
+            <div class="work-grid-left">
+                <img src="img/work1.png" alt="Screenshot of Aharya's mobile application" class="feature-image">
+                <h3>The Challenge</h3>
+                <p>Aharya faced fragmentation across its digital channels. Their web, mobile, and physical stores operated on disparate systems, leading to inconsistent data and a disjointed shopping experience. A cohesive, omni-channel solution was imperative.</p>
+
+                <h3>Our Solution</h3>
+                <p>CrudOps developed an integrated suite that unifies all customer touchpoints. This included a modern e-commerce platform, native mobile apps, and real-time in-store POS synchronization. The goal was to ensure seamless inventory, personalized customer journeys, and efficient management.</p>
+            </div>
+
+            <div class="work-grid-right">
+                <img src="img/work2.png" alt="Screenshot of Aharya's backend dashboard" class="secondary-image">
+                <h3>Key Results</h3>
+                <p>The unified suite brought significant improvements:</p>
+                <div class="quote-block">
+                    “Within six months, we saw a 35% increase in online sales and our inventory management became flawless.”
+                    <cite>— Aharya Leadership</cite>
+                </div>
+                <img src="img/work3.png" alt="Screenshot of Aharya's in-store Point-of-Sale interface" class="secondary-image">
+                <p>Operational efficiency improved by 40%, significantly reducing manual efforts. Customers now enjoy a consistent, frictionless experience across all channels, reinforcing brand loyalty and paving the way for scalable growth.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action (unchanged from previous iterations) -->
+    <section class="section-call-to-action">
+        <div class="container">
+            <h2>Ready to Elevate Your Digital Presence?</h2>
+            <p>Whether you need a full-scale e-commerce solution, an intuitive mobile app, or AI integration, our team is ready to transform your vision into reality. Let's discuss your next big project.</p>
+            <a href="contact.html" class="btn btn-portfolio-cta btn-lg">Partner With CrudOps</a>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-main-content">
+            <div class="footer-brand-block">
+                <img src="img/logo-dark.png" alt="CrudOps Logo" class="footer-logo">
+                <p class="footer-slogan">CrudOps: Data, Design, Engineering - Driving Impact.</p>
+            </div>
+            <div class="footer-links-area">
+                <div class="footer-links-column products">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="service-ai-ml.html">AI/ML Solutions</a></li>
+                        <li><a href="service-web-dev.html">Web Development</a></li>
+                        <li><a href="service-app-dev.html">App Development</a></li>
+                        <li><a href="service-erp-dev.html">ERP Development</a></li>
+                        <li><a href="service-ecommerce-dev.html">E-Commerce</a></li>
+                        <li><a href="service-software-dev.html">Software Development</a></li>
+                    </ul>
+                    <a href="privacy.html" class="footer-legal-link">PRIVACY POLICY</a>
+                </div>
+                <div class="footer-links-column role">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="industries.html">Industries Served</a></li>
+                        <li><a href="casestudies.html">Case Studies</a></li>
+                        <li><a href="portfolio.html">Our Portfolio</a></li>
+                        <li><a href="https://medium.com/crudops" target="_blank">Blog on Medium</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                    </ul>
+                    <a href="terms.html" class="footer-legal-link">TERMS OF USE</a>
+                </div>
+                <div class="footer-links-column company">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Leadership</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                         <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <div class="footer-copyright-text">
+                <p>
+                    © <span id="currentYear"></span> CrudOps. All rights reserved. <br>
+                    CrudOps™ and the CrudOps logo are trademarks of CrudOps Pvt. Ltd.
+                </p>
+            </div>
+            <div class="footer-social-media">
+                <a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                <a href="#" aria-label="X (Twitter)"><i class="fa fa-twitter"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fa fa-github"></i></a>
+                <a href="#" aria-label="Medium"><i class="fa fa-medium"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Navbar & Body Padding (re-using your existing robust JS)
+    const header = document.querySelector("#mainNav");
+    if (header) {
+        const add_class_on_scroll = () => header.classList.add("scrolled");
+        const remove_class_on_scroll = () => header.classList.remove("scrolled");
+        const updateNavbarAndBodyPadding = () => {
+            requestAnimationFrame(() => {
+                const currentNavbarHeight = header.offsetHeight;
+                const rootStyles = getComputedStyle(document.documentElement);
+                const navbarTopGap = parseInt(rootStyles.getPropertyValue('--navbar-top-gap').trim()) || 0;
+                let newBodyPaddingTop = navbarTopGap + currentNavbarHeight;
+                if (window.innerWidth >= 992) {
+                    document.body.style.paddingTop = `${newBodyPaddingTop}px`;
+                } else {
+                    document.body.style.paddingTop = `calc(var(--navbar-top-gap) + 60px)`;
+                }
+                document.documentElement.style.setProperty('--navbar-total-initial-offset', `${newBodyPaddingTop}px`);
+                const mainNavElForScrollSpy = document.getElementById('mainNav');
+                if (typeof bootstrap !== 'undefined' && bootstrap.ScrollSpy) {
+                    const bsScrollSpyInstance = bootstrap.ScrollSpy.getInstance(document.body);
+                    if (bsScrollSpyInstance) {
+                        bsScrollSpyInstance._config.offset = newBodyPaddingTop + 20;
+                        bsScrollSpyInstance.refresh();
+                    } else {
+                        try { new bootstrap.ScrollSpy(document.body, { target: '#mainNav', offset: newBodyPaddingTop + 20 }); } catch (e) { /* console.warn("ScrollSpy init error:", e); */ }
+                    }
+                }
+            });
+        };
+        window.addEventListener('resize', updateNavbarAndBodyPadding);
+        const observer = new MutationObserver(mutationsList => {
+            for(let mutation of mutationsList) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    if (mutation.target.classList.contains('navbar-collapse')) {
+                        updateNavbarAndBodyPadding();
+                    }
+                }
+            }
+        });
+        const navbarCollapseElement = header.querySelector('.navbar-collapse');
+        if (navbarCollapseElement) {
+            observer.observe(navbarCollapseElement, { attributes: true });
+        }
+        updateNavbarAndBodyPadding();
+        let scrollpos = window.scrollY;
+        window.addEventListener('scroll', () => {
+            scrollpos = window.scrollY;
+            if (scrollpos >= (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-top-gap').trim()) || 0) / 2 ) {
+                add_class_on_scroll();
+            } else {
+                remove_class_on_scroll();
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Nav Link Active State for Portfolio page (Ensuring parent 'Portfolio' link is active)
+        const navLinks = document.querySelectorAll('#mainNav .nav-link');
+        if (navLinks.length > 0) {
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === "portfolio.html") {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // Mouse Shadow Effect
+        const mouseShadow = document.getElementById('mouse-shadow');
+        if (mouseShadow && window.matchMedia("(pointer: fine)").matches) {
+            document.addEventListener('mousemove', (e) => {
+                requestAnimationFrame(() => {
+                    mouseShadow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+                });
+            });
+        } else if (mouseShadow) {
+            mouseShadow.style.display = 'none';
+        }
+
+        // Footer Copyright Year
+        if(document.getElementById('currentYear')) {
+             document.getElementById('currentYear').textContent = new Date().getFullYear();
+        }
+    });
+  </script>
+</body>
+</html>

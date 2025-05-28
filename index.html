@@ -1,0 +1,868 @@
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="Premium software solutions by CrudOps - White & Yellow Theme with Banner and Video">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="CrudOps Team">
+  <meta name="HandheldFriendly" content="true">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>CrudOps Hub - Code that Moves Business</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <style>
+    :root {
+      --co-yellow: #FFC107;
+      --co-dark-text: #212529;
+      --co-matte-black: #1a1a1a;
+      --co-border-gray: #DEE2E6;
+      --co-off-white: #fdfdfd;
+      --co-medium-gray-text: #555;
+      --co-light-gray-bg: #f8f9fa;
+      --co-dark-ash: #AAAAAA;
+
+      --navbar-top-gap: 20px;
+      --navbar-element-initial-height: 70px;
+      --navbar-total-initial-offset: calc(var(--navbar-top-gap) + var(--navbar-element-initial-height));
+
+      --card-width-vw: 90vw;
+      --card-side-padding-vw: calc((100vw - var(--card-width-vw)) / 2);
+      --card-gap-vw: 2vw;
+
+      --services-sticky-content-top: calc(var(--navbar-total-initial-offset) + 3rem);
+      --co-gradient-yellow-start: #fff9e0;
+      --co-gradient-white-end: #ffffff;
+      --co-premium-border: rgba(0, 0, 0, 0.05);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Anonymous Pro', monospace;
+      background-color: #FFFFFF; color: var(--co-dark-text);
+      line-height: 1.7; overflow-x: hidden;
+      padding-top: var(--navbar-total-initial-offset); /* Ensure body padding top for fixed navbar */
+    }
+
+    h1,h2,h3,h4,h5,h6 { font-family: 'Anonymous Pro', monospace; font-weight: 700; color: var(--co-dark-text); margin-bottom: 1.5rem; }
+    p { margin-bottom: 1.5rem; font-weight: 400; font-family: 'Inter', sans-serif; /* Adjusted default p font */ }
+
+    #mainNav { position: fixed; top: var(--navbar-top-gap); left: 50%; transform: translateX(-50%); width: 95%; max-width: 1300px; padding: 1rem; background-color: #FFFFFF; border-radius: 0; box-shadow: 0 5px 20px rgba(0,0,0,0.08); z-index: 1050; transition: all 0.3s ease-in-out; }
+    #mainNav .container { width: 100%; padding: 0; } #mainNav .navbar-brand .logo-img { height: 38px; width:auto; transition: height 0.3s ease-in-out; } #mainNav.scrolled .navbar-brand .logo-img { height: 32px; } #mainNav .navbar-nav .nav-link { font-family: 'Anonymous Pro', monospace; color: var(--co-dark-text); font-weight: 400; padding: 0.5rem 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.3s ease; } #mainNav .navbar-nav .nav-link:hover, #mainNav .navbar-nav .nav-link:focus { color: var(--co-yellow); } #mainNav .navbar-nav .nav-item .nav-link.active { color: var(--co-yellow); font-weight: 700; } #mainNav .navbar-nav .nav-link.crudops-hub { font-family: 'Anonymous Pro', monospace; color: var(--co-yellow) !important; font-weight: 700; font-size: 0.9rem; } #mainNav.scrolled { padding: 0.75rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1); } .navbar-toggler { border-color: rgba(0, 0, 0, 0.1); margin-left: auto; } .nav-cta-btn { font-family: 'Anonymous Pro', monospace; background-color: var(--co-yellow); border-color: var(--co-yellow); color: var(--co-dark-text); border-radius: 20px; font-weight: 700; padding: 0.45rem 1.3rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; transition: all 0.3s ease; } .nav-cta-btn:hover { background-color: #e0a800; border-color: #e0a800; transform: translateY(-2px); }
+
+    .hero-banner-section { height: 100vh; width: 100%; background-image: url('img/banner.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; position: relative; overflow: hidden; display: flex; }
+    .hero-banner-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.35); z-index: 1; }
+    .hero-banner-inner-content { position: relative; z-index: 2; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: clamp(1.5rem, 5vw, 4rem); }
+    .hero-ai-text { font-family: 'Anonymous Pro', monospace; font-size: clamp(1.5rem, 3vw, 2.5rem); color: #FFFFFF; font-weight: 700; line-height: 1.3; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); margin: 0; } .hero-ai-text .highlight-yellow { color: var(--co-yellow); } .hero-bottom-details { position: absolute; bottom: clamp(1.5rem, 5vw, 4rem); right: clamp(1.5rem, 5vw, 4rem); text-align: right; } .tagline-hero, .time-location-hero { font-family: 'Anonymous Pro', monospace; color: #f0f0f0; text-shadow: 1px 1px 2px rgba(0,0,0,0.4); margin-bottom: 0.2rem; font-weight: 400; } .tagline-hero { font-size: clamp(0.8rem, 1.5vw, 1.1rem); } .time-location-hero { font-size: clamp(0.7rem, 1.2vw, 0.9rem); } .tagline-hero .highlight-yellow { color: var(--co-yellow); font-weight: 700; }
+
+    #section-two-cards { height: 100vh; width: 100%; background-image: url('img/banner2.jpg'); background-size: cover; background-position: center center; position: relative; display: flex; align-items: center; justify-content: flex-start; padding-top: var(--navbar-total-initial-offset); box-sizing: border-box; overflow: hidden; }
+    .cards-strip-wrapper { position: relative; z-index: 2; width: 100%; display: flex; overflow-x: auto; overflow-y: hidden; padding: 2rem 0; padding-left: var(--card-side-padding-vw); padding-right: var(--card-side-padding-vw); box-sizing: border-box; scroll-snap-type: x mandatory; }
+    .cards-strip-wrapper::-webkit-scrollbar { height: 8px; } .cards-strip-wrapper::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 4px; } .cards-strip-wrapper::-webkit-scrollbar-thumb { background-color: var(--co-yellow); border-radius: 4px; border: 2px solid transparent; background-clip: content-box; } .cards-strip-wrapper { scrollbar-width: thin; scrollbar-color: var(--co-yellow) rgba(0,0,0,0.05); }
+    /* Made slidable-card-link style transparent and expand to fill for clickable area */
+    .slidable-card-link { display: flex; flex-direction: column; width: 100%; height: 100%; text-decoration: none; color: inherit; /* Inherit text color from parent */ }
+    .slidable-card { flex: 0 0 var(--card-width-vw); width: var(--card-width-vw); height: 78vh; max-height: 700px; min-height: 450px; margin-right: var(--card-gap-vw); background-color: var(--co-off-white); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 0; scroll-snap-align: start; overflow: hidden; }
+    .slidable-card:last-child { margin-right: 0; }
+    .slidable-card:hover { transform: translateY(-5px) scale(1.01); box-shadow: 0 15px 35px rgba(0,0,0,0.2); } .slidable-card .card-image-container { width: 100%; height: calc(100% - 5rem); overflow: hidden; } .slidable-card img { width: 100%; height: 100%; object-fit: cover; display: block; } .slidable-card .card-heading-container { width: 100%; padding: 1.2rem clamp(1rem, 2.5vw, 2rem); background-color: var(--co-off-white); text-align: center; box-sizing: border-box; } .slidable-card h3 { font-family: 'Anonymous Pro', monospace; font-size: clamp(1.1rem, 2vw, 1.5rem); margin-bottom: 0; color: var(--co-dark-text); font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    #services-section { background-color: var(--co-light-gray-bg); padding-top: 5rem; padding-bottom: 5rem; position: relative; z-index: 30; }
+    #services-section .section-heading { margin-bottom: 4rem; text-align: center; } #services-section .section-heading h2 { font-size: clamp(2.2rem, 5vw, 3rem); } #services-section .section-heading p { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--co-medium-gray-text); max-width: 700px; margin-left: auto; margin-right: auto; }
+    .services-images-column .service-image-item { height: 75vh; max-height: 650px; margin-bottom: 40vh;  border-radius: 20px; overflow: hidden; box-shadow: 0 12px 35px rgba(0,0,0,0.1); }
+    .services-images-column .service-image-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .services-images-column .service-image-item:last-child { margin-bottom: 10vh; }
+    .services-content-sticky-wrapper { position: sticky; top: var(--services-sticky-content-top); height: calc(100vh - var(--services-sticky-content-top) - 3rem); max-height: 580px; background: linear-gradient(145deg, var(--co-gradient-yellow-start) 0%, var(--co-gradient-white-end) 70%); border-radius: 25px; padding: 0;  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px var(--co-premium-border); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center;  overflow: hidden; }
+    .service-content-block { opacity: 0; visibility: hidden;  position: absolute; top: 0; left: 0;  width: 100%; height: 100%;  padding: clamp(1.5rem, 3vw, 2.5rem); display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; }
+    .service-content-block h3 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); margin-bottom: 1.2rem; color: var(--co-dark-text);  }
+    .service-content-block p { font-size: clamp(0.95rem, 1.6vw, 1.05rem); line-height: 1.75; color: var(--co-medium-gray-text);  }
+    .service-content-block .btn { margin-top: 1.5rem; padding: 0.6rem 1.5rem; font-size: 0.9rem; border-radius: 25px;  }
+
+    #section-four-wrapper { position: relative; z-index: 40; }
+    #section-four-bg { position: sticky; top: 0; height: 100vh; width: 100%; background-image: url('img/bg2.jpg'); background-size: cover; background-position: center center; background-attachment: fixed; z-index: 1; }
+    #section-four-text-track { position: relative; z-index: 2; min-height: 150vh; width: 100%; display: flex; justify-content: flex-end; align-items: center; padding-top: 20vh; padding-bottom: 20vh;}
+    .section-four-text-container { width: 80%; max-width: 900px; padding: 2rem; text-align: right;}
+    .animated-text-reveal { font-family: 'Anonymous Pro', monospace; font-weight: 700; font-size: clamp(30px, 6vw, 51px); line-height: 1.3; color: #FFFFFF; opacity: 1; overflow-wrap: break-word; word-wrap: break-word; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
+    @media (min-width: 992px) { .animated-text-reveal.gsap-gradient-wipe { color: transparent; background-image: linear-gradient(0deg,var(--co-yellow) 0%, var(--co-yellow) 50%, #FFFFFF 50.01%, #FFFFFF 100%); background-size: 100% 200%; background-position: 0% 100%; -webkit-background-clip: text; background-clip: text; text-shadow: none; } }
+
+    .fixed-section-label { position: fixed; top: 45%; transform: translateY(-50%); font-family: 'Anonymous Pro', monospace; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 400; color: #FFFFFF; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); z-index: 100; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out; white-space: nowrap; }
+    .fixed-section-label.left-label { left: clamp(2rem, 5vw, 60px); }
+
+    #blog-section-wrapper { background-color: var(--co-matte-black); color: #FFFFFF; padding: 6rem 0; position: relative; z-index: 50; overflow: hidden; }
+    .blog-cards-row { margin-bottom: 4rem; }
+    .blog-card-item { margin-bottom: 2rem; display: flex; flex-direction: column; }
+    .blog-card-image { width: 100%; aspect-ratio: 16 / 10; overflow: hidden; margin-bottom: 1.5rem; background-color: #333; }
+    .blog-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease-out; }
+    .blog-card-item:hover .blog-card-image img { transform: scale(1.05); }
+    .blog-card-caption { text-align: left; }
+    .blog-card-caption .blog-card-category { font-family: 'Anonymous Pro', monospace; font-size: 0.75rem; font-weight: 700; color: #A0A0A0; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.5rem; }
+    .blog-card-caption .blog-card-category::before { content: '●'; color: #FFFFFF; margin-right: 0.5em; font-size: 0.9em; }
+    .blog-card-caption .blog-card-title { font-family: 'Inter', sans-serif; font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 600; color: #FFFFFF; line-height: 1.4; margin-bottom: 0; }
+    .see-all-blogs-container { text-align: center; width: 100%; }
+    .see-all-blogs-link { font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(3rem, 12vw, 10rem); color: #383838; text-decoration: none; line-height: 1; display: inline-block; transition: color 0.3s ease; text-transform: lowercase; }
+    .see-all-blogs-link:hover { color: #505050; }
+
+    #case-studies-section { background-color: #FFFFFF; color: var(--co-dark-text); padding: 5rem 0; position: relative; z-index: 60; }
+    #case-studies-section .section-main-title { font-family: 'Inter', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700; color: var(--co-dark-text); margin-bottom: 3rem; text-align: left; }
+    .case-studies-content-row { align-items: flex-start; }
+    .case-study-card { /* Wrap entire content in an <a> tag */ background-color: #FFFFFF; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; display: block; /* Make the link a block */ text-decoration: none; color: inherit; }
+    .case-study-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* More subtle hover shadow */ }
+    .case-study-image-wrapper { position: relative; overflow: hidden; background-color: #e9ecef; }
+    .case-study-image-wrapper img { display: block; width: 100%; height: 100%; object-fit: cover; } /* height 100% and object-fit cover is for large and small case studies to fill aspect-ratio defined parent */
+    .case-study-type-tag { position: absolute; top: 1rem; left: 1rem; background-color: rgba(255, 255, 255, 0.9); color: var(--co-dark-text); font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.03em; z-index: 2; }
+    .large-case-study .case-study-image-wrapper { aspect-ratio: 16 / 10; }
+    .small-case-study .case-study-image-wrapper { aspect-ratio: 16 / 9; }
+    .case-study-tags-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1rem; background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0)); display: flex; flex-wrap: wrap; gap: 0.5rem; z-index: 1; }
+    .case-study-tags-overlay .tag, .case-study-tags-small .tag { font-size: 0.7rem; padding: 0.3rem 0.7rem; border-radius: 15px; color: #FFFFFF; font-weight: 500; letter-spacing: 0.02em; margin-right: 0.4rem; margin-bottom: 0.4rem; display: inline-block; }
+    .case-study-tags-small .tag { font-size: 0.65rem; padding: 0.25rem 0.6rem; border-radius: 12px; }
+    .tag:nth-child(4n+1) { background-color: #6f42c1; }
+    .tag:nth-child(4n+2) { background-color: #0d6efd; }
+    .tag:nth-child(4n+3) { background-color: #198754; }
+    .tag:nth-child(4n+4) { background-color: #dc3545; }
+    .case-study-info-large { padding: 1.5rem; background-color: #f8f9fa; }
+    .case-study-meta-large { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--co-medium-gray-text); margin-bottom: 0.75rem; font-family: 'Inter', sans-serif; }
+    .case-study-title-large { font-family: 'Inter', sans-serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 600; color: var(--co-dark-text); line-height: 1.3; margin-bottom: 0; }
+    .case-study-info-small { padding: 1rem; }
+    .case-study-meta-small { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--co-medium-gray-text); margin-bottom: 0.5rem; font-family: 'Inter', sans-serif; }
+    .case-study-title-small { font-family: 'Inter', sans-serif; font-size: clamp(1rem, 1.8vw, 1.2rem); font-weight: 600; color: var(--co-dark-text); line-height: 1.4; margin-bottom: 0.75rem; }
+    .case-study-excerpt { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--co-medium-gray-text); line-height: 1.6; margin-bottom: 1rem; }
+    /* New button for case studies section */
+    .btn-cta-dark-bg {
+        font-family: 'Anonymous Pro', monospace;
+        background-color: var(--co-dark-text); /* Use dark text color as button background */
+        border-color: var(--co-dark-text);
+        color: var(--co-yellow); /* Yellow text on dark button */
+        padding: 0.9rem 2.2rem;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        margin-top: 2rem; /* Space below case studies */
+    }
+    .btn-cta-dark-bg:hover {
+        background-color: var(--co-matte-black); /* Slightly darker on hover */
+        border-color: var(--co-matte-black);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        color: var(--co-yellow); /* Ensure color stays yellow */
+    }
+
+
+    /* Our Work & Clients Section */
+    #our-work-clients-section { display: flex; min-height: auto; background-color: var(--co-off-white); position: relative; z-index: 70; overflow: hidden; align-items: center; }
+    .work-column { flex: 0 0 65%; max-width: 65%; padding: 2rem; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; }
+    .work-image-carousel { position: relative; width: 100%; aspect-ratio: 1.8; overflow: hidden; background-color: #e0e0e0; margin-bottom: 1.5rem; }
+    .work-image-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.7s ease-in-out; visibility: hidden; }
+    .work-image-slide.active { opacity: 1; visibility: visible; }
+    .work-image-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .work-info-navigation-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+    .work-details { text-align: left; }
+    .work-project-title { font-family: 'Inter', sans-serif; font-size: clamp(1rem, 1.5vw, 1.25rem); font-weight: 700; color: var(--co-dark-text); margin-bottom: 0.15rem; }
+    .work-project-categories { font-family: 'Inter', sans-serif; font-size: clamp(0.7rem, 1vw, 0.8rem); color: var(--co-medium-gray-text); margin-bottom: 0; line-height: 1.4; }
+    .work-carousel-controls { display: flex; align-items: center; }
+    .work-carousel-controls button { background: none; border: none; color: var(--co-dark-text); font-size: 1.5rem; font-weight: 300; padding: 0.2rem 0.4rem; cursor: pointer; line-height: 1; transition: color 0.2s ease; }
+    .work-carousel-controls button:hover { color: var(--co-yellow); }
+    .carousel-slide-indicator { font-family: 'Anonymous Pro', monospace; font-size: 0.9rem; color: var(--co-dark-text); margin: 0 0.7rem; font-weight: 400; }
+    .work-carousel-progress-bar-container { width: 100%; height: 2px; background-color: #ccc; }
+    .work-carousel-progress-bar { height: 100%; width: 0%; background-color: var(--co-dark-text); transition: width 0.4s ease-out; }
+
+    .marquee-column { flex: 0 0 35%; max-width: 35%; background-color: var(--co-matte-black); padding: 0.5rem 0; display: flex; flex-direction: column; justify-content: center; overflow: hidden; position: relative; z-index: 1; }
+    .client-names-marquee-wrapper { overflow: hidden; width: 100%; position: relative; display: flex; align-items: center; }
+    .client-names-marquee-content { display: inline-block; white-space: nowrap; padding: 0.6rem 0; animation: horizontal-right-to-left-marquee 40s linear infinite; }
+    .client-names-marquee-content span { font-family: 'Inter', sans-serif; font-size: clamp(1.1rem, 1.8vw, 1.6rem); font-weight: 600; color: var(--co-dark-ash); margin: 0 0.75rem; display: inline-block; }
+    .client-names-marquee-content .separator { color: var(--co-yellow); font-size: clamp(1.1rem, 1.8vw, 1.6rem); font-weight: 700; margin: 0 0.75rem; display: inline-block; }
+
+    @keyframes horizontal-right-to-left-marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
+
+    /* Footer Styles */
+    .site-footer { background-color: #FFFFFF; padding: 3rem 0 2rem 0; border-top: 1px solid var(--co-border-gray); font-family: 'Inter', sans-serif; color: var(--co-dark-text); }
+    .site-footer .container { max-width: 1300px;  }
+    .footer-main-content { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; gap: 2rem;  }
+    .footer-brand-block { flex: 0 0 28%;  max-width: 28%; }
+    .footer-logo { max-width: 200px;  height: auto; margin-bottom: 1.2rem; }
+    .footer-slogan { font-size: 1rem;  font-weight: 500;  color: var(--co-dark-text); line-height: 1.5; margin-bottom: 0; font-family: 'Anonymous Pro', monospace;  } /* Adjusted font */
+    .footer-links-area { flex: 1; display: flex; justify-content: space-between; gap: 1.5rem;  }
+    .footer-links-column { flex: 1; min-width: 150px;  }
+    .footer-links-column h4 { font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--co-medium-gray-text);  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+    .footer-links-column ul { list-style: none; padding: 0; margin: 0; }
+    .footer-links-column ul li a { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--co-dark-text); text-decoration: none; display: block; padding: 0.35rem 0; transition: color 0.2s ease; font-weight: 500; }
+    .footer-links-column ul li a:hover { color: var(--co-yellow); }
+    .footer-legal-link { font-family: 'Inter', sans-serif; display: block; font-size: 0.8rem; font-weight: 500; color: var(--co-medium-gray-text); text-decoration: none; margin-top: 1rem;  padding: 0.35rem 0; transition: color 0.2s ease; }
+    .footer-legal-link:hover { color: var(--co-yellow); }
+    .footer-bottom-bar { display: flex; justify-content: space-between; align-items: flex-end;  padding-top: 2rem; border-top: 1px solid var(--co-border-gray); }
+    .footer-copyright-text p { font-family: 'Inter', sans-serif; font-size: 0.75rem;  color: #707070;  line-height: 1.6; margin: 0; }
+    .footer-social-media { display: flex; align-items: center; }
+    .footer-social-media a { color: var(--co-dark-text); margin-left: 1rem;  font-size: 1.1rem;  text-decoration: none; transition: color 0.2s ease; }
+    .footer-social-media a:first-child { margin-left: 0; }
+    .footer-social-media a:hover { color: var(--co-yellow); }
+
+
+    /* --- ALL MOBILE STYLES --- */
+    @media (max-width: 991.98px) {
+      body { padding-top: calc(var(--navbar-top-gap) + 60px); }
+      #mainNav { width: 95%; padding: 0.75rem; max-width: calc(100% - 20px); border-radius: 0; }
+      #mainNav .navbar-brand .logo-img { height: 32px; }
+      #mainNav .navbar-collapse { background-color: #FFFFFF; padding: 1rem; margin-top: 0.75rem; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: absolute; top: 100%; left: 0; right: 0; width: 100%; }
+      #mainNav .navbar-nav .nav-item { margin-bottom: 0.3rem; }
+      #mainNav .navbar-nav .nav-link { padding: 0.6rem 0.5rem; font-size: 0.9rem; }
+      #mainNav .navbar-collapse .d-lg-flex { margin-top: 1rem; display: block !important; text-align: center; }
+      #mainNav .navbar-collapse .nav-cta-btn { width: 100%; display: block; margin: 0.5rem auto 0; font-size: 0.9rem; }
+
+      .hero-banner-section { height: 100vh; background-attachment: scroll; display: flex; }
+      .hero-banner-inner-content { justify-content: space-between; align-items: center; text-align: center; padding-top: calc(var(--navbar-total-initial-offset) + 1rem); }
+      .hero-ai-text { font-size: clamp(1.2rem, 5vw, 1.8rem); text-align: center; align-self: center; margin-bottom: auto; margin-top: auto; }
+      .hero-bottom-details { position: static; text-align: center; padding-top: 1rem; width: 100%; }
+      .tagline-hero { font-size: clamp(0.8rem, 2.5vw, 1rem); }
+      .time-location-hero { font-size: clamp(0.7rem, 2.2vw, 0.85rem); }
+
+      #section-two-cards { height: auto; min-height: 80vh; padding: calc(var(--navbar-total-initial-offset) + 3rem) 0 3rem 0; align-items: center; background-image: url('img/banner2.jpg'); }
+      .cards-strip-wrapper { padding-left: 1rem; padding-right: 1rem; /* Adjust based on new card width */ }
+      .slidable-card { width: 88vw; /* Fixed viewport width for mobile cards */ height: 70vh; min-height: 400px; margin-right: 4vw; scroll-snap-align: center; }
+      .slidable-card:first-child { margin-left: calc(50vw - 44vw); } /* Center first card */
+      .slidable-card:last-child { margin-right: calc(50vw - 44vw); } /* Center last card */
+      .slidable-card .card-image-container { height: calc(100% - 4.5rem); }
+      .slidable-card .card-heading-container { padding: 1rem; }
+      .slidable-card h3 { font-size: clamp(1rem, 4vw, 1.2rem); }
+
+      #services-section {
+        position: static !important;
+        padding: 3rem 0;
+        min-height: auto;
+        z-index: auto !important;
+      }
+      .services-images-column .service-image-item {
+        height: auto; max-height: 50vh;
+        margin-bottom: 1.5rem;
+        border-radius: 15px;
+      }
+      .services-images-column .service-image-item:last-child { margin-bottom: 1.5rem; }
+
+      .services-content-sticky-wrapper {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+        margin-top: 1.5rem;
+
+        position: static !important;
+        height: auto !important; max-height: none !important;
+        background: none !important; backdrop-filter: none !important;
+        box-shadow: none !important; border-radius: 0 !important;
+      }
+      .services-content-sticky-wrapper::-webkit-scrollbar { display: none; }
+      .services-content-sticky-wrapper { -ms-overflow-style: none; scrollbar-width: none; }
+
+      .service-content-block {
+        flex: 0 0 80vw;
+        max-width: 80vw;
+        margin-right: 1rem;
+        scroll-snap-align: start;
+
+        background: linear-gradient(145deg, var(--co-gradient-yellow-start) 0%, var(--co-gradient-white-end) 70%);
+        border-radius: 20px;
+        padding: 1.8rem 1.5rem;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        border: 1px solid var(--co-premium-border);
+        text-align: center;
+
+        min-height: 320px;
+        display: flex; flex-direction: column; justify-content: center;
+
+        position: relative !important; /* Keep original to prevent JS from overriding when static */
+        opacity: 1 !important; visibility: visible !important; transform: none !important;
+        margin-bottom: 0;
+      }
+      .service-content-block:last-child { margin-right: 0; }
+      .service-content-block h3 { font-size: clamp(1.3rem, 4vw, 1.7rem); margin-bottom: 0.8rem; }
+      .service-content-block p { font-size: clamp(0.8rem, 2.5vw, 0.9rem); line-height: 1.6; margin-bottom: 1rem; }
+      .service-content-block .btn { margin-top: 1rem; padding: 0.5rem 1.2rem; font-size: 0.85rem; }
+
+      #section-four-wrapper { position: relative !important; z-index: auto !important; }
+      #section-four-text-track { position: relative !important; z-index: 1 !important; min-height: 60vh !important; width: 100% !important; padding: 3rem 1rem !important; display: flex !important; justify-content: center !important; align-items: center !important; overflow: hidden; }
+      #section-four-bg { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background-attachment: scroll !important; background-size: cover !important; background-position: center center !important; z-index: 1 !important; }
+      .section-four-text-container { position: relative; z-index: 2; width: 90% !important; max-width: 900px; text-align: center !important; padding: 1rem !important;  }
+      .animated-text-reveal { font-size: clamp(24px, 7vw, 38px) !important; color: #FFFFFF !important; opacity:1 !important; text-shadow: 1px 1px 2px rgba(0,0,0,0.4) !important; background-image: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; transform: none !important; }
+
+      .fixed-section-label { font-size: clamp(1.5rem, 6vw, 2.2rem) !important; top: auto !important; transform: translateY(0%) !important; bottom: 30px !important; }
+      .fixed-section-label.left-label { left: clamp(1rem, 4vw, 30px) !important; right: auto !important; }
+
+      #blog-section-wrapper { padding: 4rem 1rem; }
+      .blog-card-item { padding-left: 0; padding-right: 0;}
+
+      #case-studies-section { padding: 4rem 1rem; }
+      #case-studies-section .section-main-title { text-align: center; margin-bottom: 2.5rem; }
+      .large-case-study .case-study-image-wrapper { aspect-ratio: 16 / 11; }
+
+      /* Our Work & Clients Section (MOBILE) */
+      #our-work-clients-section { flex-direction: column; min-height: auto; align-items: stretch; }
+      .work-column, .marquee-column { flex: 1 1 100%; max-width: 100%; }
+      .work-column { padding: 1.5rem; order: 1; }
+      .work-image-carousel { aspect-ratio: 16/10; margin-bottom: 1rem; }
+      .work-info-navigation-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.5rem; }
+       .work-carousel-controls { width: 100%; justify-content: flex-start; }
+      .marquee-column { padding: 0.5rem 0; min-height: auto; order: 2; }
+      .client-names-marquee-content span, .client-names-marquee-content .separator { font-size: clamp(1rem, 4vw, 1.2rem); margin: 0 0.5rem; }
+      /* Case study button on mobile */
+      .case-studies-section-cta-container { text-align: center; padding-top: 1.5rem; }
+
+      /* Footer Mobile Styles */
+      .footer-main-content { flex-direction: column; align-items: flex-start;  gap: 0;  }
+      .footer-brand-block { flex-basis: auto; width: 100%; max-width: 100%; margin-bottom: 2rem; }
+      .footer-links-area { flex-direction: column; width: 100%; gap: 0; }
+      .footer-links-column { width: 100%; margin-bottom: 2rem; } .footer-links-column:last-child { margin-bottom: 0; }
+      .footer-bottom-bar { flex-direction: column; align-items: flex-start;  text-align: left;  }
+      .footer-copyright-text { margin-bottom: 1.5rem; }
+      .footer-social-media { width: 100%; justify-content: flex-start;  }
+      .footer-social-media a { margin-left: 0; margin-right: 1rem;  }
+
+       @media (max-width: 767.98px) {
+          .blog-card-image { aspect-ratio: 16 / 11; }
+          .see-all-blogs-link { font-size: clamp(2.5rem, 15vw, 6rem); }
+          .case-study-meta-large, .case-study-meta-small { flex-direction: column; gap: 0.2rem; align-items: flex-start; }
+          .case-study-info-large { padding: 1.2rem; }
+          .case-study-info-small { padding: 0.8rem; }
+          .small-case-study .case-study-image-wrapper { aspect-ratio: 4 / 3; }
+      }
+    }
+    .float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 8px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <div id="mouse-shadow"></div>
+
+  <div id="fixed-sustainability-label-left" class="fixed-section-label left-label">Our Vision</div>
+
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-light"> <div class="container d-flex justify-content-between align-items-center"> <a class="navbar-brand" href="index.html"> <img src="./img/logo-dark.png" alt="CrudOps Logo" class="logo-img"> </a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="navbarSupportedContent"> <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0"> <li class="nav-item"> <a class="nav-link" href="services.html">Services</a> </li> <li class="nav-item"> <a class="nav-link" href="industries.html">Industries</a> </li> <li class="nav-item"> <a class="nav-link" href="about.html">About Us</a> </li> <li class="nav-item"> <a class="nav-link crudops-hub" href="index.html">Crudops Hub</a> </li> <li class="nav-item"> <a class="nav-link" href="casestudies.html">Case Studies</a> </li> <li class="nav-item"> <a class="nav-link" href="portfolio.html">Portfolio</a> </li> <li class="nav-item"> <a class="nav-link" href="blog.html">Blogs</a> </li></ul> <div class="d-lg-flex align-items-center"> <a href="contact.html" class="btn nav-cta-btn btn-sm">Contact Us</a> </div> </div> </div> </nav>
+  <a href="https://api.whatsapp.com/send?phone=+916238575185&text=Hi, I visited your website and would like to know more." class="float" target="_blank" aria-label="Chat on WhatsApp"><i class="fa fa-whatsapp"></i></a>
+
+<main>
+    <section class="hero-banner-section"> <div class="hero-banner-inner-content" data-aos="fade-in" data-aos-duration="1000"> <div class="hero-ai-text">We have touched  <span class="highlight-yellow">the</span> AI </div> <div class="hero-bottom-details"> <div> <p class="tagline-hero"> <span class="highlight-yellow">Intelligence.</span> Integrated. </p> <p class="time-location-hero"> <span id="kochi-time">--:-- --</span> – KOCHI, INDIA </p> </div> </div> </div> </section>
+    <section id="section-two-cards">
+        <div class="cards-strip-wrapper">
+            <!-- Made card clickable via <a> tag wrap -->
+            <a href="service-ai-ml.html" class="slidable-card-link" tabindex="0">
+                <div class="slidable-card">
+                    <div class="card-image-container"> <img src="img/industry1.jpg" alt="Visionary AI Integration"> </div>
+                    <div class="card-heading-container"> <h3>Visionary AI Integration</h3> </div>
+                </div>
+            </a>
+            <!-- Made card clickable via <a> tag wrap -->
+            <a href="industries.html" class="slidable-card-link" tabindex="0">
+                <div class="slidable-card">
+                    <div class="card-image-container"> <img src="img/industry2.jpg" alt="Insightful Data Analytics"> </div>
+                    <div class="card-heading-container"> <h3>Partnering Across Industries.</h3> </div>
+                </div>
+            </a>
+            <!-- Made card clickable via <a> tag wrap -->
+            <a href="casestudies.html" class="slidable-card-link" tabindex="0">
+                <div class="slidable-card">
+                    <div class="card-image-container"> <img src="img/industry3.jpg" alt="Robust Cloud Infrastructure"> </div>
+                    <div class="card-heading-container"> <h3>Beyond Theory</h3> </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="services-section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Our Core Expertise</h2>
+          <p>Pioneering solutions at the intersection of technology and business strategy.</p>
+        </div>
+        <div class="row services-layout-row">
+          <div class="col-lg-6 services-images-column">
+            <div class="service-image-item" data-service="custom-software"> <img src="img/we_dev.jpg" alt="Custom Software Development"> </div>
+            <div class="service-image-item" data-service="web-dev"> <img src="img/UX-UI dev.png" alt="Web Development UX/UI"> </div>
+            <div class="service-image-item" data-service="mobile-app"> <img src="img/tharakacas.png" alt="Mobile App Development Case Study"> </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="services-content-sticky-wrapper">
+              <div id="custom-software-content" class="service-content-block">
+                <h3>Custom Software Development</h3>
+                <p>Discover our tailored solutions, designed to meet your unique business needs. Need software that fits your business like a glove? We design and build tailored software solutions to streamline operations, boost productivity, and meet your unique goals.</p>
+                <a href="service-software-dev.html" class="btn btn-warning btn-sm">Explore Solutions</a>
+              </div>
+              <div id="web-dev-content" class="service-content-block">
+                <h3>Web Development</h3> <p>Explore our comprehensive services, designed to propel your business forward. Make a lasting impression online with stunning, responsive websites. We build fast, secure, and user-friendly web experiences tailored to your vision and brand identity.</p>
+                <a href="service-web-dev.html" class="btn btn-warning btn-sm">View Web Services</a>
+              </div>
+              <div id="mobile-app-content" class="service-content-block">
+                <h3>Mobile App Development</h3>
+                <p>Discover our innovative solutions, crafted to enhance your digital presence. Reach your audience anywhere, anytime. Our team crafts intuitive, high-performance mobile apps for iOS and Android that engage users and elevate your brand significantly.</p>
+                <a href="service-app-dev.html" class="btn btn-warning btn-sm">See App Portfolio</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-four-wrapper">
+        <div id="section-four-bg"></div>
+        <div id="section-four-text-track">
+            <div class="section-four-text-container">
+                <h2 class="animated-text-reveal" id="animated-text-reveal-s4">
+                    At Crudops, our vision extends beyond code; we aim to be the most trusted digital transformation partner for businesses seeking impactful results. We envision a world where our custom software solutions and expert technology consulting empower clients to overcome complex challenges, optimize operations, and achieve unprecedented market leadership. Our commitment is to forge lasting partnerships built on delivering measurable value and future-ready platforms.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog-section-wrapper">
+        <div class="container-fluid">
+            <div class="row blog-cards-row justify-content-center">
+                <div class="col-lg-4 col-md-6 blog-card-item">
+                    <div class="blog-card-image"> <img src="img/blog1.jpg" alt="Blog Post 1 Image"> </div>
+                    <div class="blog-card-caption"> <span class="blog-card-category">ARTIFICIAL INTELLIGENCE</span> <h3 class="blog-card-title">The Future of AI in Web Development: A Deep Dive</h3> </div>
+                </div>
+                <div class="col-lg-4 col-md-6 blog-card-item">
+                    <div class="blog-card-image"> <img src="img/blog2.jpg" alt="Blog Post 2 Image"> </div>
+                    <div class="blog-card-caption"> <span class="blog-card-category">TECH NEWS</span> <h3 class="blog-card-title">Breaking Waves: Latest News in Software Development</h3> </div>
+                </div>
+                <div class="col-lg-4 col-md-6 blog-card-item">
+                    <div class="blog-card-image"> <img src="img/blog3.jpg" alt="Blog Post 3 Image"> </div>
+                    <div class="blog-card-caption"> <span class="blog-card-category">TECH NEWS</span> <h3 class="blog-card-title">Navigating the Pulse: Current Tech Market Insights
+                    </h3> </div>
+                </div>
+            </div>
+        </div>
+        <div class="see-all-blogs-container">
+            <a href="blog.html" class="see-all-blogs-link">See All Blogs</a>
+        </div>
+    </section>
+
+    <section id="case-studies-section">
+        <div class="container">
+            <div class="row section-title-row">
+                <div class="col-12">
+                    <h2 class="section-main-title">Case Studies</h2>
+                </div>
+            </div>
+            <div class="row case-studies-content-row">
+                <div class="col-lg-7 col-md-12">
+                    <!-- Wrapped in <a> tag -->
+                    <a href="casestudy-chatgpt-incident.html" class="case-study-card large-case-study">
+                        <div class="case-study-image-wrapper">
+                            <img src="img/blog1.jpg" alt="Case Study 1 Image">
+                            <span class="case-study-type-tag">Featured Case</span>
+                            <div class="case-study-tags-overlay">
+                                <span class="tag">AI Governance</span>
+                                <span class="tag">AI-Powered SDLC</span>
+                                <span class="tag">GenAI</span>
+                                <span class="tag">Cross-Industry</span>
+                            </div>
+                        </div>
+                        <div class="case-study-info-large">
+                            <div class="case-study-meta-large">
+                                <span class="case-study-client">Yurly Yuzifovich</span>
+                                <span class="case-study-date">22 May 2025</span>
+                            </div>
+                            <h3 class="case-study-title-large">
+                                What the ChatGPT 4.0 Incident Tells Us About Building with Generative AI
+                            </h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-5 col-md-12">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-6 mb-4 mb-lg-4">
+                            <!-- Wrapped in <a> tag -->
+                            <a href="casestudy-ai-adoption.html" class="case-study-card small-case-study">
+                                <div class="case-study-image-wrapper">
+                                    <img src="img/blog2.jpg" alt="Case Study 2 Image">
+                                    <span class="case-study-type-tag">Insights</span>
+                                </div>
+                                <div class="case-study-info-small">
+                                    <div class="case-study-meta-small">
+                                        <span class="case-study-client">Dr. Vanina Delobelle</span>
+                                        <span class="case-study-date">21 May 2025</span>
+                                    </div>
+                                    <h4 class="case-study-title-small">
+                                        AI Adoption: Where Digital Transformation Fails or Scales
+                                    </h4>
+                                    <p class="case-study-excerpt">
+                                        AI is transforming every industry. While companies are building applications to ...
+                                    </p>
+                                    <div class="case-study-tags-small">
+                                        <span class="tag">AI Governance</span>
+                                        <span class="tag">AI-Powered SDLC</span>
+                                        <span class="tag">Transformation Advisory</span>
+                                        <span class="tag">Cross-Industry</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-12 col-md-6">
+                            <!-- Wrapped in <a> tag -->
+                             <a href="casestudy-code-capital-change.html" class="case-study-card small-case-study">
+                                <div class="case-study-image-wrapper">
+                                    <img src="img/blog3.jpg" alt="Case Study 3 Image">
+                                     <span class="case-study-type-tag">Report</span>
+                                </div>
+                                <div class="case-study-info-small">
+                                    <div class="case-study-meta-small">
+                                        <span class="case-study-client">Mike Connors</span>
+                                        <span class="case-study-date">20 May 2025</span>
+                                    </div>
+                                    <h4 class="case-study-title-small">
+                                        Beyond Buzzwords: Why ‘Code, Capital, and Change’ Is a Strategic ...
+                                    </h4>
+                                     <p class="case-study-excerpt">
+                                        Digital transformation in financial services demands convergence of tech, ...
+                                    </p>
+                                    <div class="case-study-tags-small">
+                                        <span class="tag">AI-Powered SDLC</span>
+                                        <span class="tag">GenAI</span>
+                                        <span class="tag">Financial Services</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- View All Case Studies Button -->
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <a href="casestudies.html" class="btn btn-cta-dark-bg btn-lg">View All Case Studies</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-work-clients-section">
+        <div class="work-column">
+            <div class="work-image-carousel">
+                 <div class="work-image-slide active"><img src="img/work1.png" alt="Project 1: Real Estate Web Design"></div>
+                 <div class="work-image-slide"><img src="img/work2.png" alt="Project 2: Analytics Dashboard"></div>
+                 <div class="work-image-slide"><img src="img/work3.png" alt="Project 3: E-commerce Mobile App"></div>
+                 <div class="work-image-slide"><img src="img/work4.png" alt="Project 4: Logistics Platform"></div>
+            </div>
+            <div class="work-info-navigation-row">
+                <div class="work-details">
+                    <h3 class="work-project-title">Loading Project...</h3>
+                    <p class="work-project-categories">Loading categories...</p>
+                </div>
+                <div class="work-carousel-controls">
+                    <button class="carousel-prev-btn" aria-label="Previous Work"><</button>
+                    <span class="carousel-slide-indicator">-- / --</span>
+                    <button class="carousel-next-btn" aria-label="Next Work">></button>
+                </div>
+            </div>
+            <div class="work-carousel-progress-bar-container">
+                <div class="work-carousel-progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="marquee-column">
+            <div class="client-names-marquee-wrapper">
+                <div class="client-names-marquee-content">
+                    <!-- Client names and separators will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-main-content">
+            <div class="footer-brand-block">
+                <img src="img/logo-dark.png" alt="CrudOps Logo" class="footer-logo">
+                <p class="footer-slogan">CrudOps: Data, Design, Engineering - Driving Impact.</p>
+            </div>
+            <div class="footer-links-area">
+                <div class="footer-links-column products">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="service-ai-ml.html">AI/ML Solutions</a></li>
+                        <li><a href="service-web-dev.html">Web Development</a></li>
+                        <li><a href="service-app-dev.html">App Development</a></li>
+                        <li><a href="service-erp-dev.html">ERP Development</a></li>
+                        <li><a href="service-ecommerce-dev.html">E-Commerce</a></li>
+                        <li><a href="service-software-dev.html">Software Development</a></li>
+                    </ul>
+                    <a href="privacy.html" class="footer-legal-link">PRIVACY POLICY</a>
+                </div>
+                <div class="footer-links-column role">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="industries.html">Industries Served</a></li>
+                        <li><a href="casestudies.html">Case Studies</a></li>
+                        <li><a href="portfolio.html">Our Portfolio</a></li>
+                        <li><a href="https://medium.com/crudops" target="_blank">Blog on Medium</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                    </ul>
+                    <a href="terms.html" class="footer-legal-link">TERMS OF USE</a>
+                </div>
+                <div class="footer-links-column company">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Leadership</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                         <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <div class="footer-copyright-text">
+                <p>
+                    © <span id="currentYear"></span> CrudOps. All rights reserved. <br>
+                    CrudOps™ and the CrudOps logo are trademarks of CrudOps Pvt. Ltd.
+                </p>
+            </div>
+            <div class="footer-social-media">
+                <a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                <a href="#" aria-label="X (Twitter)"><i class="fa fa-twitter"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fa fa-github"></i></a>
+                <a href="#" aria-label="Medium"><i class="fa fa-medium"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script>
+    if (typeof AOS !== 'undefined') { AOS.init({ duration: 1000, once: true, offset: 100 }); }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const header = document.querySelector("#mainNav");
+    if (header) {
+        const add_class_on_scroll = () => header.classList.add("scrolled");
+        const remove_class_on_scroll = () => header.classList.remove("scrolled");
+        const updateNavbarAndBodyPadding = () => {
+            requestAnimationFrame(() => {
+                const currentNavbarHeight = header.offsetHeight;
+                const rootStyles = getComputedStyle(document.documentElement);
+                const navbarTopGap = parseInt(rootStyles.getPropertyValue('--navbar-top-gap').trim()) || 0;
+                let newBodyPaddingTop = navbarTopGap + currentNavbarHeight;
+                if (window.innerWidth >= 992) {
+                    document.body.style.paddingTop = `${newBodyPaddingTop}px`;
+                } else {
+                    document.body.style.paddingTop = `calc(var(--navbar-top-gap) + 60px)`;
+                }
+                document.documentElement.style.setProperty('--navbar-total-initial-offset', `${newBodyPaddingTop}px`);
+                const mainNavElForScrollSpy = document.getElementById('mainNav');
+                if (typeof bootstrap !== 'undefined' && bootstrap.ScrollSpy && mainNavElForScrollSpy) {
+                    let scrollSpyOffset = newBodyPaddingTop + 20;
+                    const bsScrollSpyInstance = bootstrap.ScrollSpy.getInstance(document.body);
+                    if (bsScrollSpyInstance) {
+                        bsScrollSpyInstance._config.offset = scrollSpyOffset;
+                        bsScrollSpyInstance.refresh();
+                    } else {
+                        try { new bootstrap.ScrollSpy(document.body, { target: '#mainNav', offset: scrollSpyOffset }); } catch (e) { /* console.error("ScrollSpy init error on resize:", e); */ }
+                    }
+                }
+            });
+        };
+        window.addEventListener('resize', updateNavbarAndBodyPadding);
+        const observer = new MutationObserver(mutationsList => {
+            for(let mutation of mutationsList) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    if (mutation.target.classList.contains('navbar-collapse')) {
+                        updateNavbarAndBodyPadding();
+                    }
+                }
+            }
+        });
+        const navbarCollapseElement = header.querySelector('.navbar-collapse');
+        if (navbarCollapseElement) {
+            observer.observe(navbarCollapseElement, { attributes: true });
+        }
+        updateNavbarAndBodyPadding();
+        let scrollpos = window.scrollY;
+        window.addEventListener('scroll', () => {
+            scrollpos = window.scrollY;
+            if (scrollpos >= (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-top-gap').trim()) || 0) / 2 ) {
+                add_class_on_scroll();
+            } else {
+                remove_class_on_scroll();
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const navLinks = document.querySelectorAll('#mainNav .nav-link');
+        if (navLinks.length > 0) { const currentPath = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1) || "index.html"; navLinks.forEach(link => { if (link.getAttribute('href') === currentPath) { link.classList.add('active'); } else { link.classList.remove('active'); } }); }
+        function updateKochiTime() { const kochiTimeEl = document.getElementById('kochi-time'); if (!kochiTimeEl) return; kochiTimeEl.textContent = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: true }); }
+        if (document.getElementById('kochi-time')) { updateKochiTime(); setInterval(updateKochiTime, 60000); }
+
+        const mouseShadow = document.getElementById('mouse-shadow');
+        if (mouseShadow && window.matchMedia("(pointer: fine)").matches) { document.addEventListener('mousemove', (e) => { requestAnimationFrame(() => { mouseShadow.style.transform = `translate(${e.clientX - (mouseShadow.offsetWidth / 2)}px, ${e.clientY - (mouseShadow.offsetHeight / 2)}px)`; }); }); } else if (mouseShadow) { mouseShadow.style.display = 'none'; }
+
+        const servicesSection = document.querySelector("#services-section");
+        if (servicesSection) {
+            const imageItems = gsap.utils.toArray(".services-images-column .service-image-item");
+            const contentBlocks = gsap.utils.toArray(".services-content-sticky-wrapper .service-content-block");
+
+            if (window.innerWidth >= 992) {
+                gsap.set(contentBlocks, { opacity: 0, visibility: 'hidden', position: 'absolute', yPercent: 20, top:0, left:0, width: '100%', height: '100%' });
+                if (contentBlocks.length > 0) { gsap.set(contentBlocks[0], { opacity: 1, visibility: 'visible', yPercent: 0, position: 'relative' }); contentBlocks[0].classList.add("is-active-gsap"); }
+
+                imageItems.forEach((imgItem, i) => { ScrollTrigger.create({ trigger: imgItem, start: "top center+=5%", end: "bottom center-=5%", onEnter: () => activateContent(i), onEnterBack: () => activateContent(i), invalidateOnRefresh: true }); });
+
+                function activateContent(activeIndex) {
+                    contentBlocks.forEach((block, i) => {
+                        const isActive = block.classList.contains("is-active-gsap");
+                        if (i === activeIndex) {
+                            if (!isActive) {
+                                gsap.killTweensOf(block); block.style.position = 'absolute';
+                                gsap.fromTo(block, { opacity: 0, yPercent: 20, visibility: 'visible' }, { opacity: 1, yPercent: 0, duration: 0.6, ease: "power2.out", onStart: () => block.style.visibility = 'visible', onComplete: () => { block.style.position = 'relative'; block.classList.add("is-active-gsap"); } });
+                            }
+                        } else {
+                            if (isActive) {
+                                gsap.killTweensOf(block); block.style.position = 'absolute';
+                                gsap.to(block, { opacity: 0, yPercent: -20, duration: 0.5, ease: "power1.in", onComplete: () => { block.style.visibility = 'hidden'; block.classList.remove("is-active-gsap"); gsap.set(block, {yPercent: 20}); } });
+                            } else { if (block.style.visibility !== 'hidden') { gsap.set(block, { opacity: 0, visibility: 'hidden', yPercent: 20, position: 'absolute' }); } }
+                        }
+                    });
+                }
+            }
+        }
+
+        const textRevealElementS4 = document.getElementById("animated-text-reveal-s4");
+        if (textRevealElementS4) {
+            if (window.innerWidth >= 992) {
+                textRevealElementS4.classList.add('gsap-gradient-wipe');
+                gsap.to(textRevealElementS4, { backgroundPosition: "0% 0%", ease: "none", scrollTrigger: { trigger: textRevealElementS4, start: "top 75%", end: "bottom 25%", scrub: true } });
+            }
+        }
+
+        const fixedLabelLeft = document.getElementById("fixed-sustainability-label-left");
+        const sectionFourWrapperEl = document.querySelector("#section-four-wrapper");
+        if (fixedLabelLeft && sectionFourWrapperEl) {
+            ScrollTrigger.create({
+                trigger: sectionFourWrapperEl, start: "top 60%", end: "bottom 40%",
+                onEnter: () => gsap.to(fixedLabelLeft, { opacity: 1, visibility: 'visible', pointerEvents: 'auto', duration: 0.4 }),
+                onLeave: () => gsap.to(fixedLabelLeft, { opacity: 0, visibility: 'hidden', pointerEvents: 'none', duration: 0.4 }),
+                onEnterBack: () => gsap.to(fixedLabelLeft, { opacity: 1, visibility: 'visible', pointerEvents: 'auto', duration: 0.4 }),
+                onLeaveBack: () => gsap.to(fixedLabelLeft, { opacity: 0, visibility: 'hidden', pointerEvents: 'none', duration: 0.4 })
+            });
+        }
+
+        const workSlidesData = [
+            { image: "img/work1.png", title: "SJP Properties Real Estate Web Design", categories: "Web Design / UI/UX / Luxury / Real Estate" },
+            { image: "img/work2.png", title: "Advanced Analytics Dashboard", categories: "Data Visualization / Business Intelligence / SaaS" },
+            { image: "img/work3.png", title: "Mobile First E-commerce App", categories: "Mobile App Development / Retail / UX Strategy" },
+            { image: "img/work4.png", title: "AI-Powered Logistics Platform", categories: "Artificial Intelligence / Web Platform / Supply Chain" }
+        ];
+
+        const workCarouselContainer = document.querySelector('#our-work-clients-section .work-image-carousel');
+        const workProjectTitleEl = document.querySelector('#our-work-clients-section .work-project-title');
+        const workProjectCategoriesEl = document.querySelector('#our-work-clients-section .work-project-categories');
+        const workSlideIndicatorEl = document.querySelector('#our-work-clients-section .carousel-slide-indicator');
+        const workPrevBtn = document.querySelector('#our-work-clients-section .carousel-prev-btn');
+        const workNextBtn = document.querySelector('#our-work-clients-section .carousel-next-btn');
+        const workProgressBarEl = document.querySelector('#our-work-clients-section .work-carousel-progress-bar');
+        let currentWorkSlideIndex = 0;
+        let workSlideInterval;
+        const autoSlideDelay = 5000;
+
+        function initWorkSlider() {
+            if (!workCarouselContainer || !workProjectTitleEl || !workProjectCategoriesEl || !workSlideIndicatorEl || !workPrevBtn || !workNextBtn || !workProgressBarEl) { return; }
+
+            // Clear inner HTML instead of using the pre-rendered slides for full JS control.
+            // If you put `img` tags directly in HTML instead of building with JS,
+            // they would load even if JS fails. However, for a fully dynamic slider,
+            // managing from JS is often easier. Keeping direct HTML for pre-existing for now.
+
+            // Only run the dynamic creation/management if we control HTML slides fully or for specific cases
+            const slidesFromHTML = document.querySelectorAll('#our-work-clients-section .work-image-carousel .work-image-slide');
+            if(slidesFromHTML.length > 0) { // If slides are in HTML directly
+                slidesFromHTML.forEach(slide => slide.classList.remove('active'));
+                if(slidesFromHTML[0]) slidesFromHTML[0].classList.add('active'); // Activate first slide
+            } else { // If not pre-rendered, build them from data
+                 workCarouselContainer.innerHTML = '';
+                 workSlidesData.forEach((slide, index) => {
+                     const slideDiv = document.createElement('div');
+                     slideDiv.classList.add('work-image-slide');
+                     if (index === 0) slideDiv.classList.add('active');
+                     const img = document.createElement('img');
+                     img.src = slide.image; img.alt = slide.title;
+                     if (index === 0) { const preloadLink = document.createElement('link'); preloadLink.rel = 'preload'; preloadLink.as = 'image'; preloadLink.href = slide.image; document.head.appendChild(preloadLink); }
+                     slideDiv.appendChild(img);
+                     workCarouselContainer.appendChild(slideDiv);
+                 });
+            }
+
+            updateWorkSliderContent();
+            startAutoSlide();
+
+            workPrevBtn.addEventListener('click', () => { showWorkSlide(currentWorkSlideIndex - 1); resetAutoSlide(); });
+            workNextBtn.addEventListener('click', () => { showWorkSlide(currentWorkSlideIndex + 1); resetAutoSlide(); });
+        }
+
+        function startAutoSlide() { stopAutoSlide(); if (workSlidesData.length > 1) { workSlideInterval = setInterval(() => { showWorkSlide(currentWorkSlideIndex + 1); }, autoSlideDelay); } }
+        function stopAutoSlide() { clearInterval(workSlideInterval); }
+        function resetAutoSlide() { stopAutoSlide(); startAutoSlide(); }
+
+        function showWorkSlide(index) {
+            if (workSlidesData.length === 0) return;
+            const slides = document.querySelectorAll('#our-work-clients-section .work-image-carousel .work-image-slide');
+            const totalSlides = slides.length;
+            if (index >= totalSlides) index = 0; else if (index < 0) index = totalSlides - 1;
+            slides.forEach(slide => slide.classList.remove('active'));
+            if(slides[index]) slides[index].classList.add('active');
+            currentWorkSlideIndex = index;
+            updateWorkSliderContent();
+        }
+
+        function updateWorkSliderContent() {
+            if (workSlidesData.length === 0 || !workSlidesData[currentWorkSlideIndex]) {
+                if (workProjectTitleEl) workProjectTitleEl.textContent = "No project data";
+                if (workProjectCategoriesEl) workProjectCategoriesEl.textContent = "";
+                if (workSlideIndicatorEl) workSlideIndicatorEl.textContent = "00 / 00";
+                if (workProgressBarEl) workProgressBarEl.style.width = `0%`;
+                return;
+            }
+            const currentData = workSlidesData[currentWorkSlideIndex];
+            if(workProjectTitleEl) workProjectTitleEl.textContent = currentData.title;
+            if(workProjectCategoriesEl) workProjectCategoriesEl.textContent = currentData.categories;
+            if(workSlideIndicatorEl) workSlideIndicatorEl.textContent = `${String(currentWorkSlideIndex + 1).padStart(2, '0')} / ${String(workSlidesData.length).padStart(2, '0')}`;
+            const progressPercentage = workSlidesData.length > 0 ? ((currentWorkSlideIndex + 1) / workSlidesData.length) * 100 : 0;
+            if(workProgressBarEl) workProgressBarEl.style.width = `${progressPercentage}%`;
+        }
+        initWorkSlider();
+
+        const clientNames = ["ringme", "aaharya", "gaming sijori", "david's lad", "KAD Homes", "Pickframes", "Super Logistics", "Snwoman"];
+        const clientMarqueeContentEl = document.querySelector('#our-work-clients-section .client-names-marquee-content');
+        if (clientMarqueeContentEl && clientNames.length > 0) {
+            clientMarqueeContentEl.innerHTML = '';
+            const addNamesWithSeparators = (namesArray) => {
+                namesArray.forEach((name) => {
+                    const nameSpan = document.createElement('span'); nameSpan.textContent = name; clientMarqueeContentEl.appendChild(nameSpan);
+                    const separatorSpan = document.createElement('span'); separatorSpan.classList.add('separator'); separatorSpan.textContent = '*'; clientMarqueeContentEl.appendChild(separatorSpan);
+                });
+            };
+            addNamesWithSeparators(clientNames); addNamesWithSeparators(clientNames);
+        } else if (clientMarqueeContentEl) { clientMarqueeContentEl.innerHTML = '<span>No client names to display.</span>'; }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function (e) { const href = this.getAttribute('href'); if (href !== "#" && href !== "#!") { /* CSS handles smooth scroll */ } }); });
+
+        if(document.getElementById('currentYear')) { document.getElementById('currentYear').textContent = new Date().getFullYear(); }
+    });
+  </script>
+</body>
+</html>
