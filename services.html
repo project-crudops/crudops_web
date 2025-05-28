@@ -1,0 +1,532 @@
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="CrudOps Services - Harnessing data, design, and engineering to drive impact for your business.">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="CrudOps Team">
+  <meta name="HandheldFriendly" content="true">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>CrudOps Services - Driving Business Impact</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <style>
+    :root {
+      --co-yellow: #FFC107;
+      --co-light-yellow-card: #ffffff; 
+      --co-dark-text: #212529; 
+      --co-subtle-text: #4B5563; 
+      --co-matte-black: #1a1a1a; 
+      --co-border-gray: #DEE2E6;
+      --co-off-white: #fdfdfd;
+      --co-medium-gray-text: #555;
+      --co-light-gray-bg: #f8f9fa;
+      --co-dark-ash: #AAAAAA; 
+      --co-blue-link: #0062ff; 
+      --co-accent-blue: #fbee3e; 
+      --co-shop-icon-blue: #4285F4; 
+      
+      --co-card-bg-services: var(--co-light-yellow-card); 
+      --co-card-text-services: var(--co-dark-text); 
+      --co-explore-gradient-start: #FFFDE7; 
+      --co-explore-gradient-end: #FFFFFF;   
+
+      --font-primary: 'Anonymous Pro', monospace;
+      --font-secondary: 'Inter', sans-serif; 
+
+      --navbar-top-gap: 20px;
+      --navbar-element-initial-height: 70px;
+      --navbar-total-initial-offset: calc(var(--navbar-top-gap) + var(--navbar-element-initial-height));
+    }
+
+    html { scroll-behavior: smooth; } 
+    body { font-family: var(--font-primary); background-color: #FFFFFF; color: var(--co-dark-text); line-height: 1.7; overflow-x: hidden; }
+    h1,h2,h3,h4,h5,h6 { font-family: var(--font-primary); font-weight: 700; color: var(--co-dark-text); margin-bottom: 1.5rem; }
+    p { margin-bottom: 1.5rem; font-weight: 400; font-family: var(--font-secondary); }
+    .force-font-primary { font-family: var(--font-primary) !important; }
+
+    #mainNav { position: fixed; top: var(--navbar-top-gap); left: 50%; transform: translateX(-50%); width: 95%; max-width: 1300px; padding: 1rem; background-color: #FFFFFF; border-radius: 0; box-shadow: 0 5px 20px rgba(0,0,0,0.08); z-index: 1050; transition: all 0.3s ease-in-out; }
+    #mainNav .container { width: 100%; padding: 0; } #mainNav .navbar-brand .logo-img { height: 38px; width:auto; transition: height 0.3s ease-in-out; } #mainNav.scrolled .navbar-brand .logo-img { height: 32px; } 
+    #mainNav .navbar-nav .nav-link { font-family: var(--font-primary); color: var(--co-dark-text); font-weight: 400; padding: 0.5rem 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.3s ease; } 
+    #mainNav .navbar-nav .nav-link:hover, #mainNav .navbar-nav .nav-link:focus { color: var(--co-yellow); } #mainNav .navbar-nav .nav-item .nav-link.active { color: var(--co-yellow); font-weight: 700; } 
+    #mainNav .navbar-nav .nav-link.crudops-hub { font-family: var(--font-primary); color: var(--co-yellow) !important; font-weight: 700; font-size: 0.9rem; } 
+    #mainNav.scrolled { padding: 0.75rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1); } .navbar-toggler { border-color: rgba(0, 0, 0, 0.1); margin-left: auto; } 
+    .nav-cta-btn { font-family: var(--font-primary); background-color: var(--co-yellow); border-color: var(--co-yellow); color: var(--co-dark-text); border-radius: 20px; font-weight: 700; padding: 0.45rem 1.3rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; transition: all 0.3s ease; } 
+    .nav-cta-btn:hover { background-color: #e0a800; border-color: #e0a800; transform: translateY(-2px); }
+
+    #mouse-shadow {
+      position: fixed;
+      /* Keep the originating element small and transparent */
+      width: 1px;
+      height: 1px;
+      background-color: transparent; /* Essential to avoid the center circle */
+      border-radius: 50%;
+      /* For an approximate 400px diameter glow: */
+      box-shadow: 0 0 200px 100px var(--co-yellow); /* blur 200px, spread 100px */
+      opacity: 0.6; /* Adjust for desired transparency of the glow */
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: transform 0.08s ease-out;
+    }    @media (pointer: coarse) { #mouse-shadow { display: none; } }
+
+    .site-footer { background-color: #FFFFFF; padding: 3rem 0 2rem 0; border-top: 1px solid var(--co-border-gray); font-family: var(--font-secondary); color: var(--co-dark-text); }
+    .site-footer .container { max-width: 1300px;  }
+    .footer-main-content { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; gap: 2rem;  }
+    .footer-brand-block { flex: 0 0 28%;  max-width: 28%; }
+    .footer-logo { max-width: 200px;  height: auto; margin-bottom: 1.2rem; }
+    .footer-slogan { font-size: 1rem;  font-weight: 500;  color: var(--co-dark-text); line-height: 1.5; margin-bottom: 0; font-family: var(--font-primary);  }
+    .footer-links-area { flex: 1; display: flex; justify-content: space-between; gap: 1.5rem;  }
+    .footer-links-column { flex: 1; min-width: 150px;  }
+    .footer-links-column h4 { font-family: var(--font-secondary); font-size: 0.8rem; font-weight: 700; color: var(--co-medium-gray-text);  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+    .footer-links-column ul { list-style: none; padding: 0; margin: 0; }
+    .footer-links-column ul li a { font-family: var(--font-secondary); font-size: 0.9rem; color: var(--co-dark-text); text-decoration: none; display: block; padding: 0.35rem 0; transition: color 0.2s ease; font-weight: 500; }
+    .footer-links-column ul li a:hover { color: var(--co-yellow); }
+    .footer-legal-link { font-family: var(--font-secondary); display: block; font-size: 0.8rem; font-weight: 500; color: var(--co-medium-gray-text); text-decoration: none; margin-top: 1rem;  padding: 0.35rem 0; transition: color 0.2s ease; }
+    .footer-legal-link:hover { color: var(--co-yellow); }
+    .footer-bottom-bar { display: flex; justify-content: space-between; align-items: flex-end;  padding-top: 2rem; border-top: 1px solid var(--co-border-gray); }
+    .footer-copyright-text p { font-family: var(--font-secondary); font-size: 0.75rem;  color: #707070;  line-height: 1.6; margin: 0; }
+    .footer-social-media { display: flex; align-items: center; }
+    .footer-social-media a { color: var(--co-dark-text); margin-left: 1rem;  font-size: 1.1rem;  text-decoration: none; transition: color 0.2s ease; }
+    .footer-social-media a:first-child { margin-left: 0; }
+    .footer-social-media a:hover { color: var(--co-yellow); }
+    
+    /* === SERVICES PAGE SPECIFIC STYLES START === */
+    .services-hero-section { background-color: #FFFFFF; padding: 8rem 0; min-height: 70vh; display: flex; align-items: center; }
+    .services-hero-content { max-width: 800px; }
+    .services-eyebrow-text { font-family: var(--font-secondary); font-size: clamp(0.9rem, 1.5vw, 1rem); font-weight: 500; color: var(--co-subtle-text); margin-bottom: 1rem; letter-spacing: 0.02em; }
+    .services-main-heading { font-family: var(--font-secondary); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; color: var(--co-dark-text); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0; }
+
+    .explore-services-section { padding: 6rem 0; background: linear-gradient(135deg, var(--co-explore-gradient-start) 0%, var(--co-explore-gradient-end) 70%); }
+    .explore-services-intro-title { font-family: var(--font-secondary); font-size: clamp(2.8rem, 6vw, 4rem); font-weight: 700; color: var(--co-dark-text); line-height: 1.2; margin-bottom: 1.5rem; }
+    .explore-services-intro-text { font-family: var(--font-secondary); font-size: clamp(1rem, 1.8vw, 1.15rem); color: var(--co-medium-gray-text); line-height: 1.7; margin-bottom: 0; }
+    .service-card-link { text-decoration: none; color: inherit; display: block; height: 100%; transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; border-radius: 8px; }
+    .service-card-link:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .service-card-item { background-color: var(--co-card-bg-services); color: var(--co-card-text-services); padding: 1.8rem; display: flex; margin-bottom: 1.5rem; height: 100%; border-radius: 8px; border: 1px solid var(--co-dark-text); }
+    .service-card-image { flex: 0 0 100px; height: 100px; margin-right: 1.5rem; overflow: hidden; border-radius: 4px; }
+    .service-card-image img { width: 100%; height: 100%; object-fit: cover; }
+    .service-card-content { flex-grow: 1; }
+    .service-card-title { font-family: var(--font-primary); font-size: clamp(1.1rem, 2vw, 1.3rem); font-weight: 700; color: var(--co-card-text-services); margin-bottom: 0.6rem; line-height: 1.3; }
+    .service-card-description { font-family: var(--font-secondary); font-size: clamp(0.85rem, 1.5vw, 0.95rem); color: var(--co-card-text-services); opacity: 0.85; line-height: 1.6; margin-bottom: 0; }
+
+    .find-look-section { padding: 6rem 0; background-color: #FFFFFF; overflow: hidden; }
+    .find-look-image-col { position: relative; display: flex; justify-content: center; align-items: center; }
+    .find-look-visual-wrapper { position: relative; width: 100%; max-width: 380px; display: flex; align-items: center; justify-content: center; }
+    .find-look-main-image-container { width: 280px; height: 520px; border-radius: 40px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; z-index: 5; }
+    .find-look-main-image-container img { width: 100%; height: 100%; object-fit: cover; }
+    .find-look-shop-icon { position: absolute; top: 20px; right: 20px; background-color: var(--co-shop-icon-blue); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 10; }
+    .find-look-scan-line { position: absolute; left: 50%; top: 15%; width: 2px; height: 30px; background-color: rgba(255,255,255,0.8); transform: translateX(-50%); border-radius: 1px; animation: scanAnimation 2.5s ease-in-out infinite alternate; z-index: 7; }
+    @keyframes scanAnimation { from { top: 15%; } to { top: 80%; } }
+    .find-look-product-card { background-color: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); width: 140px; padding: 0; margin: 0 10px; position: absolute; z-index: 10; overflow: hidden; }
+    
+    /* Default product card positions (for image on left) */
+    .find-look-image-col.image-col-left .find-look-product-card.card1 { right: -70px; top: 10%;}
+    .find-look-image-col.image-col-left .find-look-product-card.card2 { right: -50px; top: 45%;}
+
+    /* Flipped product card positions (for image on right) */
+    .find-look-image-col.image-col-right .find-look-product-card.card1 { left: -70px; right: auto; top: 10%;}
+    .find-look-image-col.image-col-right .find-look-product-card.card2 { left: -50px; right: auto; top: 45%;}
+    /* Additional card positions if needed for variation */
+    .find-look-image-col.image-col-right .find-look-product-card.alt-card1 { left: -65px; right: auto; top:12%; }
+    .find-look-image-col.image-col-right .find-look-product-card.alt-card2 { left: -55px; right: auto; top:50%; }
+
+
+    .find-look-product-card img { width: 100%; height: 130px; object-fit: cover; }
+    .find-look-product-info { padding: 10px; }
+    .product-price-tag { font-size: 0.75rem; color: var(--co-medium-gray-text); font-family: var(--font-secondary); font-weight: 600; display: flex; align-items: center; margin-bottom: 5px; }
+    .product-price-tag .fa { margin-right: 5px; color: #999; } 
+    .product-description { font-size: 0.75rem; color: var(--co-subtle-text); font-family: var(--font-secondary); line-height: 1.4; }
+    .product-color-swatch { width: 12px; height: 12px; border-radius: 3px; background-color: #e0e0e0; margin-right: 5px; display: inline-block; }
+    
+    .find-look-image-col::before, .find-look-image-col::after { content: ''; position: absolute; background-color: var(--co-accent-blue); opacity: 0.6; border-radius: 35% 65% 30% 70% / 60% 40% 60% 40%; z-index: 1; }
+    /* Blobs for image on the left */
+    .find-look-image-col.image-col-left::before { width: 180px; height: 150px; top: -40px; left: -60px; transform: rotate(-30deg); }
+    .find-look-image-col.image-col-left::after { width: 220px; height: 180px; bottom: -70px; left: -100px; transform: rotate(20deg); border-radius: 50% 50% 30% 70% / 30% 70% 30% 70%;  }
+    /* Blobs for image on the right */
+    .find-look-image-col.image-col-right::before { width: 180px; height: 150px; top: -40px; right: -60px; left:auto; transform: rotate(30deg); }
+    .find-look-image-col.image-col-right::after { width: 220px; height: 180px; bottom: -70px; right: -100px; left:auto; transform: rotate(-20deg); border-radius: 50% 50% 70% 30% / 70% 30% 70% 30%; }
+
+    .find-look-text-col { display: flex; flex-direction: column; justify-content: center; }
+    .find-look-title { font-family: var(--font-primary); font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700; color: var(--co-dark-text); line-height: 1.25; margin-bottom: 1.5rem; }
+    .find-look-description { font-family: var(--font-secondary); font-size: clamp(1rem, 1.7vw, 1.1rem); color: var(--co-medium-gray-text); line-height: 1.7; max-width: 480px; }
+    /* === SERVICES PAGE SPECIFIC STYLES END === */
+
+    /* --- MOBILE STYLES --- */
+    @media (max-width: 991.98px) {
+      body { padding-top: calc(var(--navbar-top-gap) + 60px); } 
+      #mainNav { width: 95%; padding: 0.75rem; max-width: calc(100% - 20px); border-radius: 0; } 
+      #mainNav .navbar-brand .logo-img { height: 32px; } 
+      #mainNav .navbar-collapse { background-color: #FFFFFF; padding: 1rem; margin-top: 0.75rem; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: absolute; top: 100%; left: 0; right: 0; width: 100%; } 
+      #mainNav .navbar-nav .nav-item { margin-bottom: 0.3rem; } 
+      #mainNav .navbar-nav .nav-link { padding: 0.6rem 0.5rem; font-size: 0.9rem; } 
+      #mainNav .navbar-collapse .d-lg-flex { margin-top: 1rem; display: block !important; text-align: center; } 
+      #mainNav .navbar-collapse .nav-cta-btn { width: 100%; display: block; margin: 0.5rem auto 0; font-size: 0.9rem; }
+      
+      .services-hero-section { padding: 5rem 0; min-height: auto; text-align: left; }
+      .services-main-heading { font-size: clamp(2rem, 8vw, 3.2rem); }
+
+      .explore-services-section { padding: 4rem 1rem; }
+      .explore-services-intro-title { font-size: clamp(2.2rem, 7vw, 3rem); text-align: center; }
+      .explore-services-intro-text { text-align: center; margin-bottom: 3rem; } 
+      .service-card-item { flex-direction: column; text-align: center; }
+      .service-card-image { margin-right: 0; margin-bottom: 1.2rem; margin-left: auto; margin-right: auto; }
+
+      .find-look-section { padding: 4rem 1rem; }
+      .find-look-image-col { margin-bottom: 3rem; order: 1 !important;} 
+      .find-look-text-col { text-align: center; order: 2 !important; }
+      .find-look-title { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+      .find-look-visual-wrapper { margin: 0 auto; }
+      .find-look-main-image-container { width: 240px; height: 450px; }
+      .find-look-product-card { width: 120px; }
+      /* Universal mobile product card positioning - always to the right of main image for simplicity */
+      .find-look-image-col .find-look-product-card.card1 { right: -40px; top: 8%; left: auto; }
+      .find-look-image-col .find-look-product-card.card2 { right: -30px; top: 40%; left: auto; }
+      .find-look-image-col .find-look-product-card.alt-card1 { right: -40px; top: 12%; left: auto;}
+      .find-look-image-col .find-look-product-card.alt-card2 { right: -30px; top: 50%; left: auto;}
+      .find-look-image-col::before, .find-look-image-col::after { display: none; }
+
+      /* --- FOOTER MOBILE STYLES --- */
+      .footer-main-content { flex-direction: column; align-items: flex-start;  gap: 0;  }
+      .footer-brand-block { flex-basis: auto; width: 100%; max-width: 100%; margin-bottom: 2rem; }
+      .footer-links-area { flex-direction: column; width: 100%; gap: 0; }
+      .footer-links-column { width: 100%; margin-bottom: 2rem; }
+      .footer-links-column:last-child { margin-bottom: 0; }
+      .footer-bottom-bar { flex-direction: column; align-items: flex-start;  text-align: left;  }
+      .footer-copyright-text { margin-bottom: 1.5rem; }
+      .footer-social-media { width: 100%; justify-content: flex-start;  }
+      .footer-social-media a { margin-left: 0; margin-right: 1rem;  }
+    }
+    /* --- END MOBILE STYLES --- */
+
+    .float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 8px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <div id="mouse-shadow"></div>
+
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-light"> <div class="container d-flex justify-content-between align-items-center"> <a class="navbar-brand" href="index.html"> <img src="./img/logo-dark.png" alt="CrudOps Logo" class="logo-img"> </a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="navbarSupportedContent"> <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0"> <li class="nav-item"> <a class="nav-link" href="services.html">Services</a> </li> <li class="nav-item"> <a class="nav-link" href="industries.html">Industries</a> </li> <li class="nav-item"> <a class="nav-link" href="about.html">About Us</a> </li> <li class="nav-item"> <a class="nav-link crudops-hub" href="index.html">Crudops Hub</a> </li> <li class="nav-item"> <a class="nav-link" href="casestudies.html">Case Studies</a> </li> <li class="nav-item"> <a class="nav-link" href="portfolio.html">Portfolio</a> </li> <li class="nav-item"> <a class="nav-link" href="blog.html">Blogs</a> </li></ul> <div class="d-lg-flex align-items-center"> <a href="contact.html" class="btn nav-cta-btn btn-sm">Contact Us</a> </div> </div> </div> </nav>
+  <a href="https://api.whatsapp.com/send?phone=+916238575185&text=Hi" class="float" target="_blank"><i class="fa fa-whatsapp"></i></a>
+
+<main>
+    <section class="services-hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10"> 
+                    <div class="services-hero-content">
+                        <p class="services-eyebrow-text">Services</p>
+                        <h1 class="services-main-heading">
+                            Harness our unique strengths across data, design, and engineering to drive impact for your business
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="explore-services-section">
+        <div class="container">
+            <div class="row align-items-center"> 
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h2 class="explore-services-intro-title">Explore our services</h2>
+                    <p class="explore-services-intro-text">
+                        Unlock the power of data, design, and engineering to fuel innovation and drive meaningful outcomes for your business.
+                    </p>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <!-- Service Cards ... -->
+                        <div class="col-md-6"> <a href="service-ai-ml.html" class="service-card-link"> <div class="service-card-item"> <div class="service-card-image"> <img src="img/we_dev.jpg" alt="AI and Machine Learning Solutions"> </div> <div class="service-card-content"> <h4 class="service-card-title">AI/ML</h4> <p class="service-card-description">Leverage Artificial Intelligence and Machine Learning for advanced insights and automation.</p> </div> </div> </a> </div>
+                        <div class="col-md-6"> <a href="service-web-dev.html" class="service-card-link"> <div class="service-card-item"> <div class="service-card-image"> <img src="img/we_dev.jpg" alt="Custom Web Development"> </div> <div class="service-card-content"> <h4 class="service-card-title">Web Development</h4> <p class="service-card-description">Custom web solutions, from dynamic websites to complex web applications.</p> </div> </div> </a> </div>
+                        <div class="col-md-6"> <a href="service-app-dev.html" class="service-card-link"> <div class="service-card-item"> <div class="service-card-image"> <img src="img/we_dev.jpg" alt="Mobile App Development"> </div> <div class="service-card-content"> <h4 class="service-card-title">App Development</h4> <p class="service-card-description">Innovative mobile applications for iOS and Android platforms to engage your audience.</p> </div> </div> </a> </div>
+                        <div class="col-md-6"> <a href="service-erp-dev.html" class="service-card-link"> <div class="service-card-item"> <div class="service-card-image"> <img src="img/we_dev.jpg" alt="ERP System Development"> </div> <div class="service-card-content"> <h4 class="service-card-title">ERP Development</h4> <p class="service-card-description">Tailored Enterprise Resource Planning systems to streamline your business operations.</p> </div> </div> </a> </div>
+                        <div class="col-md-6"> <a href="service-ecommerce-dev.html" class="service-card-link"> <div class="service-card-item"> <div class="service-card-image"> <img src="img/we_dev.jpg" alt="E-Commerce Platform Development"> </div> <div class="service-card-content"> <h4 class="service-card-title">E-Commerce Development</h4> <p class="service-card-description">Robust e-commerce platforms to drive online sales and customer engagement.</p> </div> </div> </a> </div>
+                        <div class="col-md-6"> <a href="service-software-dev.html" class="service-card-link"> <div class="service-card-item"> <div class="service-card-image"> <img src="img/we_dev.jpg" alt="Bespoke Software Development"> </div> <div class="service-card-content"> <h4 class="service-card-title">Custom Software Development</h4> <p class="service-card-description">Custom software solutions to meet unique business needs and drive innovation.</p> </div> </div> </a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Find a Look You Like (Image Left, Text Right) -->
+    <section class="find-look-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 find-look-image-col image-col-left">
+                    <div class="find-look-visual-wrapper">
+                        <div class="find-look-main-image-container">
+                            <img src="img/blog1.jpg" alt="Model in blue suit on a staircase">
+                            <div class="find-look-shop-icon"> <i class="fa fa-shopping-cart"></i> </div>
+                            <div class="find-look-scan-line"></div>
+                        </div>
+                        <div class="find-look-product-card card1"> <img src="img/cover-1.png" alt="Blue oversized blazer top"> 
+                         
+                        </div>
+                        <div class="find-look-product-card card2"> <img src="img/blog2.jpg" alt="Women blue loose cotton blazer">
+                           
+                          </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 find-look-text-col">
+                    <h2 class="find-look-title">Find a look you like</h2>
+                    <p class="find-look-description"> See an outfit that's caught your eye? Or a chair that's perfect for your living room? Get inspired by similar clothes, furniture, and home decor—without having to type what you're looking for. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Flipped Version (Text Left, Image Right) -->
+    <section class="find-look-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 find-look-text-col order-lg-1"> 
+                    <h2 class="find-look-title">Discover Your Style Instantly</h2> 
+                    <p class="find-look-description"> Our visual search helps you pinpoint items you love, from fashion to furniture, making shopping intuitive and effortless. Explore curated collections based on what inspires you. </p>
+                </div>
+                 <div class="col-lg-6 find-look-image-col image-col-right order-lg-2"> 
+                    <div class="find-look-visual-wrapper">
+                        <div class="find-look-main-image-container">
+                            <img src="img/cover-1.png" alt="Alternative model look or home decor item">
+                            <div class="find-look-shop-icon"> <i class="fa fa-search"></i> </div>
+                             <div class="find-look-scan-line" style="animation-delay: -1s;"></div>
+                        </div>
+                        <div class="find-look-product-card card1"> <img src="img/blog1.png" alt="Accessory item"> 
+                         
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Text Left, Image Right (Flipped version of Section 3) -->
+    <section class="find-look-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 find-look-text-col order-lg-1"> <!-- Text first on large -->
+                    <h2 class="find-look-title">Curate Your Space</h2> 
+                    <p class="find-look-description"> Effortlessly find furniture and decor that match your vision. Our smart tools help you visualize and select the perfect pieces to complete any room, bringing your design ideas to life. </p>
+                </div>
+                <div class="col-lg-6 find-look-image-col image-col-right order-lg-2"> <!-- Image second, styled for right placement -->
+                    <div class="find-look-visual-wrapper">
+                        <div class="find-look-main-image-container">
+                            <img src="img/blog1.jpg" alt="Stylish home decor items"> 
+                            <div class="find-look-shop-icon"> <i class="fa fa-home"></i> </div>
+                            <div class="find-look-scan-line" style="animation-delay: -0.5s;"></div>
+                        </div>
+                        <div class="find-look-product-card alt-card1"> <img src="img/cover-1.png" alt="Sofa">
+                           
+                      </div>
+                        <div class="find-look-product-card alt-card2"> <img src="img/blog1.png" alt="Floor lamp"> 
+                          
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Image Left, Text Right (Flipped version of Section 4) -->
+    <section class="find-look-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 find-look-image-col image-col-left order-lg-1"> <!-- Image first on large -->
+                     <div class="find-look-visual-wrapper">
+                        <div class="find-look-main-image-container">
+                            <img src="img/blog1.jpg" alt="Collection of modern gadgets"> 
+                            <div class="find-look-shop-icon"> <i class="fa fa-mobile"></i> </div>
+                            <div class="find-look-scan-line" style="animation-delay: -1.5s;"></div>
+                        </div>
+                        <div class="find-look-product-card card1"> <img src="img/cover-1.png" alt="Smart watch">
+                           </div>
+                        <div class="find-look-product-card card2"> <img src="img/blog2.jpg" alt="Wireless headphones"> 
+                          
+                         </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 find-look-text-col order-lg-2"> <!-- Text second on large -->
+                    <h2 class="find-look-title">Tech That Complements Life</h2> 
+                    <p class="find-look-description"> Discover the latest gadgets and tech accessories that seamlessly integrate into your lifestyle. Find smart solutions that enhance productivity and entertainment. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-main-content">
+            <div class="footer-brand-block">
+                <img src="img/logo-dark.png" alt="Fastbreak AI Logo" class="footer-logo">
+                <p class="footer-slogan">Fastbreak Is The Ultimate AI-Powered Sports Engine</p>
+            </div>
+            <div class="footer-links-area">
+                <div class="footer-links-column products">
+                    <h4>PRODUCTS</h4>
+                    <ul>
+                        <li><a href="#">COMPETE</a></li>
+                        <li><a href="#">PRO</a></li>
+                        <li><a href="#">CONNECT</a></li>
+                        <li><a href="#">PULSE</a></li>
+                        <li><a href="#">TRAVEL</a></li>
+                        <li><a href="#">TICKETS</a></li>
+                        <li><a href="#">MOBILE APPS</a></li>
+                    </ul>
+                    <a href="#" class="footer-legal-link">PRIVACY POLICY</a>
+                </div>
+                <div class="footer-links-column role">
+                    <h4>ROLE</h4>
+                    <ul>
+                        <li><a href="#">YOUTH + AMATEUR SPORTS</a></li>
+                        <li><a href="#">PRO SPORTS</a></li>
+                        <li><a href="#">TOURNAMENT OPERATORS</a></li>
+                        <li><a href="#">CONSUMER BRANDS</a></li>
+                        <li><a href="#">TRAVEL MANAGERS</a></li>
+                        <li><a href="#">TOURISM BOARDS & VISITORS BUREAUS</a></li>
+                        <li><a href="#">FOUNDATIONS</a></li>
+                    </ul>
+                    <a href="#" class="footer-legal-link">TERMS OF USE</a>
+                </div>
+                <div class="footer-links-column company">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">ABOUT US</a></li>
+                        <li><a href="#">LEADERSHIP</a></li>
+                        <li><a href="#">BLOG</a></li>
+                        <li><a href="#">NEWS & PRESS</a></li>
+                        <li><a href="#">IMPACT</a></li>
+                        <li><a href="#">CAREERS</a></li>
+                        <li><a href="#">CONTACT</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <div class="footer-copyright-text">
+                <p>
+                    © 2025 Fastbreak.ai, Inc. All rights reserved. <br>
+                    Fastbreak AI™, Fastbreak Pro™, Fastbreak Compete™, Fastbreak Connect™, Fastbreak Impact™, Fastbreak Pulse™, Easy Event Tickets™, and other product names and logos are trademarks or registered trademarks of Fastbreak.ai, Inc. All other trademarks are the property of their respective owners.
+                </p>
+            </div>
+            <div class="footer-social-media">
+                <a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                <a href="#" aria-label="X (Twitter)"><i class="fa fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fa fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+                <a href="#" aria-label="Email"><i class="fa fa-at"></i></a>
+                <a href="#" aria-label="Custom Platform"><i class="fa fa-leaf"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Moved GSAP and Header logic outside DOMContentLoaded for early execution
+    gsap.registerPlugin(ScrollTrigger); 
+
+    const header = document.querySelector("#mainNav"); 
+    if (header) { 
+        const add_class_on_scroll = () => header.classList.add("scrolled"); 
+        const remove_class_on_scroll = () => header.classList.remove("scrolled"); 
+        const updateNavbarAndBodyPadding = () => { 
+            requestAnimationFrame(() => { 
+                const currentNavbarHeight = header.offsetHeight; 
+                const rootStyles = getComputedStyle(document.documentElement); 
+                const navbarTopGap = parseInt(rootStyles.getPropertyValue('--navbar-top-gap').trim()) || 0; 
+                let newBodyPaddingTop = navbarTopGap + currentNavbarHeight; 
+                if (window.innerWidth >= 992) { 
+                    document.body.style.paddingTop = `${newBodyPaddingTop}px`;
+                } else {
+                    document.body.style.paddingTop = `calc(var(--navbar-top-gap) + 60px)`; 
+                }
+                document.documentElement.style.setProperty('--navbar-total-initial-offset', `${newBodyPaddingTop}px`); 
+                const mainNavElForScrollSpy = document.getElementById('mainNav'); 
+                if (typeof bootstrap !== 'undefined' && bootstrap.ScrollSpy && mainNavElForScrollSpy) { 
+                    let scrollSpyOffset = newBodyPaddingTop + 20; 
+                    const bsScrollSpyInstance = bootstrap.ScrollSpy.getInstance(document.body); 
+                    if (bsScrollSpyInstance) { 
+                        bsScrollSpyInstance._config.offset = scrollSpyOffset; 
+                        bsScrollSpyInstance.refresh(); 
+                    } else { 
+                        try { new bootstrap.ScrollSpy(document.body, { target: '#mainNav', offset: scrollSpyOffset }); } catch (e) { /* console.warn("ScrollSpy init error:", e); */ } 
+                    } 
+                } 
+            }); 
+        }; 
+        window.addEventListener('resize', updateNavbarAndBodyPadding); 
+        const observer = new MutationObserver(mutationsList => { 
+            for(let mutation of mutationsList) { 
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') { 
+                    if (mutation.target.classList.contains('navbar-collapse')) { 
+                        updateNavbarAndBodyPadding(); 
+                    } 
+                } 
+            } 
+        }); 
+        const navbarCollapseElement = header.querySelector('.navbar-collapse'); 
+        if (navbarCollapseElement) { 
+            observer.observe(navbarCollapseElement, { attributes: true }); 
+        } 
+        updateNavbarAndBodyPadding(); 
+        let scrollpos = window.scrollY; 
+        window.addEventListener('scroll', () => { 
+            scrollpos = window.scrollY; 
+            if (scrollpos >= (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-top-gap').trim()) || 0) / 2 ) { 
+                add_class_on_scroll(); 
+            } else { 
+                remove_class_on_scroll(); 
+            } 
+        }); 
+    }
+    
+    document.addEventListener("DOMContentLoaded", function() { 
+        const navLinks = document.querySelectorAll('#mainNav .nav-link'); 
+        if (navLinks.length > 0) { 
+            const currentPath = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1) || "index.html"; 
+            navLinks.forEach(link => { 
+                if (link.getAttribute('href') === currentPath || (currentPath === "services.html" && link.getAttribute('href') === "services.html") ) { 
+                    link.classList.add('active'); 
+                } else { 
+                    link.classList.remove('active'); 
+                } 
+            }); 
+        } 
+        
+        const mouseShadow = document.getElementById('mouse-shadow'); 
+        if (mouseShadow && window.matchMedia("(pointer: fine)").matches) { 
+            document.addEventListener('mousemove', (e) => { 
+                requestAnimationFrame(() => { 
+                    mouseShadow.style.transform = `translate(${e.clientX - (mouseShadow.offsetWidth / 2)}px, ${e.clientY - (mouseShadow.offsetHeight / 2)}px)`; 
+                }); 
+            }); 
+        } else if (mouseShadow) { 
+            mouseShadow.style.display = 'none'; 
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== "#" && href !== "#!" && document.querySelector(href)) { 
+                }
+            });
+        });
+    });
+  </script>
+</body>
+</html>

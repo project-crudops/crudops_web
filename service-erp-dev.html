@@ -1,0 +1,385 @@
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="Expert ERP Development services by CrudOps - streamlining your business operations with integrated, customized Enterprise Resource Planning solutions.">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="CrudOps Team">
+  <meta name="HandheldFriendly" content="true">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>ERP Development - CrudOps Services</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <style>
+    :root {
+      --co-yellow: #FFC107;
+      --co-light-yellow-card: #ffffff;
+      --co-dark-text: #212529;
+      --co-subtle-text: #4B5563;
+      --co-matte-black: #1a1a1a;
+      --co-border-gray: #DEE2E6;
+      --co-off-white: #fdfdfd;
+      --co-medium-gray-text: #555;
+      --co-light-gray-bg: #f8f9fa;
+
+      --co-erp-primary: #34495E; /* Dark blue/gray, robust */
+      --co-erp-secondary: #2C3E50; /* Even darker, background CTA */
+      --co-erp-accent: var(--co-yellow); /* Using theme yellow for accent consistency */
+      --co-erp-bg-subtle: #ECF0F1; /* Very light gray */
+
+      --font-primary: 'Anonymous Pro', monospace;
+      --font-secondary: 'Inter', sans-serif;
+
+      --navbar-top-gap: 20px;
+      --navbar-element-initial-height: 70px;
+      --navbar-total-initial-offset: calc(var(--navbar-top-gap) + var(--navbar-element-initial-height));
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-secondary); background-color: #FFFFFF; color: var(--co-dark-text); line-height: 1.7; overflow-x: hidden; padding-top: var(--navbar-total-initial-offset); }
+    h1,h2,h3,h4,h5,h6 { font-family: var(--font-primary); font-weight: 700; color: var(--co-dark-text); margin-bottom: 1.5rem; }
+    p { margin-bottom: 1.5rem; font-weight: 400; font-family: var(--font-secondary); }
+    .force-font-primary { font-family: var(--font-primary) !important; }
+
+    /* Navbar Styles (Same as before) */
+    #mainNav { position: fixed; top: var(--navbar-top-gap); left: 50%; transform: translateX(-50%); width: 95%; max-width: 1300px; padding: 1rem; background-color: #FFFFFF; border-radius: 0; box-shadow: 0 5px 20px rgba(0,0,0,0.08); z-index: 1050; transition: all 0.3s ease-in-out; }
+    #mainNav .container { width: 100%; padding: 0; } #mainNav .navbar-brand .logo-img { height: 38px; width:auto; transition: height 0.3s ease-in-out; } #mainNav.scrolled .navbar-brand .logo-img { height: 32px; }
+    #mainNav .navbar-nav .nav-link { font-family: var(--font-primary); color: var(--co-dark-text); font-weight: 400; padding: 0.5rem 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.3s ease; }
+    #mainNav .navbar-nav .nav-link:hover, #mainNav .navbar-nav .nav-link:focus { color: var(--co-yellow); } #mainNav .navbar-nav .nav-item .nav-link.active { color: var(--co-yellow); font-weight: 700; }
+    #mainNav .navbar-nav .nav-link.crudops-hub { font-family: var(--font-primary); color: var(--co-yellow) !important; font-weight: 700; font-size: 0.9rem; }
+    #mainNav.scrolled { padding: 0.75rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1); } .navbar-toggler { border-color: rgba(0, 0, 0, 0.1); margin-left: auto; }
+    .nav-cta-btn { font-family: var(--font-primary); background-color: var(--co-yellow); border-color: var(--co-yellow); color: var(--co-dark-text); border-radius: 20px; font-weight: 700; padding: 0.45rem 1.3rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; transition: all 0.3s ease; }
+    .nav-cta-btn:hover { background-color: #e0a800; border-color: #e0a800; transform: translateY(-2px); }
+
+    #mouse-shadow { position: fixed; width: 1px; height: 1px; background-color: transparent; border-radius: 50%; box-shadow: 0 0 200px 100px var(--co-yellow); opacity: 0.6; pointer-events: none; transform: translate(-50%, -50%); z-index: 9999; transition: transform 0.08s ease-out; }
+    @media (pointer: coarse) { #mouse-shadow { display: none; } }
+
+    /* --- ERP Development Service Page Specific Styles --- */
+    .erp-hero-section {
+        background-color: var(--co-off-white);
+        padding: 6rem 0 4rem; min-height: 60vh; display: flex;
+        align-items: center; text-align: center;
+    }
+    .erp-hero-content h1 {
+        font-family: var(--font-secondary); font-size: clamp(2.8rem, 7vw, 4.8rem); font-weight: 800;
+        color: var(--co-dark-text); line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 1.5rem;
+    }
+    .erp-hero-content .highlight-erp { color: var(--co-erp-accent); }
+    .erp-hero-content p.lead {
+        font-family: var(--font-secondary); font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--co-subtle-text);
+        max-width: 750px; margin: 0 auto 2.5rem auto; font-weight: 400;
+    }
+    .btn-erp-cta {
+        font-family: var(--font-primary); background-color: var(--co-erp-accent); color: var(--co-dark-text);
+        border-color: var(--co-erp-accent); padding: 0.9rem 2.2rem; font-size: 1rem; font-weight: 700;
+        text-transform: uppercase; border-radius: 25px; transition: all 0.3s ease;
+    }
+    .btn-erp-cta:hover { background-color: #e0a800; border-color: #e0a800; transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+
+    .section-padding { padding: 5rem 0; }
+    .section-bg-light { background-color: var(--co-light-gray-bg); }
+    .section-bg-white { background-color: #FFFFFF; }
+
+    .section-heading { text-align: center; margin-bottom: 4rem; }
+    .section-heading h2 { font-family: var(--font-secondary); font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; color: var(--co-dark-text); margin-bottom: 0.75rem; }
+    .section-heading h2::after { content: ''; display: block; width: 70px; height: 4px; background-color: var(--co-erp-accent); margin: 1rem auto 0 auto; }
+    .section-heading p.lead { font-family: var(--font-secondary); font-size: clamp(1rem, 1.8vw, 1.15rem); color: var(--co-medium-gray-text); max-width: 700px; margin-left: auto; margin-right: auto; }
+
+    .benefit-item { text-align: center; margin-bottom: 2.5rem; }
+    .benefit-item .icon { font-size: 2.5rem; color: var(--co-erp-accent); margin-bottom: 1rem; display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem; background-color: var(--co-off-white); border-radius: 50%; width: 80px; height: 80px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .benefit-item h4 { font-family: var(--font-primary); font-size: 1.3rem; font-weight: 700; color: var(--co-dark-text); margin-bottom: 0.5rem; }
+    .benefit-item p { font-family: var(--font-secondary); font-size: 0.95rem; color: var(--co-subtle-text); margin-bottom: 0; }
+
+    /* Understanding ERP Section */
+    .understanding-erp-section .content-block { margin-bottom: 2.5rem; }
+    .understanding-erp-section h3 { font-family: var(--font-primary); font-size: clamp(1.6rem, 3.5vw, 2.2rem); color: var(--co-dark-text); margin-bottom: 1rem; position: relative; padding-bottom: 0.5rem; }
+    .understanding-erp-section h3::before { content: ''; display: block; width: 50px; height: 3px; background-color: var(--co-erp-accent); position: absolute; bottom: 0; left: 0; }
+    .text-center .understanding-erp-section h3::before { left: 50%; transform: translateX(-50%); }
+    .understanding-erp-section p { font-family: var(--font-secondary); font-size: clamp(0.95rem, 1.8vw, 1.1rem); color: var(--co-medium-gray-text); line-height: 1.8; }
+    .understanding-erp-section ul { list-style: none; padding-left: 0; font-family: var(--font-secondary); font-size: clamp(0.95rem, 1.8vw, 1.05rem); color: var(--co-medium-gray-text); }
+    .understanding-erp-section ul li { padding-left: 1.8rem; position: relative; margin-bottom: 0.75rem; }
+    .understanding-erp-section ul li::before { content: '\f108'; /* FontAwesome puzzle piece icon for modules or integration */ font-family: 'FontAwesome'; color: var(--co-erp-accent); position: absolute; left: 0; top: 2px; font-size: 1rem; }
+    .understanding-erp-section .lead-text-highlight { font-style: italic; color: var(--co-dark-text); font-weight: 500; display: block; margin-top: 1.5rem; border-left: 3px solid var(--co-erp-accent); padding-left: 1rem; }
+
+    /* ERP Projects Showcase */
+    .project-card { background-color: #FFFFFF; border: 1px solid var(--co-border-gray); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%; display: flex; flex-direction: column; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    .project-card-icon { font-size: 2rem; color: var(--co-erp-accent); margin-bottom: 1rem; }
+    .project-card-title { font-family: var(--font-primary); font-size: 1.4rem; font-weight: 700; color: var(--co-dark-text); margin-bottom: 0.75rem; line-height: 1.3; }
+    .project-card-description { font-family: var(--font-secondary); font-size: 0.9rem; color: var(--co-medium-gray-text); line-height: 1.6; margin-bottom: 0; flex-grow: 1; }
+
+    .tech-logo-grid { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem; }
+    .tech-logo-item { opacity: 0.7; transition: opacity 0.3s ease; flex: 0 0 100px; text-align: center; }
+    .tech-logo-item img { max-width: 80px; max-height: 60px; filter: grayscale(50%); transition: filter 0.3s ease; }
+    .tech-logo-item:hover img { filter: grayscale(0%); }
+    .tech-logo-item:hover { opacity: 1; }
+
+    .erp-cta-section { background-color: var(--co-erp-primary); color: #FFFFFF; padding: 5rem 0; text-align: center; }
+    .erp-cta-section h2 { color: #FFFFFF; }
+    .erp-cta-section h2::after { background-color: var(--co-erp-accent); }
+    .erp-cta-section p.lead { color: rgba(255,255,255,0.8); }
+
+    /* Footer Styles (Same as before) */
+    .site-footer { background-color: #FFFFFF; padding: 3rem 0 2rem 0; border-top: 1px solid var(--co-border-gray); font-family: var(--font-secondary); color: var(--co-dark-text); }
+    .site-footer .container { max-width: 1300px;  }
+    .footer-main-content { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; gap: 2rem;  }
+    .footer-brand-block { flex: 0 0 28%;  max-width: 28%; }
+    .footer-logo { max-width: 200px;  height: auto; margin-bottom: 1.2rem; }
+    .footer-slogan { font-size: 1rem;  font-weight: 500;  color: var(--co-dark-text); line-height: 1.5; margin-bottom: 0; font-family: var(--font-primary);  }
+    .footer-links-area { flex: 1; display: flex; justify-content: space-between; gap: 1.5rem;  }
+    .footer-links-column { flex: 1; min-width: 150px;  }
+    .footer-links-column h4 { font-family: var(--font-secondary); font-size: 0.8rem; font-weight: 700; color: var(--co-medium-gray-text);  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+    .footer-links-column ul { list-style: none; padding: 0; margin: 0; }
+    .footer-links-column ul li a { font-family: var(--font-secondary); font-size: 0.9rem; color: var(--co-dark-text); text-decoration: none; display: block; padding: 0.35rem 0; transition: color 0.2s ease; font-weight: 500; }
+    .footer-links-column ul li a:hover { color: var(--co-yellow); }
+    .footer-legal-link { font-family: var(--font-secondary); display: block; font-size: 0.8rem; font-weight: 500; color: var(--co-medium-gray-text); text-decoration: none; margin-top: 1rem;  padding: 0.35rem 0; transition: color 0.2s ease; }
+    .footer-legal-link:hover { color: var(--co-yellow); }
+    .footer-bottom-bar { display: flex; justify-content: space-between; align-items: flex-end;  padding-top: 2rem; border-top: 1px solid var(--co-border-gray); }
+    .footer-copyright-text p { font-family: var(--font-secondary); font-size: 0.75rem;  color: #707070;  line-height: 1.6; margin: 0; }
+    .footer-social-media { display: flex; align-items: center; }
+    .footer-social-media a { color: var(--co-dark-text); margin-left: 1rem;  font-size: 1.1rem;  text-decoration: none; transition: color 0.2s ease; }
+    .footer-social-media a:first-child { margin-left: 0; }
+    .footer-social-media a:hover { color: var(--co-yellow); }
+
+    /* Mobile Adjustments (Same pattern as before) */
+    @media (max-width: 991.98px) {
+      body { padding-top: calc(var(--navbar-top-gap) + 60px); }
+      #mainNav { width: 95%; padding: 0.75rem; max-width: calc(100% - 20px); border-radius: 0; }
+      /* ... full mobile navbar ... */
+
+      .erp-hero-section { padding: 4rem 0 3rem; min-height: auto; }
+      .erp-hero-content h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+      .erp-hero-content p.lead { font-size: clamp(1rem, 2.5vw, 1.15rem); }
+      .section-padding { padding: 3.5rem 0; }
+      .section-heading { margin-bottom: 3rem; }
+      .section-heading h2 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+      .section-heading p.lead { font-size: clamp(0.95rem, 2vw, 1.05rem); }
+      .understanding-erp-section .content-block { text-align: left; }
+      .understanding-erp-section h3::before { left: 0; transform: none; }
+
+      .project-card { padding: 1.5rem; }
+      .project-card-title { font-size: 1.2rem; }
+      .tech-logo-item { flex: 0 0 80px; } .tech-logo-item img { max-width: 60px; }
+
+      /* ... full mobile footer ... */
+      .footer-main-content { flex-direction: column; align-items: flex-start; gap: 0; }
+      .footer-brand-block { flex-basis: auto; width: 100%; max-width: 100%; margin-bottom: 2rem; }
+      .footer-links-area { flex-direction: column; width: 100%; gap: 0; }
+      .footer-links-column { width: 100%; margin-bottom: 2rem; } .footer-links-column:last-child { margin-bottom: 0; }
+      .footer-bottom-bar { flex-direction: column; align-items: flex-start; text-align: left; }
+      .footer-copyright-text { margin-bottom: 1.5rem; }
+      .footer-social-media { width: 100%; justify-content: flex-start; } .footer-social-media a { margin-left: 0; margin-right: 1rem; }
+    }
+    .float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 8px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+
+  </style>
+</head>
+<body>
+  <div id="mouse-shadow"></div>
+
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-light">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand" href="index.html"> <img src="./img/logo-dark.png" alt="CrudOps Logo" class="logo-img"> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+                <li class="nav-item"> <a class="nav-link" href="services.html">Services</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="industries.html">Industries</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="about.html">About Us</a> </li>
+                <li class="nav-item"> <a class="nav-link crudops-hub" href="index.html">Crudops Hub</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="casestudies.html">Case Studies</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="portfolio.html">Portfolio</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="blog.html">Blogs</a> </li>
+            </ul>
+            <div class="d-lg-flex align-items-center"> <a href="contact.html" class="btn nav-cta-btn btn-sm">Contact Us</a> </div>
+        </div>
+    </div>
+  </nav>
+  <a href="https://api.whatsapp.com/send?phone=+916238575185&text=Hi, I visited your ERP Development services page and would like to know more." class="float" target="_blank" aria-label="Chat on WhatsApp"><i class="fa fa-whatsapp"></i></a>
+
+<main>
+    <section class="erp-hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-9">
+                    <div class="erp-hero-content">
+                        <h1>Streamlining Operations with <span class="highlight-erp">Custom ERP Solutions</span> & <span class="highlight-erp">Business Process Integration</span></h1>
+                        <p class="lead">
+                           CrudOps specializes in developing, customizing, and implementing Enterprise Resource Planning (ERP) systems that seamlessly integrate your core business processes, from finance to supply chain.
+                        </p>
+                        <a href="contact.html" class="btn btn-erp-cta">Optimize Your Business Flow</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-white">
+        <div class="container">
+            <div class="section-heading">
+                <h2>The Transformative Power of ERP for Enterprises</h2>
+                <p class="lead">An effective ERP system unifies fragmented operations, providing a single source of truth for your business data and driving unprecedented efficiency.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3"> <div class="benefit-item"> <div class="icon"><i class="fa fa-cogs"></i></div> <h4>Operational Efficiency</h4> <p>Automate routine tasks, reduce manual errors, and accelerate core business processes across departments.</p> </div> </div>
+                <div class="col-md-6 col-lg-3"> <div class="benefit-item"> <div class="icon"><i class="fa fa-database"></i></div> <h4>Centralized Data</h4> <p>Consolidate information into a single database, enabling real-time insights and informed decision-making.</p> </div> </div>
+                <div class="col-md-6 col-lg-3"> <div class="benefit-item"> <div class="icon"><i class="fa fa-money"></i></div> <h4>Cost Reduction</h4> <p>Optimize resource utilization, improve inventory management, and lower operational expenses significantly.</p> </div> </div>
+                <div class="col-md-6 col-lg-3"> <div class="benefit-item"> <div class="icon"><i class="fa fa-bar-chart"></i></div> <h4>Enhanced Reporting</h4> <p>Generate comprehensive reports and analytics instantly, providing a clear overview of business performance.</p> </div> </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-light understanding-erp-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Understanding ERP Systems & Development</h2>
+                <p class="lead">Discover how Enterprise Resource Planning (ERP) integrates every facet of your business for seamless operation and growth.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="content-block">
+                        <h3>What is an ERP System?</h3>
+                        <p>An Enterprise Resource Planning (ERP) system is a comprehensive software suite that organizations use to manage day-to-day business activities such as accounting, procurement, project management, risk management, supply chain operations, and manufacturing. It achieves this by integrating all these functions into a single, cohesive system. A complete ERP suite also includes enterprise performance management, software that helps plan, budget, predict, and report on an organization’s financial results.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Custom ERP vs. Off-the-Shelf Solutions</h3>
+                        <p>When implementing ERP, businesses often face a choice:</p>
+                        <ul>
+                            <li><strong>Custom ERP Development:</strong> Building a system from scratch tailored precisely to a company's unique workflows and industry-specific needs. This offers maximum flexibility and optimization but can be more resource-intensive upfront.</li>
+                            <li><strong>Off-the-Shelf ERP Customization:</strong> Adapting existing, commercially available ERP platforms (like Odoo or ERPNext) through configuration, add-ons, or custom module development to fit specific business requirements. This often provides a faster time-to-market and leverages established functionalities.</li>
+                        </ul>
+                        <p>CrudOps helps you determine the best approach, providing expertise in both full custom development and robust customization of leading platforms.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Core ERP Modules & Their Benefits</h3>
+                        <p>Modern ERP systems typically include several integrated modules:</p>
+                        <ul>
+                            <li><strong>Financial Management:</strong> General ledger, accounts payable/receivable, budgeting, reporting.</li>
+                            <li><strong>Human Resources:</strong> Payroll, employee data, recruitment, performance management.</li>
+                            <li><strong>Supply Chain Management:</strong> Procurement, inventory, logistics, order processing.</li>
+                            <li><strong>Manufacturing:</strong> Production planning, quality control, bill of materials.</li>
+                            <li><strong>Customer Relationship Management (CRM):</strong> Sales, marketing automation, customer service.</li>
+                            <li><strong>Project Management:</strong> Planning, scheduling, resource allocation, and tracking.</li>
+                        </ul>
+                    </div>
+                     <p class="lead-text-highlight">From initial consultation to deployment and ongoing support, CrudOps delivers ERP solutions that transform your business, enhance productivity, and support strategic growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-white">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our ERP Development Showcase</h2>
+                <p class="lead">Examples of how we've helped businesses streamline operations and achieve their integration goals with tailored ERP solutions. (Placeholders below)</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-usd"></i></div> <h4 class="project-card-title">Integrated Financial ERP System</h4> <p class="project-card-description">Developed a custom financial management module that unified budgeting, expense tracking, and invoicing across multiple business units, ensuring regulatory compliance and audit readiness.</p> </div> </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-truck"></i></div> <h4 class="project-card-title">Supply Chain Optimization ERP</h4> <p class="project-card-description">Implemented and customized an ERP solution to enhance supply chain visibility, from raw material procurement to final product delivery, significantly reducing lead times and costs.</p> </div> </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-users"></i></div> <h4 class="project-card-title">HR & Payroll Automation Suite</h4> <p class="project-card-description">Designed and deployed a comprehensive HR module within an ERP system to automate recruitment, employee onboarding, attendance, and payroll processing, reducing administrative burden.</p> </div> </div>
+                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-refresh"></i></div> <h4 class="project-card-title">Legacy System Migration to Odoo</h4> <p class="project-card-description">Successfully migrated a complex legacy business system to a modern Odoo platform, ensuring data integrity and minimal operational downtime during the transition.</p> </div> </div>
+                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-laptop"></i></div> <h4 class="project-card-title">Custom Modules for ERPNext</h4> <p class="project-card-description">Developed specialized modules within ERPNext to address unique manufacturing requirements, enabling real-time tracking of production lines and inventory for a client in the automotive industry.</p> </div> </div>
+                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-line-chart"></i></div> <h4 class="project-card-title">Your Next ERP Integration</h4> <p class="project-card-description">Ready to transform your business processes? Contact us to discuss your ERP vision and how our expertise can drive your success.</p> </div> </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-light">
+        <div class="container">
+            <div class="section-heading">
+                <h2>ERP Technologies We Master</h2>
+                 <p class="lead">Our expertise covers industry-leading ERP platforms and foundational technologies to build resilient and adaptable business solutions.</p>
+            </div>
+            <div class="tech-logo-grid">
+                <div class="tech-logo-item" title="ERPNext"><img src="https://frappe.io/files/erpnext-logo-png-4435889601.png" alt="ERPNext"></div>
+                <div class="tech-logo-item" title="Odoo"><img src="https://cdn-icons-png.flaticon.com/512/3672/3672651.png" alt="Odoo"></div>
+                <div class="tech-logo-item" title="Python"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python"></div>
+                <div class="tech-logo-item" title="PostgreSQL"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL"></div>
+                <div class="tech-logo-item" title="MySQL"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/62/MySQL_logo.svg/1280px-MySQL_logo.svg.png" alt="MySQL"></div>
+                <div class="tech-logo-item" title="AWS"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS Cloud"></div>
+                <div class="tech-logo-item" title="Azure"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Azure Cloud"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="erp-cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h2 class="section-heading">Ready to Unify Your Business Operations?</h2>
+                    <p class="lead mb-4"> Discover how CrudOps can help you implement a powerful ERP solution that streamlines your processes, boosts efficiency, and drives sustainable growth. </p>
+                    <a href="contact.html" class="btn btn-erp-cta btn-lg">Request an ERP Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <!-- Footer content remains the same across all service pages -->
+    <div class="container"> <div class="footer-main-content"> <div class="footer-brand-block"> <img src="img/logo-dark.png" alt="CrudOps AI Logo" class="footer-logo"> <p class="footer-slogan">CrudOps: Data, Design, Engineering - Driving Impact.</p> </div> <div class="footer-links-area"> <div class="footer-links-column products"> <h4>Services</h4> <ul> <li><a href="service-ai-ml.html">AI/ML Solutions</a></li> <li><a href="service-web-dev.html">Web Development</a></li> <li><a href="service-app-dev.html">App Development</a></li> <li><a href="service-erp-dev.html">ERP Development</a></li> <li><a href="service-ecommerce-dev.html">E-Commerce</a></li> <li><a href="service-software-dev.html">Software Development</a></li> </ul> <a href="privacy.html" class="footer-legal-link">PRIVACY POLICY</a> </div> <div class="footer-links-column role"> <h4>Explore</h4> <ul> <li><a href="industries.html">Industries Served</a></li> <li><a href="casestudies.html">Case Studies</a></li> <li><a href="portfolio.html">Our Portfolio</a></li> <li><a href="https://medium.com/crudops" target="_blank">Blog on Medium</a></li> <li><a href="careers.html">Careers</a></li> </ul> <a href="terms.html" class="footer-legal-link">TERMS OF USE</a> </div> <div class="footer-links-column company"> <h4>Company</h4> <ul> <li><a href="about.html">About Us</a></li> <li><a href="team.html">Leadership</a></li> <li><a href="contact.html">Contact</a></li> <li><a href="faq.html">FAQ</a></li> <li><a href="sitemap.html">Sitemap</a></li> </ul> </div> </div> </div> <div class="footer-bottom-bar"> <div class="footer-copyright-text"> <p> © <span id="currentYear"></span> CrudOps. All rights reserved. <br> CrudOps™ and the CrudOps logo are trademarks of CrudOps Pvt. Ltd. </p> </div> <div class="footer-social-media"> <a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a> <a href="#" aria-label="X (Twitter)"><i class="fa fa-twitter"></i></a> <a href="#" aria-label="GitHub"><i class="fa fa-github"></i></a> <a href="#" aria-label="Medium"><i class="fa fa-medium"></i></a> </div> </div> </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Same JavaScript for Navbar, Mouse Shadow, Year
+    const header = document.querySelector("#mainNav");
+    if (header) {
+        const add_class_on_scroll = () => header.classList.add("scrolled");
+        const remove_class_on_scroll = () => header.classList.remove("scrolled");
+        const updateNavbarAndBodyPadding = () => {
+            requestAnimationFrame(() => {
+                const currentNavbarHeight = header.offsetHeight;
+                const rootStyles = getComputedStyle(document.documentElement);
+                const navbarTopGap = parseInt(rootStyles.getPropertyValue('--navbar-top-gap').trim()) || 0;
+                let newBodyPaddingTop = navbarTopGap + currentNavbarHeight;
+                if (window.innerWidth >= 992) { document.body.style.paddingTop = `${newBodyPaddingTop}px`; }
+                else { document.body.style.paddingTop = `calc(${rootStyles.getPropertyValue('--navbar-top-gap').trim()} + 60px)`; }
+                document.documentElement.style.setProperty('--navbar-total-initial-offset', `${newBodyPaddingTop}px`);
+                if (typeof bootstrap !== 'undefined' && bootstrap.ScrollSpy) {
+                    const scrollSpyInstance = bootstrap.ScrollSpy.getInstance(document.body);
+                    if (scrollSpyInstance) { scrollSpyInstance._config.offset = newBodyPaddingTop + 20; scrollSpyInstance.refresh(); }
+                }
+            });
+        };
+        window.addEventListener('resize', updateNavbarAndBodyPadding);
+        updateNavbarAndBodyPadding();
+        let scrollpos = window.scrollY;
+        window.addEventListener('scroll', () => {
+            scrollpos = window.scrollY;
+            if (scrollpos >= (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-top-gap').trim()) || 0) / 2 ) { add_class_on_scroll(); }
+            else { remove_class_on_scroll(); }
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        const navLinks = document.querySelectorAll('#mainNav .nav-link');
+        if (navLinks.length > 0) {
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === "services.html") { link.classList.add('active'); }
+                else { link.classList.remove('active'); }
+            });
+        }
+        const mouseShadow = document.getElementById('mouse-shadow');
+        if (mouseShadow && window.matchMedia("(pointer: fine)").matches) {
+            document.addEventListener('mousemove', (e) => {
+                requestAnimationFrame(() => { mouseShadow.style.transform = `translate(${e.clientX - (mouseShadow.offsetWidth / 2)}px, ${e.clientY - (mouseShadow.offsetHeight / 2)}px)`; });
+            });
+        } else if (mouseShadow) { mouseShadow.style.display = 'none'; }
+        if(document.getElementById('currentYear')) { document.getElementById('currentYear').textContent = new Date().getFullYear(); }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="Expert E-commerce Development services by CrudOps - building powerful online stores and seamless shopping experiences to boost your sales.">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="CrudOps Team">
+  <meta name="HandheldFriendly" content="true">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>E-Commerce Development - CrudOps Services</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <style>
+    :root {
+      --co-yellow: #FFC107;
+      --co-light-yellow-card: #ffffff;
+      --co-dark-text: #212529;
+      --co-subtle-text: #4B5563;
+      --co-matte-black: #1a1a1a;
+      --co-border-gray: #DEE2E6;
+      --co-off-white: #fdfdfd;
+      --co-medium-gray-text: #555;
+      --co-light-gray-bg: #f8f9fa;
+
+      --co-ecommerce-primary: #00897B; /* Teal-ish green for E-commerce */
+      --co-ecommerce-secondary: #00BCD4; /* Lighter teal */
+      --co-ecommerce-accent: var(--co-yellow); /* Using theme yellow for accent */
+      --co-ecommerce-bg-subtle: #E0F2F7; /* Very light blue-green */
+
+
+      --font-primary: 'Anonymous Pro', monospace;
+      --font-secondary: 'Inter', sans-serif;
+
+      --navbar-top-gap: 20px;
+      --navbar-element-initial-height: 70px;
+      --navbar-total-initial-offset: calc(var(--navbar-top-gap) + var(--navbar-element-initial-height));
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-secondary); background-color: #FFFFFF; color: var(--co-dark-text); line-height: 1.7; overflow-x: hidden; padding-top: var(--navbar-total-initial-offset); }
+    h1,h2,h3,h4,h5,h6 { font-family: var(--font-primary); font-weight: 700; color: var(--co-dark-text); margin-bottom: 1.5rem; }
+    p { margin-bottom: 1.5rem; font-weight: 400; font-family: var(--font-secondary); }
+    .force-font-primary { font-family: var(--font-primary) !important; }
+
+    /* Navbar Styles (Same as before) */
+    #mainNav { position: fixed; top: var(--navbar-top-gap); left: 50%; transform: translateX(-50%); width: 95%; max-width: 1300px; padding: 1rem; background-color: #FFFFFF; border-radius: 0; box-shadow: 0 5px 20px rgba(0,0,0,0.08); z-index: 1050; transition: all 0.3s ease-in-out; }
+    #mainNav .container { width: 100%; padding: 0; } #mainNav .navbar-brand .logo-img { height: 38px; width:auto; transition: height 0.3s ease-in-out; } #mainNav.scrolled .navbar-brand .logo-img { height: 32px; }
+    #mainNav .navbar-nav .nav-link { font-family: var(--font-primary); color: var(--co-dark-text); font-weight: 400; padding: 0.5rem 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.3s ease; }
+    #mainNav .navbar-nav .nav-link:hover, #mainNav .navbar-nav .nav-link:focus { color: var(--co-yellow); } #mainNav .navbar-nav .nav-item .nav-link.active { color: var(--co-yellow); font-weight: 700; }
+    #mainNav .navbar-nav .nav-link.crudops-hub { font-family: var(--font-primary); color: var(--co-yellow) !important; font-weight: 700; font-size: 0.9rem; }
+    #mainNav.scrolled { padding: 0.75rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1); } .navbar-toggler { border-color: rgba(0, 0, 0, 0.1); margin-left: auto; }
+    .nav-cta-btn { font-family: var(--font-primary); background-color: var(--co-yellow); border-color: var(--co-yellow); color: var(--co-dark-text); border-radius: 20px; font-weight: 700; padding: 0.45rem 1.3rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; transition: all 0.3s ease; }
+    .nav-cta-btn:hover { background-color: #e0a800; border-color: #e0a800; transform: translateY(-2px); }
+
+    #mouse-shadow { position: fixed; width: 1px; height: 1px; background-color: transparent; border-radius: 50%; box-shadow: 0 0 200px 100px var(--co-yellow); opacity: 0.6; pointer-events: none; transform: translate(-50%, -50%); z-index: 9999; transition: transform 0.08s ease-out; }
+    @media (pointer: coarse) { #mouse-shadow { display: none; } }
+
+    /* --- E-commerce Development Service Page Specific Styles --- */
+    .ecommerce-hero-section {
+        background-color: var(--co-off-white);
+        /* background: linear-gradient(135deg, var(--co-ecommerce-bg-subtle) 0%, #FFFFFF 70%); */
+        padding: 6rem 0 4rem; min-height: 60vh; display: flex;
+        align-items: center; text-align: center;
+    }
+    .ecommerce-hero-content h1 {
+        font-family: var(--font-secondary); font-size: clamp(2.8rem, 7vw, 4.8rem); font-weight: 800;
+        color: var(--co-dark-text); line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 1.5rem;
+    }
+    .ecommerce-hero-content .highlight-ecommerce { color: var(--co-ecommerce-accent); }
+    .ecommerce-hero-content p.lead {
+        font-family: var(--font-secondary); font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--co-subtle-text);
+        max-width: 750px; margin: 0 auto 2.5rem auto; font-weight: 400;
+    }
+    .btn-ecommerce-cta {
+        font-family: var(--font-primary); background-color: var(--co-ecommerce-accent); color: var(--co-dark-text);
+        border-color: var(--co-ecommerce-accent); padding: 0.9rem 2.2rem; font-size: 1rem; font-weight: 700;
+        text-transform: uppercase; border-radius: 25px; transition: all 0.3s ease;
+    }
+    .btn-ecommerce-cta:hover { background-color: #e0a800; border-color: #e0a800; transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+
+    .section-padding { padding: 5rem 0; }
+    .section-bg-light { background-color: var(--co-light-gray-bg); }
+    .section-bg-white { background-color: #FFFFFF; }
+
+    .section-heading { text-align: center; margin-bottom: 4rem; }
+    .section-heading h2 { font-family: var(--font-secondary); font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; color: var(--co-dark-text); margin-bottom: 0.75rem; }
+    .section-heading h2::after { content: ''; display: block; width: 70px; height: 4px; background-color: var(--co-ecommerce-accent); margin: 1rem auto 0 auto; }
+    .section-heading p.lead { font-family: var(--font-secondary); font-size: clamp(1rem, 1.8vw, 1.15rem); color: var(--co-medium-gray-text); max-width: 700px; margin-left: auto; margin-right: auto; }
+
+    .benefit-item { text-align: center; margin-bottom: 2.5rem; }
+    .benefit-item .icon { font-size: 2.5rem; color: var(--co-ecommerce-accent); margin-bottom: 1rem; display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem; background-color: var(--co-off-white); border-radius: 50%; width: 80px; height: 80px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .benefit-item h4 { font-family: var(--font-primary); font-size: 1.3rem; font-weight: 700; color: var(--co-dark-text); margin-bottom: 0.5rem; }
+    .benefit-item p { font-family: var(--font-secondary); font-size: 0.95rem; color: var(--co-subtle-text); margin-bottom: 0; }
+
+    /* Understanding E-commerce Section */
+    .understanding-ecommerce-section .content-block { margin-bottom: 2.5rem; }
+    .understanding-ecommerce-section h3 { font-family: var(--font-primary); font-size: clamp(1.6rem, 3.5vw, 2.2rem); color: var(--co-dark-text); margin-bottom: 1rem; position: relative; padding-bottom: 0.5rem; }
+    .understanding-ecommerce-section h3::before { content: ''; display: block; width: 50px; height: 3px; background-color: var(--co-ecommerce-accent); position: absolute; bottom: 0; left: 0; }
+    .text-center .understanding-ecommerce-section h3::before { left: 50%; transform: translateX(-50%); }
+    .understanding-ecommerce-section p { font-family: var(--font-secondary); font-size: clamp(0.95rem, 1.8vw, 1.1rem); color: var(--co-medium-gray-text); line-height: 1.8; }
+    .understanding-ecommerce-section ul { list-style: none; padding-left: 0; font-family: var(--font-secondary); font-size: clamp(0.95rem, 1.8vw, 1.05rem); color: var(--co-medium-gray-text); }
+    .understanding-ecommerce-section ul li { padding-left: 1.8rem; position: relative; margin-bottom: 0.75rem; }
+    .understanding-ecommerce-section ul li::before { content: '\f02c'; /* FontAwesome tag icon for categories/features */ font-family: 'FontAwesome'; color: var(--co-ecommerce-accent); position: absolute; left: 0; top: 2px; font-size: 1rem; }
+    .understanding-ecommerce-section .lead-text-highlight { font-style: italic; color: var(--co-dark-text); font-weight: 500; display: block; margin-top: 1.5rem; border-left: 3px solid var(--co-ecommerce-accent); padding-left: 1rem; }
+
+    /* E-commerce Projects Showcase */
+    .project-card { background-color: #FFFFFF; border: 1px solid var(--co-border-gray); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%; display: flex; flex-direction: column; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    .project-card-icon { font-size: 2rem; color: var(--co-ecommerce-accent); margin-bottom: 1rem; }
+    .project-card-title { font-family: var(--font-primary); font-size: 1.4rem; font-weight: 700; color: var(--co-dark-text); margin-bottom: 0.75rem; line-height: 1.3; }
+    .project-card-description { font-family: var(--font-secondary); font-size: 0.9rem; color: var(--co-medium-gray-text); line-height: 1.6; margin-bottom: 0; flex-grow: 1; }
+
+    .tech-logo-grid { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem; }
+    .tech-logo-item { opacity: 0.7; transition: opacity 0.3s ease; flex: 0 0 100px; text-align: center; }
+    .tech-logo-item img { max-width: 80px; max-height: 60px; filter: grayscale(50%); transition: filter 0.3s ease; }
+    .tech-logo-item:hover img { filter: grayscale(0%); }
+    .tech-logo-item:hover { opacity: 1; }
+
+    .ecommerce-cta-section { background-color: var(--co-dark-text); /* A consistent dark CTA background */ color: #FFFFFF; padding: 5rem 0; text-align: center; }
+    .ecommerce-cta-section h2 { color: #FFFFFF; }
+    .ecommerce-cta-section h2::after { background-color: var(--co-ecommerce-accent); }
+    .ecommerce-cta-section p.lead { color: rgba(255,255,255,0.8); }
+
+    /* Footer Styles (Same as before) */
+    .site-footer { background-color: #FFFFFF; padding: 3rem 0 2rem 0; border-top: 1px solid var(--co-border-gray); font-family: var(--font-secondary); color: var(--co-dark-text); }
+    /* ... full footer styles ... */
+    .site-footer .container { max-width: 1300px;  }
+    .footer-main-content { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; gap: 2rem;  }
+    .footer-brand-block { flex: 0 0 28%;  max-width: 28%; }
+    .footer-logo { max-width: 200px;  height: auto; margin-bottom: 1.2rem; }
+    .footer-slogan { font-size: 1rem;  font-weight: 500;  color: var(--co-dark-text); line-height: 1.5; margin-bottom: 0; font-family: var(--font-primary);  }
+    .footer-links-area { flex: 1; display: flex; justify-content: space-between; gap: 1.5rem;  }
+    .footer-links-column { flex: 1; min-width: 150px;  }
+    .footer-links-column h4 { font-family: var(--font-secondary); font-size: 0.8rem; font-weight: 700; color: var(--co-medium-gray-text);  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+    .footer-links-column ul { list-style: none; padding: 0; margin: 0; }
+    .footer-links-column ul li a { font-family: var(--font-secondary); font-size: 0.9rem; color: var(--co-dark-text); text-decoration: none; display: block; padding: 0.35rem 0; transition: color 0.2s ease; font-weight: 500; }
+    .footer-links-column ul li a:hover { color: var(--co-yellow); }
+    .footer-legal-link { font-family: var(--font-secondary); display: block; font-size: 0.8rem; font-weight: 500; color: var(--co-medium-gray-text); text-decoration: none; margin-top: 1rem;  padding: 0.35rem 0; transition: color 0.2s ease; }
+    .footer-legal-link:hover { color: var(--co-yellow); }
+    .footer-bottom-bar { display: flex; justify-content: space-between; align-items: flex-end;  padding-top: 2rem; border-top: 1px solid var(--co-border-gray); }
+    .footer-copyright-text p { font-family: var(--font-secondary); font-size: 0.75rem;  color: #707070;  line-height: 1.6; margin: 0; }
+    .footer-social-media { display: flex; align-items: center; }
+    .footer-social-media a { color: var(--co-dark-text); margin-left: 1rem;  font-size: 1.1rem;  text-decoration: none; transition: color 0.2s ease; }
+    .footer-social-media a:first-child { margin-left: 0; }
+    .footer-social-media a:hover { color: var(--co-yellow); }
+
+    /* Mobile Adjustments (Same pattern as before) */
+    @media (max-width: 991.98px) {
+      body { padding-top: calc(var(--navbar-top-gap) + 60px); }
+      #mainNav { width: 95%; padding: 0.75rem; max-width: calc(100% - 20px); border-radius: 0; }
+      /* ... full mobile navbar ... */
+
+      .ecommerce-hero-section { padding: 4rem 0 3rem; min-height: auto; }
+      .ecommerce-hero-content h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+      .ecommerce-hero-content p.lead { font-size: clamp(1rem, 2.5vw, 1.15rem); }
+      .section-padding { padding: 3.5rem 0; }
+      .section-heading { margin-bottom: 3rem; }
+      .section-heading h2 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+      .section-heading p.lead { font-size: clamp(0.95rem, 2vw, 1.05rem); }
+      .understanding-ecommerce-section .content-block { text-align: left; }
+      .understanding-ecommerce-section h3::before { left: 0; transform: none; }
+
+      .project-card { padding: 1.5rem; }
+      .project-card-title { font-size: 1.2rem; }
+      .tech-logo-item { flex: 0 0 80px; } .tech-logo-item img { max-width: 60px; }
+
+      /* ... full mobile footer ... */
+      .footer-main-content { flex-direction: column; align-items: flex-start; gap: 0; }
+      .footer-brand-block { flex-basis: auto; width: 100%; max-width: 100%; margin-bottom: 2rem; }
+      .footer-links-area { flex-direction: column; width: 100%; gap: 0; }
+      .footer-links-column { width: 100%; margin-bottom: 2rem; } .footer-links-column:last-child { margin-bottom: 0; }
+      .footer-bottom-bar { flex-direction: column; align-items: flex-start; text-align: left; }
+      .footer-copyright-text { margin-bottom: 1.5rem; }
+      .footer-social-media { width: 100%; justify-content: flex-start; } .footer-social-media a { margin-left: 0; margin-right: 1rem; }
+    }
+    .float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 8px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+
+  </style>
+</head>
+<body>
+  <div id="mouse-shadow"></div>
+
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-light">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand" href="index.html"> <img src="./img/logo-dark.png" alt="CrudOps Logo" class="logo-img"> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+                <li class="nav-item"> <a class="nav-link" href="services.html">Services</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="industries.html">Industries</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="about.html">About Us</a> </li>
+                <li class="nav-item"> <a class="nav-link crudops-hub" href="index.html">Crudops Hub</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="casestudies.html">Case Studies</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="portfolio.html">Portfolio</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="blog.html">Blogs</a> </li>
+            </ul>
+            <div class="d-lg-flex align-items-center"> <a href="contact.html" class="btn nav-cta-btn btn-sm">Contact Us</a> </div>
+        </div>
+    </div>
+  </nav>
+  <a href="https://api.whatsapp.com/send?phone=+916238575185&text=Hi, I visited your E-commerce Development services page and would like to know more." class="float" target="_blank" aria-label="Chat on WhatsApp"><i class="fa fa-whatsapp"></i></a>
+
+<main>
+    <section class="ecommerce-hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-9">
+                    <div class="ecommerce-hero-content">
+                        <h1>Building <span class="highlight-ecommerce">Powerful Online Stores</span> & Seamless <span class="highlight-ecommerce">Shopping Experiences</span></h1>
+                        <p class="lead">
+                           CrudOps delivers robust e-commerce solutions, from bespoke platforms to customized off-the-shelf integrations, designed to maximize your online sales and amplify your brand presence.
+                        </p>
+                        <a href="contact.html" class="btn btn-ecommerce-cta">Launch Your Online Store</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-white">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Why a Powerful E-commerce Platform is Crucial</h2>
+                <p class="lead">In the rapidly expanding digital marketplace, a robust e-commerce solution is not just an option, but a necessity for growth and direct customer engagement.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3"> <div class="benefit-item"> <div class="icon"><i class="fa fa-globe"></i></div> <h4>Global Reach & Sales</h4> <p>Expand your customer base beyond geographical limits and tap into new markets 24/7.</p> </div> </div>
+                <div class="col-md-6 col-lg-3"> <div class="benefit-item"> <div class="icon"><i class="fa fa-clock-o"></i></div> <h4>24/7 Availability</h4> <p>Your online store is always open for business, generating revenue even outside traditional hours.</p> </div> </div>
+                <div class="col-md-6 col-lg-3"> <div class="benefit-item"> <div class="icon"><i class="fa fa-cubes"></i></div> <h4>Scalability & Growth</h4> <p>An adaptable platform that grows with your product catalog and customer demand without hurdles.</p> </div> </div>
+                <div class="col-md-6 col-lg-3"> <div class="benefit-item"> <div class="icon"><i class="fa fa-star-o"></i></div> <h4>Enhanced Customer Experience</h4> <p>Provide seamless navigation, personalized recommendations, and a smooth checkout process.</p> </div> </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-light understanding-ecommerce-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Understanding E-commerce Development & Strategy</h2>
+                <p class="lead">From choosing the right platform to optimizing the user journey, comprehensive e-commerce development requires a strategic approach.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="content-block">
+                        <h3>Platform Selection: Custom vs. Popular Solutions</h3>
+                        <p>Choosing the right e-commerce platform is fundamental. We guide you through options:</p>
+                        <ul>
+                            <li><strong>Custom E-commerce:</strong> Tailored from the ground up for unique business models, high-volume needs, or complex integrations. Offers maximum flexibility and ownership.</li>
+                            <li><strong>Shopify & Shopify Plus:</strong> A leading hosted solution, excellent for rapid deployment, ease of use, and scalable solutions for businesses of all sizes.</li>
+                            <li><strong>Magento:</strong> A powerful, open-source platform offering immense flexibility and robust features for complex and large-scale online stores.</li>
+                            <li><strong>WooCommerce (WordPress):</strong> An accessible and versatile solution for businesses integrated with the WordPress ecosystem, ideal for content-rich stores.</li>
+                            <li><strong>OpenCart:</strong> A user-friendly, open-source platform, great for small to medium-sized businesses looking for a straightforward e-commerce solution.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Key E-commerce Features for Success</h3>
+                        <p>A successful online store is equipped with essential features designed to facilitate sales and manage operations efficiently:</p>
+                        <ul>
+                            <li><strong>Secure Payment Gateway Integration:</strong> Offering diverse and secure payment options for customers.</li>
+                            <li><strong>Intuitive Product Management:</strong> Easy adding, editing, and categorizing products with detailed attributes.</li>
+                            <li><strong>Optimized Search & Filters:</strong> Enabling customers to quickly find exactly what they're looking for.</li>
+                            <li><strong>Robust Inventory Management:</strong> Real-time tracking of stock, alerts, and automatic adjustments.</li>
+                            <li><strong>Order & Shipment Tracking:</strong> Transparent process for both customers and administrators.</li>
+                            <li><strong>Marketing & SEO Tools:</strong> Built-in capabilities for promotions, discounts, and search engine visibility.</li>
+                            <li><strong>Analytics & Reporting:</strong> Insights into sales trends, customer behavior, and website performance.</li>
+                        </ul>
+                    </div>
+
+                    <p class="lead-text-highlight">CrudOps partners with you to develop a strategic e-commerce roadmap, designing and building an online store that converts visitors into loyal customers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-white">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our E-commerce Development Showcase</h2>
+                <p class="lead">Explore examples of successful online stores and e-commerce solutions we've crafted to drive sales and enhance digital presence. (Placeholders below)</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-tags"></i></div> <h4 class="project-card-title">Luxury Fashion Brand E-store</h4> <p class="project-card-description">Designed and developed a visually immersive e-commerce platform for a high-end fashion brand, focusing on captivating visuals and a streamlined checkout flow.</p> </div> </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-refresh"></i></div> <h4 class="project-card-title">B2B E-commerce Portal Overhaul</h4> <p class="project-card-description">Transformed an outdated B2B portal into a modern, user-friendly platform with custom pricing, bulk ordering, and account management features, improving client retention.</p> </div> </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-cutlery"></i></div> <h4 class="project-card-title">Food Delivery Platform Integration</h4> <p class="project-card-description">Seamlessly integrated an e-commerce module into a food service website, enabling online ordering, real-time menu updates, and delivery management for local restaurants.</p> </div> </div>
+                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-mobile-phone"></i></div> <h4 class="project-card-title">Custom Mobile Commerce App</h4> <p class="project-card-description">Built a dedicated mobile shopping app (iOS/Android) for a retailer, offering personalized product feeds and expedited mobile-first checkout experiences.</p> </div> </div>
+                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-trophy"></i></div> <h4 class="project-card-title">Subscription Box Service Development</h4> <p class="project-card-description">Engineered a flexible subscription-based e-commerce store with recurring billing, customer portal, and inventory forecasting capabilities.</p> </div> </div>
+                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-plus-square"></i></div> <h4 class="project-card-title">Your Next E-commerce Success Story</h4> <p class="project-card-description">Have an e-commerce vision? We're passionate about bringing your unique online store to life, optimized for conversion and customer loyalty.</p> </div> </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-light">
+        <div class="container">
+            <div class="section-heading">
+                <h2>E-commerce Technologies We Master</h2>
+                 <p class="lead">Our expertise spans a wide range of platforms and technologies to build scalable, secure, and user-friendly online stores.</p>
+            </div>
+            <div class="tech-logo-grid">
+                <div class="tech-logo-item" title="Shopify"><img src="https://cdn.shopify.com/assets/images/logos/shopify-logo-round-black-1d70eddd0.png" alt="Shopify"></div>
+                <div class="tech-logo-item" title="Magento"><img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Magento-logo.png" alt="Magento"></div>
+                <div class="tech-logo-item" title="WooCommerce"><img src="https://upload.wikimedia.org/wikipedia/commons/2/22/WooCommerce_logo.png" alt="WooCommerce"></div>
+                <div class="tech-logo-item" title="OpenCart"><img src="https://www.opencart.com/image/journal3/placeholder-banner-background.jpg" alt="OpenCart"></div>
+                <div class="tech-logo-item" title="Stripe Payments"><img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Stripe"></div>
+                <div class="tech-logo-item" title="PayPal Payments"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal"></div>
+                <div class="tech-logo-item" title="PHP"><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP"></div>
+                <div class="tech-logo-item" title="Node.js"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ecommerce-cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h2 class="section-heading">Ready to Launch Your High-Converting Online Store?</h2>
+                    <p class="lead mb-4"> Partner with CrudOps to create an e-commerce platform that attracts customers, drives sales, and builds a strong online presence for your brand. </p>
+                    <a href="contact.html" class="btn btn-ecommerce-cta btn-lg">Request an E-commerce Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <!-- Footer content remains the same across all service pages -->
+    <div class="container"> <div class="footer-main-content"> <div class="footer-brand-block"> <img src="img/logo-dark.png" alt="CrudOps AI Logo" class="footer-logo"> <p class="footer-slogan">CrudOps: Data, Design, Engineering - Driving Impact.</p> </div> <div class="footer-links-area"> <div class="footer-links-column products"> <h4>Services</h4> <ul> <li><a href="service-ai-ml.html">AI/ML Solutions</a></li> <li><a href="service-web-dev.html">Web Development</a></li> <li><a href="service-app-dev.html">App Development</a></li> <li><a href="service-erp-dev.html">ERP Development</a></li> <li><a href="service-ecommerce-dev.html">E-Commerce</a></li> <li><a href="service-software-dev.html">Software Development</a></li> </ul> <a href="privacy.html" class="footer-legal-link">PRIVACY POLICY</a> </div> <div class="footer-links-column role"> <h4>Explore</h4> <ul> <li><a href="industries.html">Industries Served</a></li> <li><a href="casestudies.html">Case Studies</a></li> <li><a href="portfolio.html">Our Portfolio</a></li> <li><a href="https://medium.com/crudops" target="_blank">Blog on Medium</a></li> <li><a href="careers.html">Careers</a></li> </ul> <a href="terms.html" class="footer-legal-link">TERMS OF USE</a> </div> <div class="footer-links-column company"> <h4>Company</h4> <ul> <li><a href="about.html">About Us</a></li> <li><a href="team.html">Leadership</a></li> <li><a href="contact.html">Contact</a></li> <li><a href="faq.html">FAQ</a></li> <li><a href="sitemap.html">Sitemap</a></li> </ul> </div> </div> </div> <div class="footer-bottom-bar"> <div class="footer-copyright-text"> <p> © <span id="currentYear"></span> CrudOps. All rights reserved. <br> CrudOps™ and the CrudOps logo are trademarks of CrudOps Pvt. Ltd. </p> </div> <div class="footer-social-media"> <a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a> <a href="#" aria-label="X (Twitter)"><i class="fa fa-twitter"></i></a> <a href="#" aria-label="GitHub"><i class="fa fa-github"></i></a> <a href="#" aria-label="Medium"><i class="fa fa-medium"></i></a> </div> </div> </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Same JavaScript for Navbar, Mouse Shadow, Year
+    const header = document.querySelector("#mainNav");
+    if (header) {
+        const add_class_on_scroll = () => header.classList.add("scrolled");
+        const remove_class_on_scroll = () => header.classList.remove("scrolled");
+        const updateNavbarAndBodyPadding = () => {
+            requestAnimationFrame(() => {
+                const currentNavbarHeight = header.offsetHeight;
+                const rootStyles = getComputedStyle(document.documentElement);
+                const navbarTopGap = parseInt(rootStyles.getPropertyValue('--navbar-top-gap').trim()) || 0;
+                let newBodyPaddingTop = navbarTopGap + currentNavbarHeight;
+                if (window.innerWidth >= 992) { document.body.style.paddingTop = `${newBodyPaddingTop}px`; }
+                else { document.body.style.paddingTop = `calc(${rootStyles.getPropertyValue('--navbar-top-gap').trim()} + 60px)`; }
+                document.documentElement.style.setProperty('--navbar-total-initial-offset', `${newBodyPaddingTop}px`);
+                if (typeof bootstrap !== 'undefined' && bootstrap.ScrollSpy) {
+                    const scrollSpyInstance = bootstrap.ScrollSpy.getInstance(document.body);
+                    if (scrollSpyInstance) { scrollSpyInstance._config.offset = newBodyPaddingTop + 20; scrollSpyInstance.refresh(); }
+                }
+            });
+        };
+        window.addEventListener('resize', updateNavbarAndBodyPadding);
+        updateNavbarAndBodyPadding();
+        let scrollpos = window.scrollY;
+        window.addEventListener('scroll', () => {
+            scrollpos = window.scrollY;
+            if (scrollpos >= (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-top-gap').trim()) || 0) / 2 ) { add_class_on_scroll(); }
+            else { remove_class_on_scroll(); }
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        const navLinks = document.querySelectorAll('#mainNav .nav-link');
+        if (navLinks.length > 0) {
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === "services.html") { link.classList.add('active'); }
+                else { link.classList.remove('active'); }
+            });
+        }
+        const mouseShadow = document.getElementById('mouse-shadow');
+        if (mouseShadow && window.matchMedia("(pointer: fine)").matches) {
+            document.addEventListener('mousemove', (e) => {
+                requestAnimationFrame(() => { mouseShadow.style.transform = `translate(${e.clientX - (mouseShadow.offsetWidth / 2)}px, ${e.clientY - (mouseShadow.offsetHeight / 2)}px)`; });
+            });
+        } else if (mouseShadow) { mouseShadow.style.display = 'none'; }
+        if(document.getElementById('currentYear')) { document.getElementById('currentYear').textContent = new Date().getFullYear(); }
+    });
+  </script>
+</body>
+</html>

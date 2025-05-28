@@ -1,0 +1,432 @@
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="Expert AI & Machine Learning solutions by CrudOps to transform your business with data-driven insights and intelligent automation.">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="CrudOps Team">
+  <meta name="HandheldFriendly" content="true">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>AI/ML Solutions - CrudOps Services</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <style>
+    :root {
+      --co-yellow: #FFC107;
+      --co-light-yellow-card: #ffffff;
+      --co-dark-text: #212529;
+      --co-subtle-text: #4B5563;
+      --co-matte-black: #1a1a1a;
+      --co-border-gray: #DEE2E6;
+      --co-off-white: #fdfdfd;
+      --co-medium-gray-text: #555;
+      --co-light-gray-bg: #f8f9fa; /* Used for some sections */
+      --co-dark-ash: #AAAAAA;
+      --co-blue-link: #0062ff;
+      --co-accent-blue: #fbee3e;
+      --co-ai-primary: #0D47A1;
+      --co-ai-secondary: #1976D2;
+      --co-ai-accent: var(--co-yellow);
+      --co-ai-bg-subtle: #E3F2FD;
+
+
+      --font-primary: 'Anonymous Pro', monospace;
+      --font-secondary: 'Inter', sans-serif;
+
+      --navbar-top-gap: 20px;
+      --navbar-element-initial-height: 70px;
+      --navbar-total-initial-offset: calc(var(--navbar-top-gap) + var(--navbar-element-initial-height));
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-secondary); background-color: #FFFFFF; color: var(--co-dark-text); line-height: 1.7; overflow-x: hidden; padding-top: var(--navbar-total-initial-offset); }
+    h1,h2,h3,h4,h5,h6 { font-family: var(--font-primary); font-weight: 700; color: var(--co-dark-text); margin-bottom: 1.5rem; }
+    p { margin-bottom: 1.5rem; font-weight: 400; font-family: var(--font-secondary); }
+    .force-font-primary { font-family: var(--font-primary) !important; }
+
+    /* Navbar Styles */
+    #mainNav { position: fixed; top: var(--navbar-top-gap); left: 50%; transform: translateX(-50%); width: 95%; max-width: 1300px; padding: 1rem; background-color: #FFFFFF; border-radius: 0; box-shadow: 0 5px 20px rgba(0,0,0,0.08); z-index: 1050; transition: all 0.3s ease-in-out; }
+    #mainNav .container { width: 100%; padding: 0; } #mainNav .navbar-brand .logo-img { height: 38px; width:auto; transition: height 0.3s ease-in-out; } #mainNav.scrolled .navbar-brand .logo-img { height: 32px; }
+    #mainNav .navbar-nav .nav-link { font-family: var(--font-primary); color: var(--co-dark-text); font-weight: 400; padding: 0.5rem 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.3s ease; }
+    #mainNav .navbar-nav .nav-link:hover, #mainNav .navbar-nav .nav-link:focus { color: var(--co-yellow); } #mainNav .navbar-nav .nav-item .nav-link.active { color: var(--co-yellow); font-weight: 700; }
+    #mainNav .navbar-nav .nav-link.crudops-hub { font-family: var(--font-primary); color: var(--co-yellow) !important; font-weight: 700; font-size: 0.9rem; }
+    #mainNav.scrolled { padding: 0.75rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1); } .navbar-toggler { border-color: rgba(0, 0, 0, 0.1); margin-left: auto; }
+    .nav-cta-btn { font-family: var(--font-primary); background-color: var(--co-yellow); border-color: var(--co-yellow); color: var(--co-dark-text); border-radius: 20px; font-weight: 700; padding: 0.45rem 1.3rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; transition: all 0.3s ease; }
+    .nav-cta-btn:hover { background-color: #e0a800; border-color: #e0a800; transform: translateY(-2px); }
+
+    #mouse-shadow { position: fixed; width: 1px; height: 1px; background-color: transparent; border-radius: 50%; box-shadow: 0 0 200px 100px var(--co-yellow); opacity: 0.6; pointer-events: none; transform: translate(-50%, -50%); z-index: 9999; transition: transform 0.08s ease-out; }
+    @media (pointer: coarse) { #mouse-shadow { display: none; } }
+
+    /* --- AI/ML Service Page Specific Styles --- */
+    .ai-hero-section { background-color: var(--co-off-white); padding: 6rem 0 4rem; min-height: 60vh; display: flex; align-items: center; text-align: center; }
+    .ai-hero-content h1 { font-family: var(--font-secondary); font-size: clamp(2.8rem, 7vw, 4.8rem); font-weight: 800; color: var(--co-dark-text); line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 1.5rem; }
+    .ai-hero-content .highlight-ai { color: var(--co-yellow); }
+    .ai-hero-content p.lead { font-family: var(--font-secondary); font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--co-subtle-text); max-width: 750px; margin: 0 auto 2.5rem auto; font-weight: 400; }
+    .btn-ai-cta { font-family: var(--font-primary); background-color: var(--co-yellow); color: var(--co-dark-text); border-color: var(--co-yellow); padding: 0.9rem 2.2rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; border-radius: 25px; transition: all 0.3s ease; }
+    .btn-ai-cta:hover { background-color: #e0a800; border-color: #e0a800; transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+
+    .section-padding { padding: 5rem 0; }
+    .section-bg-light { background-color: var(--co-light-gray-bg); }
+    .section-bg-white { background-color: #FFFFFF; }
+
+    .section-heading { text-align: center; margin-bottom: 4rem; }
+    .section-heading h2 { font-family: var(--font-secondary); font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; color: var(--co-dark-text); margin-bottom: 0.75rem; }
+    .section-heading h2::after { content: ''; display: block; width: 70px; height: 4px; background-color: var(--co-yellow); margin: 1rem auto 0 auto; }
+    .section-heading p.lead { font-family: var(--font-secondary); font-size: clamp(1rem, 1.8vw, 1.15rem); color: var(--co-medium-gray-text); max-width: 700px; margin-left: auto; margin-right: auto; }
+
+    .benefit-item { text-align: center; margin-bottom: 2.5rem; }
+    .benefit-item .icon { font-size: 2.5rem; color: var(--co-yellow); margin-bottom: 1rem; display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem; background-color: var(--co-off-white); border-radius: 50%; width: 80px; height: 80px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .benefit-item h4 { font-family: var(--font-primary); font-size: 1.3rem; font-weight: 700; color: var(--co-dark-text); margin-bottom: 0.5rem; }
+    .benefit-item p { font-family: var(--font-secondary); font-size: 0.95rem; color: var(--co-subtle-text); margin-bottom: 0; }
+
+    /* Understanding AI/ML Section */
+    .understanding-ai-section .content-block { margin-bottom: 2.5rem; }
+    .understanding-ai-section h3 {
+        font-family: var(--font-primary); /* Primary for distinct subheadings */
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+        color: var(--co-dark-text); /* Match section heading general style */
+        margin-bottom: 1rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+    }
+    .understanding-ai-section h3::before {
+        content: ''; display: block; width: 50px; height: 3px;
+        background-color: var(--co-yellow);
+        position: absolute; bottom: 0; left: 0; /* For left-aligned text */
+    }
+    .text-center .understanding-ai-section h3::before { left: 50%; transform: translateX(-50%); } /* Center if parent is text-center */
+
+    .understanding-ai-section p {
+        font-family: var(--font-secondary);
+        font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+        color: var(--co-medium-gray-text);
+        line-height: 1.8;
+    }
+    .understanding-ai-section ul {
+        list-style: none; padding-left: 0;
+        font-family: var(--font-secondary);
+        font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+        color: var(--co-medium-gray-text);
+    }
+    .understanding-ai-section ul li {
+        padding-left: 1.8rem;
+        position: relative;
+        margin-bottom: 0.75rem;
+    }
+    .understanding-ai-section ul li::before {
+        content: '\f00c'; /* FontAwesome check icon */
+        font-family: 'FontAwesome';
+        color: var(--co-yellow);
+        position: absolute;
+        left: 0;
+        top: 2px;
+        font-size: 1rem;
+    }
+    .understanding-ai-section .lead-text-highlight {
+        font-style: italic;
+        color: var(--co-dark-text);
+        font-weight: 500;
+        display: block;
+        margin-top: 1.5rem;
+        border-left: 3px solid var(--co-yellow);
+        padding-left: 1rem;
+    }
+
+
+    /* AI Projects Showcase */
+    .project-card { background-color: #FFFFFF; border: 1px solid var(--co-border-gray); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%; display: flex; flex-direction: column; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    .project-card-icon { font-size: 2rem; color: var(--co-yellow); margin-bottom: 1rem; }
+    .project-card-title { font-family: var(--font-primary); font-size: 1.4rem; font-weight: 700; color: var(--co-dark-text); margin-bottom: 0.75rem; line-height: 1.3; }
+    .project-card-description { font-family: var(--font-secondary); font-size: 0.9rem; color: var(--co-medium-gray-text); line-height: 1.6; margin-bottom: 0; flex-grow: 1; }
+
+    .tech-logo-grid { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem; }
+    .tech-logo-item { opacity: 0.7; transition: opacity 0.3s ease; flex: 0 0 100px; text-align: center; }
+    .tech-logo-item img { max-width: 70px; max-height: 50px; filter: grayscale(50%); transition: filter 0.3s ease; }
+    .tech-logo-item:hover img { filter: grayscale(0%); }
+    .tech-logo-item:hover { opacity: 1; }
+
+    .ai-cta-section { background-color: var(--co-matte-black); color: #FFFFFF; padding: 5rem 0; text-align: center; }
+    .ai-cta-section h2 { color: #FFFFFF; }
+    .ai-cta-section h2::after { background-color: var(--co-yellow); }
+    .ai-cta-section p.lead { color: rgba(255,255,255,0.8); }
+
+    /* Footer Styles */
+    .site-footer { background-color: #FFFFFF; padding: 3rem 0 2rem 0; border-top: 1px solid var(--co-border-gray); font-family: var(--font-secondary); color: var(--co-dark-text); }
+    .site-footer .container { max-width: 1300px;  }
+    .footer-main-content { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; gap: 2rem;  }
+    .footer-brand-block { flex: 0 0 28%;  max-width: 28%; }
+    .footer-logo { max-width: 200px;  height: auto; margin-bottom: 1.2rem; }
+    .footer-slogan { font-size: 1rem;  font-weight: 500;  color: var(--co-dark-text); line-height: 1.5; margin-bottom: 0; font-family: var(--font-primary);  }
+    .footer-links-area { flex: 1; display: flex; justify-content: space-between; gap: 1.5rem;  }
+    .footer-links-column { flex: 1; min-width: 150px;  }
+    .footer-links-column h4 { font-family: var(--font-secondary); font-size: 0.8rem; font-weight: 700; color: var(--co-medium-gray-text);  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+    .footer-links-column ul { list-style: none; padding: 0; margin: 0; }
+    .footer-links-column ul li a { font-family: var(--font-secondary); font-size: 0.9rem; color: var(--co-dark-text); text-decoration: none; display: block; padding: 0.35rem 0; transition: color 0.2s ease; font-weight: 500; }
+    .footer-links-column ul li a:hover { color: var(--co-yellow); }
+    .footer-legal-link { font-family: var(--font-secondary); display: block; font-size: 0.8rem; font-weight: 500; color: var(--co-medium-gray-text); text-decoration: none; margin-top: 1rem;  padding: 0.35rem 0; transition: color 0.2s ease; }
+    .footer-legal-link:hover { color: var(--co-yellow); }
+    .footer-bottom-bar { display: flex; justify-content: space-between; align-items: flex-end;  padding-top: 2rem; border-top: 1px solid var(--co-border-gray); }
+    .footer-copyright-text p { font-family: var(--font-secondary); font-size: 0.75rem;  color: #707070;  line-height: 1.6; margin: 0; }
+    .footer-social-media { display: flex; align-items: center; }
+    .footer-social-media a { color: var(--co-dark-text); margin-left: 1rem;  font-size: 1.1rem;  text-decoration: none; transition: color 0.2s ease; }
+    .footer-social-media a:first-child { margin-left: 0; }
+    .footer-social-media a:hover { color: var(--co-yellow); }
+
+    /* Mobile Adjustments */
+    @media (max-width: 991.98px) {
+      body { padding-top: calc(var(--navbar-top-gap) + 60px); }
+      #mainNav { width: 95%; padding: 0.75rem; max-width: calc(100% - 20px); border-radius: 0; }
+      #mainNav .navbar-brand .logo-img { height: 32px; }
+      #mainNav .navbar-collapse { background-color: #FFFFFF; padding: 1rem; margin-top: 0.75rem; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: absolute; top: 100%; left: 0; right: 0; width: 100%; }
+      #mainNav .navbar-nav .nav-item { margin-bottom: 0.3rem; }
+      #mainNav .navbar-nav .nav-link { padding: 0.6rem 0.5rem; font-size: 0.9rem; }
+      #mainNav .navbar-collapse .d-lg-flex { margin-top: 1rem; display: block !important; text-align: center; }
+      #mainNav .navbar-collapse .nav-cta-btn { width: 100%; display: block; margin: 0.5rem auto 0; font-size: 0.9rem; }
+
+      .ai-hero-section { padding: 4rem 0 3rem; min-height: auto; }
+      .ai-hero-content h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+      .ai-hero-content p.lead { font-size: clamp(1rem, 2.5vw, 1.15rem); }
+      .section-padding { padding: 3.5rem 0; }
+      .section-heading { margin-bottom: 3rem; }
+      .section-heading h2 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+      .section-heading p.lead { font-size: clamp(0.95rem, 2vw, 1.05rem); }
+      .understanding-ai-section .content-block { text-align: left; } /* Ensure text is not centered */
+      .understanding-ai-section h3::before { left: 0; transform: none; }
+
+      .project-card { padding: 1.5rem; }
+      .project-card-title { font-size: 1.2rem; }
+      .tech-logo-item { flex: 0 0 80px; } .tech-logo-item img { max-width: 60px; }
+
+      .footer-main-content { flex-direction: column; align-items: flex-start; gap: 0; }
+      .footer-brand-block { flex-basis: auto; width: 100%; max-width: 100%; margin-bottom: 2rem; }
+      .footer-links-area { flex-direction: column; width: 100%; gap: 0; }
+      .footer-links-column { width: 100%; margin-bottom: 2rem; } .footer-links-column:last-child { margin-bottom: 0; }
+      .footer-bottom-bar { flex-direction: column; align-items: flex-start; text-align: left; }
+      .footer-copyright-text { margin-bottom: 1.5rem; }
+      .footer-social-media { width: 100%; justify-content: flex-start; } .footer-social-media a { margin-left: 0; margin-right: 1rem; }
+    }
+    .float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 8px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <div id="mouse-shadow"></div>
+
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-light">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand" href="index.html"> <img src="./img/logo-dark.png" alt="CrudOps Logo" class="logo-img"> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+                <li class="nav-item"> <a class="nav-link" href="services.html">Services</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="industries.html">Industries</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="about.html">About Us</a> </li>
+                <li class="nav-item"> <a class="nav-link crudops-hub" href="index.html">Crudops Hub</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="casestudies.html">Case Studies</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="portfolio.html">Portfolio</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="blog.html">Blogs</a> </li>
+            </ul>
+            <div class="d-lg-flex align-items-center"> <a href="contact.html" class="btn nav-cta-btn btn-sm">Contact Us</a> </div>
+        </div>
+    </div>
+  </nav>
+  <a href="https://api.whatsapp.com/send?phone=+916238575185&text=Hi, I visited your AI/ML services page and would like to know more." class="float" target="_blank" aria-label="Chat on WhatsApp"><i class="fa fa-whatsapp"></i></a>
+
+<main>
+    <section class="ai-hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-9">
+                    <div class="ai-hero-content">
+                        <h1>Transforming Businesses with <span class="highlight-ai">Artificial Intelligence</span> & <span class="highlight-ai">Machine Learning</span></h1>
+                        <p class="lead"> At CrudOps, we leverage cutting-edge AI and ML technologies to unlock new potentials, drive innovation, and deliver intelligent solutions tailored to your unique business challenges. </p>
+                        <a href="contact.html" class="btn btn-ai-cta">Discuss Your AI Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-white"> <!-- White BG for Benefits -->
+        <div class="container">
+            <div class="section-heading">
+                <h2>The Power of AI/ML for Your Business</h2>
+                <p class="lead">Artificial Intelligence and Machine Learning are not just buzzwords; they are powerful tools that can redefine how your business operates, innovates, and grows.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3"> <div class="benefit-item"> <div class="icon"><i class="fa fa-cogs"></i></div> <h4>Enhanced Automation</h4> <p>Streamline complex processes and reduce manual effort with intelligent automation.</p> </div> </div>
+                <div class="col-md-6 col-lg-3"> <div class="benefit-item"> <div class="icon"><i class="fa fa-lightbulb-o"></i></div> <h4>Deeper Insights</h4> <p>Uncover hidden patterns and gain actionable insights from your data for better decision-making.</p> </div> </div>
+                <div class="col-md-6 col-lg-3"> <div class="benefit-item"> <div class="icon"><i class="fa fa-line-chart"></i></div> <h4>Predictive Capabilities</h4> <p>Forecast future trends, predict outcomes, and proactively address challenges.</p> </div> </div>
+                <div class="col-md-6 col-lg-3"> <div class="benefit-item"> <div class="icon"><i class="fa fa-users"></i></div> <h4>Personalized Experiences</h4> <p>Deliver tailored experiences to your customers, enhancing engagement and loyalty.</p> </div> </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Understanding AI & Machine Learning Section -->
+    <section class="section-padding section-bg-light understanding-ai-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Understanding AI & Machine Learning</h2>
+                <p class="lead">A brief dive into the concepts that power intelligent solutions and business transformation.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="content-block">
+                        <h3>What is Artificial Intelligence (AI)?</h3>
+                        <p>Artificial Intelligence is a broad field of computer science focused on creating systems that can perform tasks that typically require human intelligence. This includes abilities like learning, reasoning, problem-solving, perception, and language understanding. AI aims to mimic or simulate human cognitive functions, enabling machines to make decisions, adapt to new inputs, and perform complex operations autonomously.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Machine Learning (ML): The Engine of AI</h3>
+                        <p>Machine Learning is a crucial subset of AI that provides systems with the ability to automatically learn and improve from experience without being explicitly programmed. Instead of following precise instructions, ML algorithms build a model based on sample data, known as "training data," to make predictions or decisions. Key types include:</p>
+                        <ul>
+                            <li><strong>Supervised Learning:</strong> Algorithms learn from labeled data, where each data point is tagged with a correct output. Used for tasks like classification and regression.</li>
+                            <li><strong>Unsupervised Learning:</strong> Algorithms work with unlabeled data to find hidden patterns or intrinsic structures, ideal for clustering and dimensionality reduction.</li>
+                            <li><strong>Reinforcement Learning:</strong> Algorithms learn to make a sequence of decisions by trying to maximize a cumulative reward through trial and error in an interactive environment.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Deep Learning: Advanced Pattern Recognition</h3>
+                        <p>Deep Learning is a specialized field within Machine Learning that utilizes artificial neural networks with multiple layers (hence "deep") to analyze various factors of data. These deep neural networks are inspired by the structure and function of the human brain. Deep Learning excels at discovering intricate patterns in large datasets, making it particularly effective for tasks such as image recognition, natural language processing (NLP), and speech recognition.</p>
+                    </div>
+
+                    <p class="lead-text-highlight">At CrudOps, we harness these powerful technologies to build bespoke solutions that address your specific needs, drive efficiency, and unlock new avenues for growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END: Understanding AI & Machine Learning Section -->
+
+    <section class="section-padding section-bg-white"> <!-- Project showcase on white -->
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our AI & ML Project Showcase</h2>
+                <p class="lead">Explore some of the innovative AI and Machine Learning solutions we've delivered, demonstrating our capability to solve complex problems across various domains.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-medkit"></i></div> <h4 class="project-card-title">Monkeypox Detection System</h4> <p class="project-card-description">Developed an AI-powered system for the early detection and classification of Monkeypox lesions from images, aiding in rapid diagnostics.</p> </div> </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-microphone"></i></div> <h4 class="project-card-title">Speech Emotion Recognition with Depression Analysis</h4> <p class="project-card-description">An advanced system combining Deep Learning and NLP to recognize emotions from speech and identify potential markers of depression.</p> </div> </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-bank"></i></div> <h4 class="project-card-title">Loan Default Prediction System</h4> <p class="project-card-description">A machine learning model that accurately predicts the likelihood of loan defaults, enabling financial institutions to mitigate risk.</p> </div> </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-cutlery"></i></div> <h4 class="project-card-title">AI-Based Food Supply Management System</h4> <p class="project-card-description">An intelligent system optimizing food supply chains through demand forecasting, inventory management, and waste reduction using AI.</p> </div> </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-universal-access"></i></div> <h4 class="project-card-title">AI Yoga Partner</h4> <p class="project-card-description">A computer vision-based AI application that analyzes yoga poses, providing real-time feedback and guidance for improved practice.</p> </div> </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"> <div class="project-card"> <div class="project-card-icon"><i class="fa fa-puzzle-piece"></i></div> <h4 class="project-card-title">More Innovative Solutions</h4> <p class="project-card-description">We are constantly exploring new frontiers in AI. Have a unique challenge? Let's build the next groundbreaking solution together.</p> </div> </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-light"> <!-- Technologies on light bg -->
+        <div class="container">
+            <div class="section-heading">
+                <h2>Technologies Powering Our AI Solutions</h2>
+                <p class="lead">We work with a wide array of industry-leading AI/ML tools, frameworks, and platforms to build robust and scalable intelligent systems.</p>
+            </div>
+            <div class="tech-logo-grid">
+                <div class="tech-logo-item" title="Python"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python"></div>
+                <div class="tech-logo-item" title="TensorFlow"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="TensorFlow"></div>
+                <div class="tech-logo-item" title="PyTorch"><img src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg" alt="PyTorch"></div>
+                <div class="tech-logo-item" title="Scikit-learn"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-learn"></div>
+                <div class="tech-logo-item" title="Keras"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Keras_logo.svg" alt="Keras"></div>
+                <div class="tech-logo-item" title="AWS SageMaker"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Amazon_SageMaker_logo.svg/120px-Amazon_SageMaker_logo.svg.png" alt="AWS SageMaker"></div>
+                <div class="tech-logo-item" title="Google Cloud AI"><img src="https://www.gstatic.com/images/branding/product/1x/google_cloud_48dp.png" alt="Google Cloud AI"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ai-cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h2 class="section-heading">Ready to Infuse Intelligence into Your Business?</h2>
+                    <p class="lead mb-4"> Let's explore how our AI and Machine Learning expertise can help you achieve your strategic objectives, automate operations, and create unparalleled value. </p>
+                    <a href="contact.html" class="btn btn-ai-cta btn-lg">Schedule a Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <!-- Footer content remains the same as previous version -->
+    <div class="container"> <div class="footer-main-content"> <div class="footer-brand-block"> <img src="img/logo-dark.png" alt="CrudOps AI Logo" class="footer-logo"> <p class="footer-slogan">CrudOps: Data, Design, Engineering - Driving Impact.</p> </div> <div class="footer-links-area"> <div class="footer-links-column products"> <h4>Services</h4> <ul> <li><a href="service-ai-ml.html">AI/ML Solutions</a></li> <li><a href="service-web-dev.html">Web Development</a></li> <li><a href="service-app-dev.html">App Development</a></li> <li><a href="service-erp-dev.html">ERP Development</a></li> <li><a href="service-ecommerce-dev.html">E-Commerce</a></li> <li><a href="service-software-dev.html">Software Development</a></li> </ul> <a href="privacy.html" class="footer-legal-link">PRIVACY POLICY</a> </div> <div class="footer-links-column role"> <h4>Explore</h4> <ul> <li><a href="industries.html">Industries Served</a></li> <li><a href="casestudies.html">Case Studies</a></li> <li><a href="portfolio.html">Our Portfolio</a></li> <li><a href="https://medium.com/crudops" target="_blank">Blog on Medium</a></li> <li><a href="careers.html">Careers</a></li> </ul> <a href="terms.html" class="footer-legal-link">TERMS OF USE</a> </div> <div class="footer-links-column company"> <h4>Company</h4> <ul> <li><a href="about.html">About Us</a></li> <li><a href="team.html">Leadership</a></li> <li><a href="contact.html">Contact</a></li> <li><a href="faq.html">FAQ</a></li> <li><a href="sitemap.html">Sitemap</a></li> </ul> </div> </div> </div> <div class="footer-bottom-bar"> <div class="footer-copyright-text"> <p> © <span id="currentYear"></span> CrudOps. All rights reserved. <br> CrudOps™ and the CrudOps logo are trademarks of CrudOps Pvt. Ltd. </p> </div> <div class="footer-social-media"> <a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a> <a href="#" aria-label="X (Twitter)"><i class="fa fa-twitter"></i></a> <a href="#" aria-label="GitHub"><i class="fa fa-github"></i></a> <a href="#" aria-label="Medium"><i class="fa fa-medium"></i></a> </div> </div> </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const header = document.querySelector("#mainNav");
+    if (header) {
+        const add_class_on_scroll = () => header.classList.add("scrolled");
+        const remove_class_on_scroll = () => header.classList.remove("scrolled");
+        const updateNavbarAndBodyPadding = () => {
+            requestAnimationFrame(() => {
+                const currentNavbarHeight = header.offsetHeight;
+                const rootStyles = getComputedStyle(document.documentElement);
+                const navbarTopGap = parseInt(rootStyles.getPropertyValue('--navbar-top-gap').trim()) || 0;
+                let newBodyPaddingTop = navbarTopGap + currentNavbarHeight;
+                if (window.innerWidth >= 992) {
+                    document.body.style.paddingTop = `${newBodyPaddingTop}px`;
+                } else {
+                    document.body.style.paddingTop = `calc(${rootStyles.getPropertyValue('--navbar-top-gap').trim()} + 60px)`;
+                }
+                document.documentElement.style.setProperty('--navbar-total-initial-offset', `${newBodyPaddingTop}px`);
+                if (typeof bootstrap !== 'undefined' && bootstrap.ScrollSpy) {
+                    const scrollSpyInstance = bootstrap.ScrollSpy.getInstance(document.body);
+                    if (scrollSpyInstance) {
+                        scrollSpyInstance._config.offset = newBodyPaddingTop + 20;
+                        scrollSpyInstance.refresh();
+                    }
+                }
+            });
+        };
+        window.addEventListener('resize', updateNavbarAndBodyPadding);
+        updateNavbarAndBodyPadding();
+        let scrollpos = window.scrollY;
+        window.addEventListener('scroll', () => {
+            scrollpos = window.scrollY;
+            if (scrollpos >= (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-top-gap').trim()) || 0) / 2 ) {
+                add_class_on_scroll();
+            } else { remove_class_on_scroll(); }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const navLinks = document.querySelectorAll('#mainNav .nav-link');
+        if (navLinks.length > 0) {
+            navLinks.forEach(link => {
+                // Example: Activate "Services" link for this specific service page
+                if (link.getAttribute('href') === "services.html") {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active'); // Ensure others are not active unless it's the current page.
+                }
+            });
+             // If this page URL is 'service-ai-ml.html', also ensure 'AI/ML Solutions' link (if exists directly in nav) is active.
+            // For simplicity, we are just activating the parent 'Services' link.
+        }
+
+        const mouseShadow = document.getElementById('mouse-shadow');
+        if (mouseShadow && window.matchMedia("(pointer: fine)").matches) {
+            document.addEventListener('mousemove', (e) => {
+                requestAnimationFrame(() => {
+                    mouseShadow.style.transform = `translate(${e.clientX - (mouseShadow.offsetWidth / 2)}px, ${e.clientY - (mouseShadow.offsetHeight / 2)}px)`;
+                });
+            });
+        } else if (mouseShadow) { mouseShadow.style.display = 'none'; }
+
+        if(document.getElementById('currentYear')) {
+             document.getElementById('currentYear').textContent = new Date().getFullYear();
+        }
+    });
+  </script>
+</body>
+</html>

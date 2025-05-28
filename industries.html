@@ -1,0 +1,655 @@
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="Industries Served by CrudOps - Tailored technology solutions for diverse business sectors.">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="CrudOps Team">
+  <meta name="HandheldFriendly" content="true">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Industries We Serve - CrudOps</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <style>
+    :root {
+      --co-yellow: #FFC107;
+      --co-dark-text: #212529; 
+      --co-subtle-text: #4B5563; 
+      --co-matte-black: #1a1a1a; 
+      --co-border-gray: #DEE2E6;
+      --co-off-white: #fdfdfd;
+      --co-medium-gray-text: #555;
+      --co-light-gray-bg: #f8f9fa;
+      
+      --font-primary: 'Anonymous Pro', monospace;
+      --font-secondary: 'Inter', sans-serif; 
+
+      --navbar-top-gap: 20px;
+      --navbar-element-initial-height: 70px;
+      --navbar-total-initial-offset: calc(var(--navbar-top-gap) + var(--navbar-element-initial-height));
+    }
+
+    html { scroll-behavior: smooth; } 
+    body { font-family: var(--font-primary); background-color: #FFFFFF; color: var(--co-dark-text); line-height: 1.7; overflow-x: hidden; }
+    h1,h2,h3,h4,h5,h6 { font-family: var(--font-primary); font-weight: 700; color: var(--co-dark-text); margin-bottom: 1.5rem; }
+    p { margin-bottom: 1.5rem; font-weight: 400; font-family: var(--font-secondary); }
+    .force-font-primary { font-family: var(--font-primary) !important; }
+
+    #mainNav { position: fixed; top: var(--navbar-top-gap); left: 50%; transform: translateX(-50%); width: 95%; max-width: 1300px; padding: 1rem; background-color: #FFFFFF; border-radius: 0; box-shadow: 0 5px 20px rgba(0,0,0,0.08); z-index: 1050; transition: all 0.3s ease-in-out; }
+    #mainNav .container { width: 100%; padding: 0; } #mainNav .navbar-brand .logo-img { height: 38px; width:auto; transition: height 0.3s ease-in-out; } #mainNav.scrolled .navbar-brand .logo-img { height: 32px; } 
+    #mainNav .navbar-nav .nav-link { font-family: var(--font-primary); color: var(--co-dark-text); font-weight: 400; padding: 0.5rem 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.3s ease; } 
+    #mainNav .navbar-nav .nav-link:hover, #mainNav .navbar-nav .nav-link:focus { color: var(--co-yellow); } #mainNav .navbar-nav .nav-item .nav-link.active { color: var(--co-yellow); font-weight: 700; } 
+    #mainNav .navbar-nav .nav-link.crudops-hub { font-family: var(--font-primary); color: var(--co-yellow) !important; font-weight: 700; font-size: 0.9rem; } 
+    #mainNav.scrolled { padding: 0.75rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1); } .navbar-toggler { border-color: rgba(0, 0, 0, 0.1); margin-left: auto; } 
+    .nav-cta-btn { font-family: var(--font-primary); background-color: var(--co-yellow); border-color: var(--co-yellow); color: var(--co-dark-text); border-radius: 20px; font-weight: 700; padding: 0.45rem 1.3rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; transition: all 0.3s ease; } 
+    .nav-cta-btn:hover { background-color: #e0a800; border-color: #e0a800; transform: translateY(-2px); }
+
+    #mouse-shadow {
+      position: fixed;
+      /* Keep the originating element small and transparent */
+      width: 1px;
+      height: 1px;
+      background-color: transparent; /* Essential to avoid the center circle */
+      border-radius: 50%;
+      /* For an approximate 400px diameter glow: */
+      box-shadow: 0 0 200px 100px var(--co-yellow); /* blur 200px, spread 100px */
+      opacity: 0.6; /* Adjust for desired transparency of the glow */
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: transform 0.08s ease-out;
+    }    @media (pointer: coarse) { #mouse-shadow { display: none; } }
+
+    .site-footer { background-color: #FFFFFF; padding: 3rem 0 2rem 0; border-top: 1px solid var(--co-border-gray); font-family: var(--font-secondary); color: var(--co-dark-text); }
+    .site-footer .container { max-width: 1300px;  }
+    .footer-main-content { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; gap: 2rem;  }
+    .footer-brand-block { flex: 0 0 28%;  max-width: 28%; }
+    .footer-logo { max-width: 200px;  height: auto; margin-bottom: 1.2rem; }
+    .footer-slogan { font-size: 1rem;  font-weight: 500;  color: var(--co-dark-text); line-height: 1.5; margin-bottom: 0; font-family: var(--font-primary);  }
+    .footer-links-area { flex: 1; display: flex; justify-content: space-between; gap: 1.5rem;  }
+    .footer-links-column { flex: 1; min-width: 150px;  }
+    .footer-links-column h4 { font-family: var(--font-secondary); font-size: 0.8rem; font-weight: 700; color: var(--co-medium-gray-text);  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+    .footer-links-column ul { list-style: none; padding: 0; margin: 0; }
+    .footer-links-column ul li a { font-family: var(--font-secondary); font-size: 0.9rem; color: var(--co-dark-text); text-decoration: none; display: block; padding: 0.35rem 0; transition: color 0.2s ease; font-weight: 500; }
+    .footer-links-column ul li a:hover { color: var(--co-yellow); }
+    .footer-legal-link { font-family: var(--font-secondary); display: block; font-size: 0.8rem; font-weight: 500; color: var(--co-medium-gray-text); text-decoration: none; margin-top: 1rem;  padding: 0.35rem 0; transition: color 0.2s ease; }
+    .footer-legal-link:hover { color: var(--co-yellow); }
+    .footer-bottom-bar { display: flex; justify-content: space-between; align-items: flex-end;  padding-top: 2rem; border-top: 1px solid var(--co-border-gray); }
+    .footer-copyright-text p { font-family: var(--font-secondary); font-size: 0.75rem;  color: #707070;  line-height: 1.6; margin: 0; }
+    .footer-social-media { display: flex; align-items: center; }
+    .footer-social-media a { color: var(--co-dark-text); margin-left: 1rem;  font-size: 1.1rem;  text-decoration: none; transition: color 0.2s ease; }
+    .footer-social-media a:first-child { margin-left: 0; }
+    .footer-social-media a:hover { color: var(--co-yellow); }
+    
+    /* === INDUSTRIES PAGE SPECIFIC STYLES START === */
+    .industries-hero-section { /* Renamed from services-hero-section */
+        background-color: #FFFFFF;
+        padding: 8rem 0; 
+        min-height: 70vh; 
+        display: flex;
+        align-items: center; 
+    }
+    .industries-hero-content { /* Renamed */
+        max-width: 800px; 
+    }
+    .industries-eyebrow-text { /* Renamed */
+        font-family: var(--font-secondary); 
+        font-size: clamp(0.9rem, 1.5vw, 1rem);
+        font-weight: 500; 
+        color: var(--co-subtle-text); 
+        margin-bottom: 1rem; 
+        letter-spacing: 0.02em;
+    }
+    .industries-main-heading { /* Renamed */
+        font-family: var(--font-secondary); 
+        font-size: clamp(2.5rem, 6vw, 4.5rem); 
+        font-weight: 700; 
+        color: var(--co-dark-text);
+        line-height: 1.2; 
+        letter-spacing: -0.02em; 
+        margin-bottom: 0; 
+    }
+    /* === INDUSTRIES PAGE SPECIFIC STYLES END === */
+
+    /* === STICKY INDUSTRIES LIST STYLES START === */
+    .industries-sticky-stack-container {
+        /* This container holds all sticky industry sections */
+    }
+
+    .industry-item-section {
+        position: sticky;
+        top: var(--navbar-total-initial-offset); 
+        min-height: 100vh; /* Each section tries to fill the viewport height */
+        width: 100%;
+        background-color: #FFFFFF; /* Ensure sections have a solid background to cover previous ones */
+        display: flex;
+        align-items: center;
+        justify-content: space-around; 
+        padding: 3rem 5%; /* Vertical and horizontal padding */
+        box-sizing: border-box;
+        border-bottom: 1px solid #E0E0E0; /* Subtle separator */
+        overflow: hidden; 
+    }
+
+    .industry-item-section:last-child {
+        border-bottom: none;
+    }
+
+    .industry-image-left,
+    .industry-image-right {
+        flex: 0 0 28%; 
+        max-width: 400px; 
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    .industry-image-left img,
+    .industry-image-right img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px; 
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        display: block;
+    }
+
+    .industry-content-center {
+        flex: 0 0 40%; 
+        max-width: 650px; 
+        padding: 1rem 2rem;
+        text-align: center;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .industry-number {
+        font-family: 'Bebas Neue', cursive;
+        font-size: clamp(6rem, 15vw, 12rem); 
+        font-weight: 400;
+        color: #E0E0E0; 
+        line-height: 0.8;
+        margin-bottom: -0.1em; 
+    }
+
+    .industry-title {
+        font-family: var(--font-secondary); 
+        font-size: clamp(2.2rem, 4vw, 3.8rem); 
+        font-weight: 700;
+        color: var(--co-dark-text);
+        margin-top: 0; 
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+    }
+
+    .industry-description {
+        font-family: var(--font-secondary);
+        font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+        color: var(--co-subtle-text);
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        max-width: 550px; 
+    }
+    
+    .industry-link-wrapper {
+        font-family: var(--font-secondary); 
+        font-size: clamp(1rem, 2vw, 1.1rem);
+        font-weight: 500;
+        color: var(--co-dark-text);
+    }
+
+    .industry-link {
+        font-family: var(--font-secondary); 
+        color: #F44336; 
+        text-decoration: none;
+        font-weight: 700; 
+        transition: color 0.3s ease;
+    }
+
+    .industry-link:hover {
+        color: #D32F2F; 
+    }
+
+    .industry-link i.fa-long-arrow-right {
+        margin-left: 0.5em;
+        font-size: 0.9em; 
+        position: relative;
+        top: -1px; 
+    }
+    /* === STICKY INDUSTRIES LIST STYLES END === */
+
+
+    /* --- MOBILE STYLES --- */
+    @media (max-width: 991.98px) {
+      body { padding-top: calc(var(--navbar-top-gap) + 60px); } 
+      #mainNav { width: 95%; padding: 0.75rem; max-width: calc(100% - 20px); border-radius: 0; } 
+      #mainNav .navbar-brand .logo-img { height: 32px; } 
+      #mainNav .navbar-collapse { background-color: #FFFFFF; padding: 1rem; margin-top: 0.75rem; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: absolute; top: 100%; left: 0; right: 0; width: 100%; } 
+      #mainNav .navbar-nav .nav-item { margin-bottom: 0.3rem; } 
+      #mainNav .navbar-nav .nav-link { padding: 0.6rem 0.5rem; font-size: 0.9rem; } 
+      #mainNav .navbar-collapse .d-lg-flex { margin-top: 1rem; display: block !important; text-align: center; } 
+      #mainNav .navbar-collapse .nav-cta-btn { width: 100%; display: block; margin: 0.5rem auto 0; font-size: 0.9rem; }
+      
+      .industries-hero-section { 
+          padding: 5rem 0;
+          min-height: auto; 
+          text-align: left; 
+      }
+      .industries-main-heading { 
+          font-size: clamp(2rem, 8vw, 3.2rem); 
+      }
+
+      /* --- MOBILE STYLES for STICKY INDUSTRIES --- */
+      .industry-item-section {
+            flex-direction: column;
+            padding: 3rem 1rem; 
+            /* min-height: 100vh still applies, adjust if content consistently overflows */
+      }
+
+      .industry-image-left,
+      .industry-image-right {
+          flex-basis: auto; 
+          width: 80%; 
+          max-width: 320px;
+          padding: 0.5rem;
+          margin-bottom: 1.5rem;
+      }
+      .industry-image-left { order: 1; } 
+      .industry-content-center { order: 2; flex-basis: auto; width:100%; padding:0.5rem; } 
+      .industry-image-right { order: 3; }
+        
+      .industry-number {
+          font-size: clamp(5rem, 20vw, 8rem); 
+      }
+      .industry-title {
+          font-size: clamp(1.8rem, 7vw, 2.8rem);
+      }
+      .industry-description {
+          font-size: 0.95rem;
+          margin-bottom: 1.5rem;
+      }
+      .industry-link-wrapper {
+          font-size: 1rem;
+      }
+
+
+      /* --- FOOTER MOBILE STYLES --- */
+      .footer-main-content { flex-direction: column; align-items: flex-start;  gap: 0;  }
+      .footer-brand-block { flex-basis: auto; width: 100%; max-width: 100%; margin-bottom: 2rem; }
+      .footer-links-area { flex-direction: column; width: 100%; gap: 0; }
+      .footer-links-column { width: 100%; margin-bottom: 2rem; }
+      .footer-links-column:last-child { margin-bottom: 0; }
+      .footer-bottom-bar { flex-direction: column; align-items: flex-start;  text-align: left;  }
+      .footer-copyright-text { margin-bottom: 1.5rem; }
+      .footer-social-media { width: 100%; justify-content: flex-start;  }
+      .footer-social-media a { margin-left: 0; margin-right: 1rem;  }
+    }
+    /* --- END MOBILE STYLES --- */
+
+    .float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 8px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <div id="mouse-shadow"></div>
+
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-light"> <div class="container d-flex justify-content-between align-items-center"> <a class="navbar-brand" href="index.html"> <img src="./img/logo-dark.png" alt="CrudOps Logo" class="logo-img"> </a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="navbarSupportedContent"> <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0"> <li class="nav-item"> <a class="nav-link" href="services.html">Services</a> </li> <li class="nav-item"> <a class="nav-link" href="industries.html">Industries</a> </li> <li class="nav-item"> <a class="nav-link" href="about.html">About Us</a> </li> <li class="nav-item"> <a class="nav-link crudops-hub" href="index.html">Crudops Hub</a> </li> <li class="nav-item"> <a class="nav-link" href="casestudies.html">Case Studies</a> </li> <li class="nav-item"> <a class="nav-link" href="portfolio.html">Portfolio</a> </li> <li class="nav-item"> <a class="nav-link" href="blog.html">Blogs</a> </li></ul> <div class="d-lg-flex align-items-center"> <a href="contact.html" class="btn nav-cta-btn btn-sm">Contact Us</a> </div> </div> </div> </nav>
+  <a href="https://api.whatsapp.com/send?phone=+916238575185&text=Hi" class="float" target="_blank"><i class="fa fa-whatsapp"></i></a>
+
+<main>
+    <section class="industries-hero-section"> 
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10"> 
+                    <div class="industries-hero-content"> 
+                        <p class="industries-eyebrow-text">Industries</p> 
+                        <h1 class="industries-main-heading"> 
+                            Delivering specialized solutions across a spectrum of dynamic industries
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="industries-sticky-stack-container">
+        <!-- Industry 1: Technology -->
+        <section class="industry-item-section" id="industry-technology">
+            <div class="industry-image-left">
+                <img src="img/blog1.jpg" alt="Technology - Conceptual image 1">
+            </div>
+            <div class="industry-content-center">
+                <div class="industry-number">01</div>
+                <h2 class="industry-title">Technology</h2>
+                <p class="industry-description">The best collaborations are born from healthy relationships. We’re fair and transparent with the people we work with and expect the same in return. Our partners are teammates, not resources; that’s why we don’t need an HR department.</p>
+                <p class="industry-link-wrapper">Get to <a href="#contact" class="industry-link">know us <i class="fa fa-long-arrow-right"></i></a></p>
+            </div>
+            <div class="industry-image-right">
+                <img src="img/blog1.png" alt="Technology - Conceptual image 2">
+            </div>
+        </section>
+
+        <!-- Industry 2: Health Care -->
+        <section class="industry-item-section" id="industry-health-care">
+            <div class="industry-image-left">
+                <img src="img/blog2.jpg" alt="Health Care - Conceptual image 1">
+            </div>
+            <div class="industry-content-center">
+                <div class="industry-number">02</div>
+                <h2 class="industry-title">Health Care</h2>
+                <p class="industry-description">The best collaborations are born from healthy relationships. We’re fair and transparent with the people we work with and expect the same in return. Our partners are teammates, not resources; that’s why we don’t need an HR department.</p>
+                <p class="industry-link-wrapper">Get to <a href="#contact" class="industry-link">know us <i class="fa fa-long-arrow-right"></i></a></p>
+            </div>
+            <div class="industry-image-right">
+                <img src="img/blog3.jpg" alt="Health Care - Conceptual image 2">
+            </div>
+        </section>
+
+        <!-- Industry 3: Agriculture -->
+        <section class="industry-item-section" id="industry-agriculture">
+            <div class="industry-image-left">
+                <img src="img/cover-1.png" alt="Agriculture - Conceptual image 1">
+            </div>
+            <div class="industry-content-center">
+                <div class="industry-number">03</div>
+                <h2 class="industry-title">Agriculture</h2>
+                <p class="industry-description">The best collaborations are born from healthy relationships. We’re fair and transparent with the people we work with and expect the same in return. Our partners are teammates, not resources; that’s why we don’t need an HR department.</p>
+                <p class="industry-link-wrapper">Get to <a href="#contact" class="industry-link">know us <i class="fa fa-long-arrow-right"></i></a></p>
+            </div>
+            <div class="industry-image-right">
+                <img src="img/industry1.jpg" alt="Agriculture - Conceptual image 2">
+            </div>
+        </section>
+
+        <!-- Industry 4: Education -->
+        <section class="industry-item-section" id="industry-education">
+            <div class="industry-image-left">
+                <img src="img/industry2.jpg" alt="Education - Conceptual image 1">
+            </div>
+            <div class="industry-content-center">
+                <div class="industry-number">04</div>
+                <h2 class="industry-title">Education</h2>
+                <p class="industry-description">The best collaborations are born from healthy relationships. We’re fair and transparent with the people we work with and expect the same in return. Our partners are teammates, not resources; that’s why we don’t need an HR department.</p>
+                <p class="industry-link-wrapper">Get to <a href="#contact" class="industry-link">know us <i class="fa fa-long-arrow-right"></i></a></p>
+            </div>
+            <div class="industry-image-right">
+                <img src="img/industry3.jpg" alt="Education - Conceptual image 2">
+            </div>
+        </section>
+
+        <!-- Industry 5: Logistics -->
+        <section class="industry-item-section" id="industry-logistics">
+            <div class="industry-image-left">
+                <img src="img/blog1.jpg" alt="Logistics - Conceptual image 1">
+            </div>
+            <div class="industry-content-center">
+                <div class="industry-number">05</div>
+                <h2 class="industry-title">Logistics</h2>
+                <p class="industry-description">The best collaborations are born from healthy relationships. We’re fair and transparent with the people we work with and expect the same in return. Our partners are teammates, not resources; that’s why we don’t need an HR department.</p>
+                <p class="industry-link-wrapper">Get to <a href="#contact" class="industry-link">know us <i class="fa fa-long-arrow-right"></i></a></p>
+            </div>
+            <div class="industry-image-right">
+                <img src="img/blog2.jpg" alt="Logistics - Conceptual image 2">
+            </div>
+        </section>
+
+        <!-- Industry 6: E-Commerce -->
+        <section class="industry-item-section" id="industry-e-commerce">
+            <div class="industry-image-left">
+                <img src="img/blog3.jpg" alt="E-Commerce - Conceptual image 1">
+            </div>
+            <div class="industry-content-center">
+                <div class="industry-number">06</div>
+                <h2 class="industry-title">E-Commerce</h2>
+                <p class="industry-description">The best collaborations are born from healthy relationships. We’re fair and transparent with the people we work with and expect the same in return. Our partners are teammates, not resources; that’s why we don’t need an HR department.</p>
+                <p class="industry-link-wrapper">Get to <a href="#contact" class="industry-link">know us <i class="fa fa-long-arrow-right"></i></a></p>
+            </div>
+            <div class="industry-image-right">
+                <img src="img/blog1.jpg" alt="E-Commerce - Conceptual image 2">
+            </div>
+        </section>
+
+        <!-- Industry 7: Social Media -->
+        <section class="industry-item-section" id="industry-social-media">
+            <div class="industry-image-left">
+                <img src="img/blog2.jpg" alt="Social Media - Conceptual image 1">
+            </div>
+            <div class="industry-content-center">
+                <div class="industry-number">07</div>
+                <h2 class="industry-title">Social Media</h2>
+                <p class="industry-description">The best collaborations are born from healthy relationships. We’re fair and transparent with the people we work with and expect the same in return. Our partners are teammates, not resources; that’s why we don’t need an HR department.</p>
+                <p class="industry-link-wrapper">Get to <a href="#contact" class="industry-link">know us <i class="fa fa-long-arrow-right"></i></a></p>
+            </div>
+            <div class="industry-image-right">
+                <img src="img/cover-1.png" alt="Social Media - Conceptual image 2">
+            </div>
+        </section>
+
+        <!-- Industry 8: Trading -->
+        <section class="industry-item-section" id="industry-trading">
+            <div class="industry-image-left">
+                <img src="img/industry2.jpg" alt="Trading - Conceptual image 1">
+            </div>
+            <div class="industry-content-center">
+                <div class="industry-number">08</div>
+                <h2 class="industry-title">Trading</h2>
+                <p class="industry-description">The best collaborations are born from healthy relationships. We’re fair and transparent with the people we work with and expect the same in return. Our partners are teammates, not resources; that’s why we don’t need an HR department.</p>
+                <p class="industry-link-wrapper">Get to <a href="#contact" class="industry-link">know us <i class="fa fa-long-arrow-right"></i></a></p>
+            </div>
+            <div class="industry-image-right">
+                <img src="img/industry2.jpg" alt="Trading - Conceptual image 2">
+            </div>
+        </section>
+
+        <!-- Industry 9: Hotels & Restaurants -->
+        <section class="industry-item-section" id="industry-hotels-restaurants">
+            <div class="industry-image-left">
+                <img src="img/industry3.jpg" alt="Hotels & Restaurants - Conceptual image 1">
+            </div>
+            <div class="industry-content-center">
+                <div class="industry-number">09</div>
+                <h2 class="industry-title">Hotels & Restaurants</h2>
+                <p class="industry-description">The best collaborations are born from healthy relationships. We’re fair and transparent with the people we work with and expect the same in return. Our partners are teammates, not resources; that’s why we don’t need an HR department.</p>
+                <p class="industry-link-wrapper">Get to <a href="#contact" class="industry-link">know us <i class="fa fa-long-arrow-right"></i></a></p>
+            </div>
+            <div class="industry-image-right">
+                <img src="img/blog2.jpg" alt="Hotels & Restaurants - Conceptual image 2">
+            </div>
+        </section>
+
+        <!-- Industry 10: Financial Services -->
+        <section class="industry-item-section" id="industry-financial-services">
+            <div class="industry-image-left">
+                <img src="img/blog1.jpg" alt="Financial Services - Conceptual image 1">
+            </div>
+            <div class="industry-content-center">
+                <div class="industry-number">10</div>
+                <h2 class="industry-title">Financial Services</h2>
+                <p class="industry-description">The best collaborations are born from healthy relationships. We’re fair and transparent with the people we work with and expect the same in return. Our partners are teammates, not resources; that’s why we don’t need an HR department.</p>
+                <p class="industry-link-wrapper">Get to <a href="#contact" class="industry-link">know us <i class="fa fa-long-arrow-right"></i></a></p>
+            </div>
+            <div class="industry-image-right">
+                <img src="img/cover-1.png" alt="Financial Services - Conceptual image 2">
+            </div>
+        </section>
+    </div>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-main-content">
+            <div class="footer-brand-block">
+                <img src="img/logo-dark.png" alt="Fastbreak AI Logo" class="footer-logo">
+                <p class="footer-slogan">Fastbreak Is The Ultimate AI-Powered Sports Engine</p>
+            </div>
+            <div class="footer-links-area">
+                <div class="footer-links-column products">
+                    <h4>PRODUCTS</h4>
+                    <ul>
+                        <li><a href="#">COMPETE</a></li>
+                        <li><a href="#">PRO</a></li>
+                        <li><a href="#">CONNECT</a></li>
+                        <li><a href="#">PULSE</a></li>
+                        <li><a href="#">TRAVEL</a></li>
+                        <li><a href="#">TICKETS</a></li>
+                        <li><a href="#">MOBILE APPS</a></li>
+                    </ul>
+                    <a href="#" class="footer-legal-link">PRIVACY POLICY</a>
+                </div>
+                <div class="footer-links-column role">
+                    <h4>ROLE</h4>
+                    <ul>
+                        <li><a href="#">YOUTH + AMATEUR SPORTS</a></li>
+                        <li><a href="#">PRO SPORTS</a></li>
+                        <li><a href="#">TOURNAMENT OPERATORS</a></li>
+                        <li><a href="#">CONSUMER BRANDS</a></li>
+                        <li><a href="#">TRAVEL MANAGERS</a></li>
+                        <li><a href="#">TOURISM BOARDS & VISITORS BUREAUS</a></li>
+                        <li><a href="#">FOUNDATIONS</a></li>
+                    </ul>
+                    <a href="#" class="footer-legal-link">TERMS OF USE</a>
+                </div>
+                <div class="footer-links-column company">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">ABOUT US</a></li>
+                        <li><a href="#">LEADERSHIP</a></li>
+                        <li><a href="#">BLOG</a></li>
+                        <li><a href="#">NEWS & PRESS</a></li>
+                        <li><a href="#">IMPACT</a></li>
+                        <li><a href="#">CAREERS</a></li>
+                        <li><a href="#">CONTACT</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <div class="footer-copyright-text">
+                <p>
+                    © 2025 Fastbreak.ai, Inc. All rights reserved. <br>
+                    Fastbreak AI™, Fastbreak Pro™, Fastbreak Compete™, Fastbreak Connect™, Fastbreak Impact™, Fastbreak Pulse™, Easy Event Tickets™, and other product names and logos are trademarks or registered trademarks of Fastbreak.ai, Inc. All other trademarks are the property of their respective owners.
+                </p>
+            </div>
+            <div class="footer-social-media">
+                <a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                <a href="#" aria-label="X (Twitter)"><i class="fa fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fa fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+                <a href="#" aria-label="Email"><i class="fa fa-at"></i></a>
+                <a href="#" aria-label="Custom Platform"><i class="fa fa-leaf"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger); 
+
+    const header = document.querySelector("#mainNav"); 
+    if (header) { 
+        const add_class_on_scroll = () => header.classList.add("scrolled"); 
+        const remove_class_on_scroll = () => header.classList.remove("scrolled"); 
+        const updateNavbarAndBodyPadding = () => { 
+            requestAnimationFrame(() => { 
+                const currentNavbarHeight = header.offsetHeight; 
+                const rootStyles = getComputedStyle(document.documentElement); 
+                const navbarTopGap = parseInt(rootStyles.getPropertyValue('--navbar-top-gap').trim()) || 0; 
+                let newBodyPaddingTop = navbarTopGap + currentNavbarHeight; 
+                if (window.innerWidth >= 992) { 
+                    document.body.style.paddingTop = `${newBodyPaddingTop}px`;
+                } else {
+                    document.body.style.paddingTop = `calc(var(--navbar-top-gap) + 60px)`; 
+                }
+                document.documentElement.style.setProperty('--navbar-total-initial-offset', `${newBodyPaddingTop}px`); 
+                const mainNavElForScrollSpy = document.getElementById('mainNav'); 
+                if (typeof bootstrap !== 'undefined' && bootstrap.ScrollSpy && mainNavElForScrollSpy) { 
+                    let scrollSpyOffset = newBodyPaddingTop + 20; 
+                    const bsScrollSpyInstance = bootstrap.ScrollSpy.getInstance(document.body); 
+                    if (bsScrollSpyInstance) { 
+                        bsScrollSpyInstance._config.offset = scrollSpyOffset; 
+                        bsScrollSpyInstance.refresh(); 
+                    } else { 
+                        try { new bootstrap.ScrollSpy(document.body, { target: '#mainNav', offset: scrollSpyOffset }); } catch (e) { /* console.warn("ScrollSpy init error:", e); */ } 
+                    } 
+                } 
+            }); 
+        }; 
+        window.addEventListener('resize', updateNavbarAndBodyPadding); 
+        const observer = new MutationObserver(mutationsList => { 
+            for(let mutation of mutationsList) { 
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') { 
+                    if (mutation.target.classList.contains('navbar-collapse')) { 
+                        updateNavbarAndBodyPadding(); 
+                    } 
+                } 
+            } 
+        }); 
+        const navbarCollapseElement = header.querySelector('.navbar-collapse'); 
+        if (navbarCollapseElement) { 
+            observer.observe(navbarCollapseElement, { attributes: true }); 
+        } 
+        updateNavbarAndBodyPadding(); 
+        let scrollpos = window.scrollY; 
+        window.addEventListener('scroll', () => { 
+            scrollpos = window.scrollY; 
+            if (scrollpos >= (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-top-gap').trim()) || 0) / 2 ) { 
+                add_class_on_scroll(); 
+            } else { 
+                remove_class_on_scroll(); 
+            } 
+        }); 
+    }
+    
+    document.addEventListener("DOMContentLoaded", function() { 
+        const navLinks = document.querySelectorAll('#mainNav .nav-link'); 
+        if (navLinks.length > 0) { 
+            const currentPath = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1) || "index.html"; 
+            navLinks.forEach(link => { 
+                if (link.getAttribute('href') === currentPath || (currentPath === "industries.html" && link.getAttribute('href') === "industries.html") ) { // Updated for industries.html
+                    link.classList.add('active'); 
+                } else { 
+                    link.classList.remove('active'); 
+                } 
+            }); 
+        } 
+        
+        const mouseShadow = document.getElementById('mouse-shadow'); 
+        if (mouseShadow && window.matchMedia("(pointer: fine)").matches) { 
+            document.addEventListener('mousemove', (e) => { 
+                requestAnimationFrame(() => { 
+                    mouseShadow.style.transform = `translate(${e.clientX - (mouseShadow.offsetWidth / 2)}px, ${e.clientY - (mouseShadow.offsetHeight / 2)}px)`; 
+                }); 
+            }); 
+        } else if (mouseShadow) { 
+            mouseShadow.style.display = 'none'; 
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== "#" && href !== "#!" && document.querySelector(href)) { 
+                  // If you want smooth scroll for in-page links:
+                  // e.preventDefault();
+                  // document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    });
+  </script>
+</body>
+</html>
